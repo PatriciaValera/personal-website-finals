@@ -1,280 +1,292 @@
 :root {
-    --kuromi-black: #1a1a1a;
-    --kuromi-pink: #ff9eb5;
-    --kuromi-purple: #b28bff;
-    --kuromi-dark-purple: #8a6fd9;
-    --kuromi-white: #ffffff;
-    --kuromi-gray: #2d2d2d;
-    --kuromi-light-gray: #3d3d3d;
-    --kuromi-skull: #4a4a4a;
-    --text-light: #e0e0e0;
-    --text-muted: #b0b0b0;
+  --kuromi-black: #1a1a1a;
+  --kuromi-pink: #ff9eb5;
+  --kuromi-purple: #b28bff;
+  --kuromi-white: #ffffff;
+  --kuromi-gray: #2a2a2a;
+  --kuromi-red: #ff4d6d;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--kuromi-black);
-    background-image: 
-        radial-gradient(circle at 10% 20%, rgba(255, 158, 181, 0.1) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(178, 139, 255, 0.1) 0%, transparent 20%),
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px);
-    min-height: 100vh;
-    color: var(--text-light);
-    position: relative;
-}
-
-body::before {
-    content: "☠";
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 120px;
-    opacity: 0.03;
-    color: var(--kuromi-pink);
-    transform: rotate(-10deg);
-    pointer-events: none;
-    z-index: 0;
-}
-
-body::after {
-    content: "♡";
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 100px;
-    opacity: 0.03;
-    color: var(--kuromi-purple);
-    transform: rotate(10deg);
-    pointer-events: none;
-    z-index: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--kuromi-black);
+  color: var(--kuromi-white);
+  line-height: 1.6;
+  background-image: 
+    linear-gradient(rgba(255,158,181,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,158,181,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  min-height: 100vh;
 }
 
 #app {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .container {
-    background: rgba(26, 26, 26, 0.9);
-    backdrop-filter: blur(10px);
-    border: 2px solid var(--kuromi-pink);
-    border-radius: 30px;
-    padding: 30px;
-    box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.5),
-        0 0 0 2px var(--kuromi-purple) inset,
-        0 0 15px rgba(255, 158, 181, 0.3);
-    position: relative;
-    overflow: hidden;
+  background: rgba(26, 26, 26, 0.95);
+  border: 2px solid var(--kuromi-pink);
+  border-radius: 0;  /* Sharp edges for punk vibe */
+  padding: 40px;
+  box-shadow: 10px 10px 0 var(--kuromi-purple);
+  position: relative;
 }
 
+/* Punk/grunge effect */
 .container::before {
-    content: "☠";
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    font-size: 150px;
-    opacity: 0.1;
-    color: var(--kuromi-pink);
-    transform: rotate(15deg);
-    pointer-events: none;
-}
-
-.container::after {
-    content: "♡";
-    position: absolute;
-    bottom: -30px;
-    left: -30px;
-    font-size: 200px;
-    opacity: 0.1;
-    color: var(--kuromi-purple);
-    transform: rotate(-15deg);
-    pointer-events: none;
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 1px dashed var(--kuromi-pink);
+  pointer-events: none;
 }
 
 h1, h2, h3 {
-    font-family: 'Quicksand', sans-serif;
-    color: var(--kuromi-pink);
-    text-shadow: 
-        2px 2px 0 var(--kuromi-dark-purple),
-        -1px -1px 0 var(--kuromi-purple);
-    margin-bottom: 20px;
-    position: relative;
-    display: inline-block;
+  font-family: 'Anton', 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
 }
 
-h1::after, h2::after {
-    content: "♡";
-    font-size: 0.8em;
-    margin-left: 10px;
-    opacity: 0.7;
-    color: var(--kuromi-purple);
+h1 {
+  font-size: 3rem;
+  color: var(--kuromi-white);
+  -webkit-text-stroke: 2px var(--kuromi-pink);
+  text-shadow: 4px 4px 0 var(--kuromi-purple);
+  margin-bottom: 30px;
 }
 
-.btn {
-    background: linear-gradient(135deg, var(--kuromi-pink), var(--kuromi-purple));
-    color: var(--kuromi-black);
-    border: none;
-    padding: 12px 30px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    border: 2px solid var(--kuromi-white);
-    box-shadow: 0 5px 0 var(--kuromi-dark-purple);
-    position: relative;
-    overflow: hidden;
+h2 {
+  font-size: 2rem;
+  color: var(--kuromi-pink);
+  border-bottom: 3px solid var(--kuromi-purple);
+  padding-bottom: 10px;
+  margin-bottom: 25px;
 }
 
-.btn::before {
-    content: "☠";
-    position: absolute;
-    left: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    opacity: 0;
-    transition: 0.3s;
+h3 {
+  color: var(--kuromi-purple);
+  font-size: 1.3rem;
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 0 var(--kuromi-dark-purple);
+/* Profile section */
+.profile-header {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  background: var(--kuromi-gray);
+  padding: 30px;
+  border: 2px solid var(--kuromi-pink);
+  position: relative;
 }
 
-.btn:hover::before {
-    left: 10px;
-    opacity: 0.5;
+.profile-avatar {
+  border: 3px solid var(--kuromi-purple);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
 }
 
-.btn:active {
-    transform: translateY(5px);
-    box-shadow: 0 2px 0 var(--kuromi-dark-purple);
+.profile-avatar:hover {
+  transform: rotate(0deg) scale(1.05);
 }
 
-.btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
+.profile-avatar img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  filter: grayscale(50%);
 }
 
-.form-group {
-    margin-bottom: 20px;
+.profile-info .title {
+  font-size: 1.2rem;
+  color: var(--kuromi-pink);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.skills-list li {
+  background: var(--kuromi-black);
+  border: 1px solid var(--kuromi-pink);
+  color: var(--kuromi-white);
+  padding: 8px 18px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.skills-list li:hover {
+  background: var(--kuromi-pink);
+  color: var(--kuromi-black);
+  transform: translateY(-2px);
+}
+
+/* Guestbook section */
+.guestbook-section {
+  background: var(--kuromi-gray);
+  padding: 30px;
+  border: 2px solid var(--kuromi-purple);
+  margin-top: 40px;
+  position: relative;
+}
+
+.subtitle {
+  color: var(--kuromi-pink);
+  font-style: italic;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.guestbook-form {
+  background: var(--kuromi-black);
+  padding: 30px;
+  border: 1px solid var(--kuromi-pink);
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--kuromi-pink);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
+  color: var(--kuromi-purple);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    background: var(--kuromi-gray);
-    border: 2px solid var(--kuromi-purple);
-    border-radius: 25px;
-    font-size: 16px;
-    color: var(--text-light);
-    transition: all 0.3s ease;
-    font-family: 'Poppins', sans-serif;
+  background: var(--kuromi-gray);
+  border: 2px solid var(--kuromi-purple);
+  color: var(--kuromi-white);
+  padding: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: var(--kuromi-pink);
-    box-shadow: 0 0 15px rgba(255, 158, 181, 0.3);
-    background: var(--kuromi-light-gray);
+  border-color: var(--kuromi-pink);
+  outline: none;
+  box-shadow: 0 0 10px var(--kuromi-pink);
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--text-muted);
-    opacity: 0.5;
+.btn {
+  background: var(--kuromi-black);
+  color: var(--kuromi-pink);
+  border: 2px solid var(--kuromi-pink);
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.error-message {
-    color: #ff6b6b;
-    background: rgba(255, 107, 107, 0.1);
-    border: 1px solid #ff6b6b;
-    border-radius: 15px;
-    padding: 10px;
-    margin: 10px 0;
-    text-align: center;
+.btn:hover {
+  background: var(--kuromi-pink);
+  color: var(--kuromi-black);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--kuromi-pink);
 }
 
-.success-message {
-    color: #51cf66;
-    background: rgba(81, 207, 102, 0.1);
-    border: 1px solid #51cf66;
-    border-radius: 15px;
-    padding: 10px;
-    margin: 10px 0;
-    text-align: center;
+/* Guestbook entries */
+.guestbook-entry {
+  background: var(--kuromi-black);
+  border: 1px solid var(--kuromi-purple);
+  border-left: 5px solid var(--kuromi-pink);
+  padding: 20px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  transform: translateX(0);
 }
 
-/* Kuromi decorations */
-.kuromi-badge {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--kuromi-pink);
-    color: var(--kuromi-black);
-    padding: 5px 20px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: 2px solid var(--kuromi-white);
-    box-shadow: 0 5px 0 var(--kuromi-dark-purple);
-    z-index: 2;
+.guestbook-entry:hover {
+  transform: translateX(10px);
+  border-color: var(--kuromi-pink);
+  box-shadow: -5px 5px 0 var(--kuromi-purple);
 }
 
-/* Responsive Design */
+.entry-name {
+  color: var(--kuromi-pink);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.entry-date {
+  color: var(--kuromi-purple);
+  background: var(--kuromi-gray);
+  padding: 3px 10px;
+  border-radius: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.entry-message {
+  color: var(--kuromi-white);
+  font-size: 1rem;
+  line-height: 1.6;
+  border-left: 2px solid var(--kuromi-purple);
+  padding-left: 15px;
+  margin-top: 10px;
+}
+
+/* Punk rock quotes */
+blockquote, .quote {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.2rem;
+  color: var(--kuromi-pink);
+  border-left: 5px solid var(--kuromi-purple);
+  padding-left: 20px;
+  margin: 30px 0;
+  font-style: italic;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
-    #app {
-        padding: 10px;
-    }
-    
-    .container {
-        padding: 20px;
-    }
-    
-    h1 {
-        font-size: 24px;
-    }
-    
-    h2 {
-        font-size: 20px;
-    }
-    
-    .btn {
-        width: 100%;
-    }
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  .guestbook-entry:hover {
+    transform: translateX(5px);
+  }
 }
 
-@media (max-width: 480px) {
-    .container::before,
-    .container::after {
-        font-size: 100px;
-    }
+/* Kuromi loading animation */
+@keyframes skullPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.loading::after {
+  content: '☠';
+  display: inline-block;
+  color: var(--kuromi-purple);
+  animation: skullPulse 1.5s ease infinite;
+  margin-left: 10px;
 }
