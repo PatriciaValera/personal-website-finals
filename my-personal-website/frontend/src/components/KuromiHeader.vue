@@ -2,7 +2,7 @@
   <div class="kuromi-header">
     <div class="header-content">
       <div class="kuromi-icon">
-        <span class="ears">👿</span>
+        <span class="ears">☠</span>
         <span class="face">☠</span>
       </div>
       <div class="header-text">
