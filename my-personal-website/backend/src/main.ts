@@ -1,21 +1,19 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors();
-  app.setGlobalPrefix('api');
-  await app.listen(3000);
+  
+  // Enable CORS for frontend
+  app.enableCors({
+    origin: ['http://localhost:5173', 'https://your-frontend.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  });
+  
+  app.useGlobalPipes(new ValidationPipe());
+  
+  await app.listen(process.env.PORT || 3000);
 }
-
-// Export for Vercel Serverless
-export default async (req: any, res: any) => {
-  const app = await NestFactory.create(AppModule);
-  app.enableCors();
-  app.setGlobalPrefix('api');
-  const instance = app.getHttpAdapter().getInstance();
-  return instance(req, res);
-};
-
-// Uncomment for local development
-// bootstrap();
+bootstrap();

@@ -1,40 +1,31 @@
 import { Injectable } from '@nestjs/common';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../config/supabase.config';
+import { CreateGuestbookDto } from './dto/create-guestbook.dto';
 
 @Injectable()
 export class GuestbookService {
-  private supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-
-  async findAll() {
-    const { data } = await this.supabase
-      .from('guestbook')
+  async getAllEntries() {
+    const { data, error } = await supabase
+      .from('guestbook_entries')
       .select('*')
       .order('created_at', { ascending: false });
+
+    if (error) throw error;
     return data;
   }
 
-  async create(dto: { name: string; message: string }) {
-    const { data } = await this.supabase
-      .from('guestbook')
-      .insert([dto])
+  async createEntry(createGuestbookDto: CreateGuestbookDto) {
+    const { data, error } = await supabase
+      .from('guestbook_entries')
+      .insert([{
+        name: createGuestbookDto.name,
+        email: createGuestbookDto.email || null,
+        message: createGuestbookDto.message,
+        created_at: new Date().toISOString(),
+      }])
       .select();
-    return data;
-  }
 
-  async update(id: string, dto: { name: string; message: string }) {
-    const { data } = await this.supabase
-      .from('guestbook')
-      .update(dto)
-      .eq('id', id)
-      .select();
-    return data;
-  }
-
-  async delete(id: string) {
-    await this.supabase.from('guestbook').delete().eq('id', id);
-    return { success: true };
+    if (error) throw error;
+    return data[0];
   }
 }

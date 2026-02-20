@@ -1,27 +1,18 @@
-import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { GuestbookService } from './guestbook.service';
+import { CreateGuestbookDto } from './dto/create-guestbook.dto';
 
 @Controller('api/guestbook')
 export class GuestbookController {
-  constructor(private readonly service: GuestbookService) {}
+  constructor(private readonly guestbookService: GuestbookService) {}
 
   @Get()
-  getAll() {
-    return this.service.findAll();
+  async getAllEntries() {
+    return this.guestbookService.getAllEntries();
   }
 
   @Post()
-  create(@Body() dto: { name: string; message: string }) {
-    return this.service.create(dto);
-  }
-
-  @Put(':id')
-  update(@Param('id') id: string, @Body() dto: { name: string; message: string }) {
-    return this.service.update(id, dto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.service.delete(id);
+  async createEntry(@Body() createGuestbookDto: CreateGuestbookDto) {
+    return this.guestbookService.createEntry(createGuestbookDto);
   }
 }
