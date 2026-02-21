@@ -1,0 +1,18 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <circle cx="16" cy="16" r="14" fill="#1a1025" stroke="#9370db" stroke-width="2"/>
+  
+  <!-- Dragon/Claw motif -->
+  <path d="M10 12 L14 16 L10 20" stroke="#b8a9d4" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M22 12 L18 16 L22 20" stroke="#b8a9d4" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Portal/Dimension effect -->
+  <circle cx="16" cy="16" r="6" fill="none" stroke="#9370db" stroke-width="1.5" stroke-dasharray="2 2"/>
+  
+  <!-- Center jewel -->
+  <circle cx="16" cy="16" r="2" fill="#e6d9ff"/>
+  
+  <!-- Decorative elements -->
+  <text x="8" y="26" font-size="8" fill="#9370db" opacity="0.5">🌀</text>
+  <text x="20" y="10" font-size="8" fill="#b8a9d4" opacity="0.5">💜</text>
+</svg>

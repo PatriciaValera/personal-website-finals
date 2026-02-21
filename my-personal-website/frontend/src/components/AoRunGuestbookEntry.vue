@@ -1,8 +1,8 @@
 <template>
-  <div class="bloom-guestbook-entry">
+  <div class="aorun-guestbook-entry">
     <div class="entry-decoration">
-      <span class="decor-left">🔥</span>
-      <span class="decor-right">✨</span>
+      <span class="decor-left">💜</span>
+      <span class="decor-right">🌀</span>
     </div>
     
     <div class="entry-content">
@@ -10,7 +10,7 @@
         <div class="entry-author">
           <span class="author-icon">👤</span>
           <strong class="author-name">{{ entry.name }}</strong>
-          <span v-if="isWinxMember(entry.name)" class="winx-badge">WINX</span>
+          <span v-if="isDragonClan(entry.name)" class="dragon-badge">🐉</span>
         </div>
         <div class="entry-date">
           <span class="date-icon">⏰</span>
@@ -27,9 +27,9 @@
         <span class="entry-email">{{ entry.email }}</span>
       </div>
       
-      <div class="entry-transformation">
-        <span class="transformation-tag" :class="getRandomTransformation()">
-          {{ getRandomTransformation() }}
+      <div class="entry-dimension">
+        <span class="dimension-tag" :class="getRandomDimension()">
+          {{ getRandomDimension() }} Dimension
         </span>
       </div>
     </div>
@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: 'BloomGuestbookEntry',
+  name: 'AoRunGuestbookEntry',
   props: {
     entry: {
       type: Object,
@@ -58,34 +58,36 @@ export default {
       return date.toLocaleDateString('en-US', options)
     },
     
-    isWinxMember(name) {
-      const winxNames = ['stella', 'flora', 'musa', 'tecna', 'aisha', 'bloom', 'layla']
-      return winxNames.includes(name.toLowerCase())
+    isDragonClan(name) {
+      const dragonNames = ['ao', 'dragon', 'long', '龙']
+      const lowerName = name.toLowerCase()
+      return dragonNames.some(dragon => lowerName.includes(dragon))
     },
     
-    getRandomTransformation() {
-      const transformations = ['Believix', 'Enchantix', 'Charmix', 'Bloomix', 'Sirenix', 'Harmonix', 'Mythix']
-      const randomIndex = Math.floor(Math.random() * transformations.length)
-      return transformations[randomIndex]
+    getRandomDimension() {
+      const dimensions = ['Western Sea', 'Eastern Sea', 'Southern Sea', 'Northern Sea', 'Chentang Pass', 'Heavenly']
+      const randomIndex = Math.floor(Math.random() * dimensions.length)
+      return dimensions[randomIndex]
     }
   }
 }
 </script>
 
 <style scoped>
-.bloom-guestbook-entry {
-  background: #fff4e6;
-  border: 2px solid #ffaa33;
+.aorun-guestbook-entry {
+  background: linear-gradient(135deg, #2d1b4a, #1a1025);
+  border: 2px solid #9370db;
   border-radius: 20px;
   padding: 20px;
   position: relative;
   transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(147, 112, 219, 0.2);
 }
 
-.bloom-guestbook-entry:hover {
+.aorun-guestbook-entry:hover {
   transform: translateY(-3px);
-  border-color: #ff7b24;
-  background: #fff9f0;
+  border-color: #b8a9d4;
+  box-shadow: 0 0 25px rgba(147, 112, 219, 0.4);
 }
 
 .entry-decoration {
@@ -100,25 +102,25 @@ export default {
 }
 
 .decor-left {
-  color: #ff4500;
+  color: #b8a9d4;
   font-size: 14px;
-  animation: flameFlicker 2s ease infinite;
+  animation: pulse 2s ease infinite;
 }
 
 .decor-right {
-  color: #ffd700;
+  color: #9370db;
   font-size: 14px;
-  animation: sparkle 2s ease infinite 0.5s;
+  animation: spin 3s linear infinite;
 }
 
-@keyframes flameFlicker {
+@keyframes pulse {
   0%, 100% { opacity: 0.5; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.2); }
 }
 
-@keyframes sparkle {
-  0%, 100% { opacity: 0.5; transform: rotate(0deg); }
-  50% { opacity: 1; transform: rotate(10deg); }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .entry-content {
@@ -139,76 +141,77 @@ export default {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: white;
+  background: #1a1025;
   padding: 5px 15px;
   border-radius: 50px;
-  border: 1px solid #ffaa33;
+  border: 1px solid #9370db;
 }
 
 .author-icon {
   font-size: 14px;
+  color: #b8a9d4;
 }
 
 .author-name {
-  color: #ff4500;
+  color: #e6d9ff;
   font-size: 14px;
   font-weight: 600;
 }
 
-.winx-badge {
-  background: #ff7b24;
-  color: white;
-  font-size: 10px;
+.dragon-badge {
+  background: #4a2b6e;
+  color: #b8a9d4;
+  font-size: 12px;
   padding: 2px 6px;
   border-radius: 10px;
-  font-weight: bold;
   margin-left: 5px;
   animation: glow 2s ease infinite;
 }
 
 @keyframes glow {
   0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; background: #ff4500; }
+  50% { opacity: 1; filter: drop-shadow(0 0 5px #9370db); }
 }
 
 .entry-date {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #666;
+  color: #b8a9d4;
   font-size: 12px;
-  background: white;
+  background: #1a1025;
   padding: 5px 15px;
   border-radius: 50px;
-  border: 1px solid #ffaa33;
+  border: 1px solid #4a2b6e;
 }
 
 .date-icon {
-  color: #ff7b24;
+  color: #9370db;
   font-size: 12px;
 }
 
 .entry-message {
-  background: white;
+  background: #1a1025;
   padding: 20px;
   border-radius: 15px;
   margin: 15px 0;
   line-height: 1.6;
-  color: #333;
+  color: #e6d9ff;
   font-style: italic;
-  border-left: 4px solid #ff4500;
+  border-left: 4px solid #9370db;
   position: relative;
   font-size: 14px;
 }
 
 .entry-message::before {
-  content: "🔥";
+  content: "🌀";
   position: absolute;
   bottom: 5px;
   right: 10px;
   opacity: 0.1;
   font-size: 30px;
-  color: #ff4500;
+  color: #b8a9d4;
+  transform: rotate(10deg);
 }
 
 .entry-footer {
@@ -216,60 +219,61 @@ export default {
   align-items: center;
   gap: 8px;
   padding-top: 10px;
-  border-top: 1px dashed #ffaa33;
+  border-top: 1px dashed #4a2b6e;
   font-size: 12px;
-  color: #666;
+  color: #b8a9d4;
 }
 
 .email-icon {
-  color: #ff7b24;
+  color: #9370db;
 }
 
 .entry-email {
   word-break: break-all;
 }
 
-.entry-transformation {
+.entry-dimension {
   position: absolute;
   bottom: 5px;
   right: 5px;
 }
 
-.transformation-tag {
+.dimension-tag {
   font-size: 10px;
   padding: 3px 8px;
   border-radius: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  background: #ffd700;
-  color: #ff4500;
-  border: 1px solid #ff7b24;
+  background: #4a2b6e;
+  color: #e6d9ff;
+  border: 1px solid #9370db;
   opacity: 0.7;
 }
 
-.transformation-tag.Believix {
-  background: #ffd700;
-  color: #ff4500;
+.dimension-tag.Western {
+  background: #4a2b6e;
+  color: #b8a9d4;
 }
 
-.transformation-tag.Enchantix {
-  background: #98fb98;
-  color: #228b22;
+.dimension-tag.Eastern {
+  background: #2d1b4a;
+  color: #9370db;
 }
 
-.transformation-tag.Bloomix {
-  background: #ff7b24;
-  color: white;
+.dimension-tag.Southern {
+  background: #6b4b8a;
+  color: #e6d9ff;
 }
 
-.transformation-tag.Sirenix {
-  background: #87ceeb;
-  color: #00008b;
+.dimension-tag.Northern {
+  background: #1a1025;
+  color: #b8a9d4;
+  border-color: #9370db;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .bloom-guestbook-entry {
+  .aorun-guestbook-entry {
     padding: 15px;
   }
   
@@ -304,9 +308,13 @@ export default {
     gap: 5px;
   }
   
-  .transformation-tag {
+  .dimension-tag {
     font-size: 8px;
     padding: 2px 6px;
+  }
+  
+  .entry-decoration {
+    font-size: 10px;
   }
 }
 </style>
