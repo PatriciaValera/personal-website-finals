@@ -1,15 +1,15 @@
 <template>
-  <div class="guestbook-section">
+  <div class="bloom-guestbook">
     <div class="guestbook-header">
-      <h2>✧ Leave Your Mark ✧</h2>
-      <p class="subtitle">Sign my guestbook if you dare~ ♡</p>
+      <h2>✧ MAGICAL GUESTBOOK ✧</h2>
+      <p class="subtitle">Leave a message for the Fairy of the Dragon Flame!</p>
     </div>
     
     <form @submit.prevent="submitEntry" class="guestbook-form">
       <div class="form-row">
         <div class="form-group">
           <label for="name">
-            <span class="label-icon">☠</span>
+            <span class="label-icon">🔥</span>
             Your Name *
           </label>
           <input 
@@ -17,20 +17,20 @@
             id="name" 
             v-model="formData.name" 
             required
-            placeholder="e.g., Kuromi Fan"
+            placeholder="e.g., Stella, Flora, etc."
           >
         </div>
         
         <div class="form-group">
           <label for="email">
-            <span class="label-icon">♡</span>
+            <span class="label-icon">✨</span>
             Email (optional)
           </label>
           <input 
             type="email" 
             id="email" 
             v-model="formData.email"
-            placeholder="kuromi@cute.com"
+            placeholder="fairy@alfea.edu"
           >
         </div>
       </div>
@@ -45,7 +45,7 @@
           v-model="formData.message" 
           required
           rows="4"
-          placeholder="Write something cute or spooky..."
+          placeholder="Write something magical... (Believix encouraged!)"
         ></textarea>
       </div>
       
@@ -60,30 +60,30 @@
       </div>
       
       <button type="submit" class="btn" :disabled="loading">
-        <span v-if="loading">✧ Submitting... ✧</span>
-        <span v-else>☠ Submit Entry ☠</span>
+        <span v-if="loading">✧ Casting Spell... ✧</span>
+        <span v-else>🔥 Send Message 🔥</span>
       </button>
     </form>
     
     <div class="entries-container">
       <div class="entries-header">
-        <h3>✧ Recent Messages ✧</h3>
-        <span class="entry-count">{{ entries.length }} entries</span>
+        <h3>✧ Recent Magical Messages ✧</h3>
+        <span class="entry-count">{{ entries.length }} spells</span>
       </div>
       
       <div v-if="entriesLoading" class="loading-state">
-        <div class="loading-spinner">☠</div>
-        <p>Loading spooky messages...</p>
+        <div class="loading-spinner">✨</div>
+        <p>Summoning messages from the Magic Dimension...</p>
       </div>
       
       <div v-else-if="entries.length === 0" class="no-entries">
-        <div class="empty-illustration">📝</div>
-        <p>No entries yet... Be the first to leave a message!</p>
-        <p class="empty-sub">(Don't be shy~)</p>
+        <div class="empty-illustration">📜</div>
+        <p>No messages yet... Be the first to cast a message spell!</p>
+        <p class="empty-sub">(Enchantix level messages welcome ✨)</p>
       </div>
       
       <transition-group name="entries" tag="div" class="entries-list">
-        <GuestbookEntry 
+        <BloomGuestbookEntry 
           v-for="entry in entries" 
           :key="entry.id" 
           :entry="entry"
@@ -95,14 +95,14 @@
 
 <script>
 import axios from 'axios'
-import GuestbookEntry from './GuestbookEntry.vue'
+import BloomGuestbookEntry from './BloomGuestbookEntry.vue'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 export default {
-  name: 'Guestbook',
+  name: 'BloomGuestbook',
   components: {
-    GuestbookEntry
+    BloomGuestbookEntry
   },
   data() {
     return {
@@ -151,7 +151,7 @@ export default {
           message: ''
         }
         
-        this.success = 'Message added successfully! ✧'
+        this.success = 'Message sent with Enchantix power! ✨'
         
         setTimeout(() => {
           this.success = null
@@ -167,8 +167,9 @@ export default {
 </script>
 
 <style scoped>
-.guestbook-section {
+.bloom-guestbook {
   padding: 20px 0;
+  color: #333;
 }
 
 .guestbook-header {
@@ -176,19 +177,27 @@ export default {
   margin-bottom: 30px;
 }
 
+.guestbook-header h2 {
+  color: #ff4500;
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
 .subtitle {
-  color: var(--kuromi-purple);
-  font-size: 16px;
+  color: #ff7b24;
+  font-size: 14px;
   font-style: italic;
 }
 
 .guestbook-form {
   max-width: 700px;
   margin: 0 auto 40px;
-  background: var(--kuromi-gray);
+  background: #fff4e6;
   padding: 30px;
-  border-radius: 30px;
-  border: 2px dashed var(--kuromi-pink);
+  border-radius: 20px;
+  border: 2px solid #ffaa33;
 }
 
 .form-row {
@@ -197,20 +206,111 @@ export default {
   gap: 20px;
 }
 
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ff4500;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
 .label-icon {
   margin-right: 5px;
-  color: var(--kuromi-pink);
+  color: #ff7b24;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background: white;
+  border: 2px solid #ffaa33;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ff4500;
+  background: #fff9f0;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.error-message {
+  color: #d32f2f;
+  background: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 15px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.success-message {
+  color: #2e7d32;
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 15px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.btn {
+  background: linear-gradient(135deg, #ff7b24, #ff4500);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #ffd700;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #ff4500, #ff7b24);
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .loading-state {
   text-align: center;
   padding: 40px;
+  background: #fff4e6;
+  border-radius: 20px;
+  border: 2px dashed #ffaa33;
 }
 
 .loading-spinner {
   font-size: 48px;
   animation: spin 2s linear infinite;
-  color: var(--kuromi-pink);
+  color: #ff7b24;
   margin-bottom: 15px;
 }
 
@@ -222,9 +322,9 @@ export default {
 .no-entries {
   text-align: center;
   padding: 50px;
-  background: var(--kuromi-gray);
-  border-radius: 30px;
-  border: 2px dashed var(--kuromi-purple);
+  background: #fff4e6;
+  border-radius: 20px;
+  border: 2px dashed #ffaa33;
 }
 
 .empty-illustration {
@@ -234,9 +334,10 @@ export default {
 }
 
 .empty-sub {
-  font-size: 14px;
-  color: var(--text-muted);
+  font-size: 12px;
+  color: #999;
   margin-top: 10px;
+  font-style: italic;
 }
 
 .entries-header {
@@ -248,13 +349,19 @@ export default {
   gap: 10px;
 }
 
+.entries-header h3 {
+  color: #ff4500;
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .entry-count {
-  background: var(--kuromi-pink);
-  color: var(--kuromi-black);
+  background: #ff7b24;
+  color: white;
   padding: 5px 15px;
   border-radius: 50px;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .entries-list {
@@ -278,6 +385,7 @@ export default {
   transform: translateX(-30px);
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .form-row {
     grid-template-columns: 1fr;
@@ -286,6 +394,34 @@ export default {
   
   .guestbook-form {
     padding: 20px;
+  }
+  
+  .guestbook-header h2 {
+    font-size: 20px;
+  }
+  
+  .btn {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .guestbook-form {
+    padding: 15px;
+  }
+  
+  .entries-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .empty-illustration {
+    font-size: 48px;
+  }
+  
+  .loading-spinner {
+    font-size: 36px;
   }
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div class="guestbook-entry">
+  <div class="bloom-guestbook-entry">
     <div class="entry-decoration">
-      <span class="decor-left">☠</span>
-      <span class="decor-right">♡</span>
+      <span class="decor-left">🔥</span>
+      <span class="decor-right">✨</span>
     </div>
     
     <div class="entry-content">
@@ -10,9 +10,10 @@
         <div class="entry-author">
           <span class="author-icon">👤</span>
           <strong class="author-name">{{ entry.name }}</strong>
+          <span v-if="isWinxMember(entry.name)" class="winx-badge">WINX</span>
         </div>
         <div class="entry-date">
-          <span class="date-icon">🕒</span>
+          <span class="date-icon">⏰</span>
           {{ formatDate(entry.created_at) }}
         </div>
       </div>
@@ -26,8 +27,10 @@
         <span class="entry-email">{{ entry.email }}</span>
       </div>
       
-      <div class="entry-sticker">
-        <span class="sticker" v-for="n in 3" :key="n">✨</span>
+      <div class="entry-transformation">
+        <span class="transformation-tag" :class="getRandomTransformation()">
+          {{ getRandomTransformation() }}
+        </span>
       </div>
     </div>
   </div>
@@ -35,7 +38,7 @@
 
 <script>
 export default {
-  name: 'GuestbookEntry',
+  name: 'BloomGuestbookEntry',
   props: {
     entry: {
       type: Object,
@@ -53,55 +56,69 @@ export default {
         minute: '2-digit'
       }
       return date.toLocaleDateString('en-US', options)
+    },
+    
+    isWinxMember(name) {
+      const winxNames = ['stella', 'flora', 'musa', 'tecna', 'aisha', 'bloom', 'layla']
+      return winxNames.includes(name.toLowerCase())
+    },
+    
+    getRandomTransformation() {
+      const transformations = ['Believix', 'Enchantix', 'Charmix', 'Bloomix', 'Sirenix', 'Harmonix', 'Mythix']
+      const randomIndex = Math.floor(Math.random() * transformations.length)
+      return transformations[randomIndex]
     }
   }
 }
 </script>
 
 <style scoped>
-.guestbook-entry {
-  background: linear-gradient(135deg, var(--kuromi-gray), var(--kuromi-light-gray));
-  border: 2px solid var(--kuromi-purple);
-  border-radius: 25px;
+.bloom-guestbook-entry {
+  background: #fff4e6;
+  border: 2px solid #ffaa33;
+  border-radius: 20px;
   padding: 20px;
   position: relative;
   transition: all 0.3s ease;
-  overflow: hidden;
 }
 
-.guestbook-entry:hover {
-  transform: translateY(-3px) scale(1.02);
-  border-color: var(--kuromi-pink);
-  box-shadow: 0 8px 0 var(--kuromi-dark-purple);
+.bloom-guestbook-entry:hover {
+  transform: translateY(-3px);
+  border-color: #ff7b24;
+  background: #fff9f0;
 }
 
 .entry-decoration {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 5px;
+  left: 15px;
+  right: 15px;
   display: flex;
   justify-content: space-between;
-  padding: 5px 15px;
   opacity: 0.5;
   pointer-events: none;
 }
 
 .decor-left {
-  color: var(--kuromi-pink);
+  color: #ff4500;
   font-size: 14px;
-  animation: bounce 2s ease infinite;
+  animation: flameFlicker 2s ease infinite;
 }
 
 .decor-right {
-  color: var(--kuromi-purple);
+  color: #ffd700;
   font-size: 14px;
-  animation: bounce 2s ease infinite 0.5s;
+  animation: sparkle 2s ease infinite 0.5s;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+@keyframes flameFlicker {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.5; transform: rotate(0deg); }
+  50% { opacity: 1; transform: rotate(10deg); }
 }
 
 .entry-content {
@@ -122,58 +139,76 @@ export default {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: var(--kuromi-black);
+  background: white;
   padding: 5px 15px;
   border-radius: 50px;
-  border: 1px solid var(--kuromi-pink);
+  border: 1px solid #ffaa33;
 }
 
 .author-icon {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .author-name {
-  color: var(--kuromi-pink);
-  font-size: 16px;
+  color: #ff4500;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.winx-badge {
+  background: #ff7b24;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-left: 5px;
+  animation: glow 2s ease infinite;
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; background: #ff4500; }
 }
 
 .entry-date {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: var(--text-muted);
-  font-size: 14px;
-  background: var(--kuromi-black);
+  color: #666;
+  font-size: 12px;
+  background: white;
   padding: 5px 15px;
   border-radius: 50px;
-  border: 1px solid var(--kuromi-purple);
+  border: 1px solid #ffaa33;
 }
 
 .date-icon {
-  color: var(--kuromi-purple);
+  color: #ff7b24;
+  font-size: 12px;
 }
 
 .entry-message {
-  background: var(--kuromi-black);
+  background: white;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 15px;
   margin: 15px 0;
   line-height: 1.6;
-  color: var(--text-light);
+  color: #333;
   font-style: italic;
-  border-left: 4px solid var(--kuromi-pink);
+  border-left: 4px solid #ff4500;
   position: relative;
+  font-size: 14px;
 }
 
 .entry-message::before {
-  content: "☠";
+  content: "🔥";
   position: absolute;
   bottom: 5px;
   right: 10px;
   opacity: 0.1;
   font-size: 30px;
-  color: var(--kuromi-pink);
-  transform: rotate(10deg);
+  color: #ff4500;
 }
 
 .entry-footer {
@@ -181,48 +216,60 @@ export default {
   align-items: center;
   gap: 8px;
   padding-top: 10px;
-  border-top: 1px dashed var(--kuromi-purple);
-  font-size: 14px;
-  color: var(--text-muted);
+  border-top: 1px dashed #ffaa33;
+  font-size: 12px;
+  color: #666;
 }
 
 .email-icon {
-  color: var(--kuromi-pink);
+  color: #ff7b24;
 }
 
 .entry-email {
   word-break: break-all;
 }
 
-.entry-sticker {
+.entry-transformation {
   position: absolute;
   bottom: 5px;
   right: 5px;
-  opacity: 0.3;
-  font-size: 12px;
 }
 
-.sticker {
-  display: inline-block;
-  animation: sparkle 3s ease infinite;
+.transformation-tag {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: #ffd700;
+  color: #ff4500;
+  border: 1px solid #ff7b24;
+  opacity: 0.7;
 }
 
-.sticker:nth-child(2) {
-  animation-delay: 0.5s;
+.transformation-tag.Believix {
+  background: #ffd700;
+  color: #ff4500;
 }
 
-.sticker:nth-child(3) {
-  animation-delay: 1s;
+.transformation-tag.Enchantix {
+  background: #98fb98;
+  color: #228b22;
 }
 
-@keyframes sparkle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
+.transformation-tag.Bloomix {
+  background: #ff7b24;
+  color: white;
+}
+
+.transformation-tag.Sirenix {
+  background: #87ceeb;
+  color: #00008b;
 }
 
 /* Responsive adjustments */
-@media (max-width: 480px) {
-  .guestbook-entry {
+@media (max-width: 768px) {
+  .bloom-guestbook-entry {
     padding: 15px;
   }
   
@@ -233,16 +280,33 @@ export default {
   
   .entry-author, .entry-date {
     width: 100%;
-    justify-content: center;
   }
   
   .entry-message {
     padding: 15px;
-    font-size: 14px;
+    font-size: 13px;
   }
   
   .entry-message::before {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .entry-message {
+    padding: 12px;
+    font-size: 12px;
+  }
+  
+  .entry-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .transformation-tag {
+    font-size: 8px;
+    padding: 2px 6px;
   }
 }
 </style>

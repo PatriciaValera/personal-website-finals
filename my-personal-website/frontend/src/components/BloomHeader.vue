@@ -1,32 +1,32 @@
 <template>
-  <div class="raven-header">
+  <div class="bloom-header">
     <div class="header-content">
-      <div class="raven-icon">
-        <span class="cloak">🔮</span>
-        <span class="gem">⚡</span>
+      <div class="bloom-icon">
+        <span class="flame">🔥</span>
+        <span class="dragon">🐉</span>
       </div>
       <div class="header-text">
-        <h1>RAVEN</h1>
-        <p class="subtitle">〜 あざみ (Azarath Metrion Zinthos) 〜</p>
+        <h1>BLOOM</h1>
+        <p class="subtitle">〜 Fairy of the Dragon Flame 〜</p>
       </div>
     </div>
     
     <div class="banner">
-      <span class="banner-item" v-for="i in 5" :key="i">⚡</span>
-      <span class="banner-text">✨ DARKNESS WITHIN ✨</span>
-      <span class="banner-item" v-for="i in 5" :key="i">🔮</span>
+      <span class="banner-item" v-for="i in 5" :key="i">🔥</span>
+      <span class="banner-text">✨ MAGIX AWAITS ✨</span>
+      <span class="banner-item" v-for="i in 5" :key="i">✨</span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'RavenHeader'
+  name: 'BloomHeader'
 }
 </script>
 
 <style scoped>
-.raven-header {
+.bloom-header {
   margin-bottom: 30px;
   font-family: 'Poppins', sans-serif;
 }
@@ -39,34 +39,39 @@ export default {
   flex-wrap: wrap;
 }
 
-.raven-icon {
+.bloom-icon {
   position: relative;
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #2c1a4d, #4a1d6d);
+  background: linear-gradient(135deg, #ff7b24, #ff4500);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid #8a6de0;
+  border: 3px solid #ffd700;
 }
 
-.cloak {
+.flame {
   position: absolute;
   top: -15px;
   font-size: 45px;
-  filter: drop-shadow(0 0 5px #b19cd9);
+  animation: flicker 1.5s ease infinite;
 }
 
-.gem {
+.dragon {
   font-size: 40px;
-  color: #b19cd9;
-  animation: glow 3s ease infinite;
+  color: #ffd700;
+  animation: breathe 3s ease infinite;
 }
 
-@keyframes glow {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); color: #c084fc; }
+@keyframes flicker {
+  0%, 100% { transform: scale(1) rotate(-5deg); opacity: 0.9; }
+  50% { transform: scale(1.2) rotate(5deg); opacity: 1; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 .header-text {
@@ -76,26 +81,27 @@ export default {
 .header-text h1 {
   margin-bottom: 5px;
   font-size: 36px;
-  color: #b19cd9;
-  letter-spacing: 3px;
+  color: #ff7b24;
+  letter-spacing: 2px;
   font-weight: 700;
   text-transform: uppercase;
+  text-shadow: 2px 2px 0 #ff4500;
 }
 
 .subtitle {
-  color: #9370db;
+  color: #ffaa33;
   font-size: 14px;
   opacity: 0.9;
   font-style: italic;
 }
 
 .banner {
-  background: #1a1025;
+  background: #2b1e0f;
   padding: 12px;
   border-radius: 30px;
   margin-top: 20px;
   text-align: center;
-  border: 2px dashed #9370db;
+  border: 2px dashed #ff7b24;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,21 +110,21 @@ export default {
 }
 
 .banner-item {
-  color: #b19cd9;
+  color: #ff7b24;
   font-size: 18px;
   animation: sparkle 2.5s ease infinite;
 }
 
 .banner-text {
-  color: #c084fc;
+  color: #ffd700;
   font-weight: bold;
   font-size: 14px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 }
 
 @keyframes sparkle {
   0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); color: #c084fc; }
+  50% { opacity: 1; transform: scale(1.2); color: #ffd700; }
 }
 
 @media (max-width: 768px) {
