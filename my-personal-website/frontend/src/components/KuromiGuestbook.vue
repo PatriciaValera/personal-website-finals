@@ -1,15 +1,15 @@
 <template>
-  <div class="aorun-guestbook">
+  <div class="kuromi-guestbook">
     <div class="guestbook-header">
-      <h2>🌀 DRAGON QUEEN'S GUESTBOOK 🌀</h2>
-      <p class="subtitle">Leave a message... if you dare 💜</p>
+      <h2>✧ KUROMI'S GUESTBOOK ✧</h2>
+      <p class="subtitle">Leave a message for this bad girl! ☠</p>
     </div>
     
     <form @submit.prevent="submitEntry" class="guestbook-form">
       <div class="form-row">
         <div class="form-group">
           <label for="name">
-            <span class="label-icon">💜</span>
+            <span class="label-icon">☠</span>
             Your Name *
           </label>
           <input 
@@ -17,20 +17,20 @@
             id="name" 
             v-model="formData.name" 
             required
-            placeholder="e.g., Ao Bing, Ne Zha, etc."
+            placeholder="e.g., Kuromi Fan"
           >
         </div>
         
         <div class="form-group">
           <label for="email">
-            <span class="label-icon">🌀</span>
+            <span class="label-icon">♡</span>
             Email (optional)
           </label>
           <input 
             type="email" 
             id="email" 
             v-model="formData.email"
-            placeholder="dragon@westsea.palace"
+            placeholder="cute@dark.com"
           >
         </div>
       </div>
@@ -45,45 +45,38 @@
           v-model="formData.message" 
           required
           rows="4"
-          placeholder="Write something... perhaps we can make a deal? 〜"
+          placeholder="Write something cute or spooky..."
         ></textarea>
       </div>
       
-      <div v-if="error" class="error-message">
-        <span class="error-icon">⚠️</span>
-        {{ error }}
-      </div>
-      <div v-if="success" class="success-message">
-        <span class="success-icon">✨</span>
-        {{ success }}
-        <span class="success-icon">✨</span>
-      </div>
+      <div v-if="error" class="error-message">{{ error }}</div>
+      <div v-if="success" class="success-message">{{ success }}</div>
       
       <button type="submit" class="btn" :disabled="loading">
-        <span v-if="loading">🌀 Opening Portal... 🌀</span>
-        <span v-else>💜 Send Message with Sky-Splitting Claw 💜</span>
+        <span v-if="loading">☠ Submitting... ☠</span>
+        <span v-else>♡ Sign Guestbook ♡</span>
       </button>
     </form>
     
     <div class="entries-container">
       <div class="entries-header">
-        <h3>🌀 Recent Messages from All Dimensions 🌀</h3>
-        <span class="entry-count">{{ entries.length }} portals opened</span>
+        <h3>✧ Recent Messages ✧</h3>
+        <span class="entry-count">{{ entries.length }} messages</span>
       </div>
       
       <div v-if="entriesLoading" class="loading-state">
-        <div class="loading-spinner">🌀</div>
-        <p>Summoning messages through dimensional portals...</p>
+        <div class="loading-spinner">☠</div>
+        <p>Loading spooky messages...</p>
       </div>
       
       <div v-else-if="entries.length === 0" class="no-entries">
-        <div class="empty-illustration">📜</div>
-        <p>No messages yet... Be the first to make a deal!</p>
-        <p class="empty-sub">(I don't bite... often 💜)</p>
+        <div class="empty-illustration">📝</div>
+        <p>No entries yet... Be the first to leave a message!</p>
+        <p class="empty-sub">(Don't be shy~)</p>
       </div>
       
       <transition-group name="entries" tag="div" class="entries-list">
-        <AoRunGuestbookEntry 
+        <KuromiGuestbookEntry 
           v-for="entry in entries" 
           :key="entry.id" 
           :entry="entry"
@@ -95,14 +88,14 @@
 
 <script>
 import axios from 'axios'
-import AoRunGuestbookEntry from './AoRunGuestbookEntry.vue'
+import KuromiGuestbookEntry from './KuromiGuestbookEntry.vue'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 export default {
-  name: 'AoRunGuestbook',
+  name: 'KuromiGuestbook',
   components: {
-    AoRunGuestbookEntry
+    KuromiGuestbookEntry
   },
   data() {
     return {
@@ -151,7 +144,7 @@ export default {
           message: ''
         }
         
-        this.success = 'Message sent through a dimensional portal! ✨'
+        this.success = 'Message added successfully! ♡'
         
         setTimeout(() => {
           this.success = null
@@ -167,9 +160,9 @@ export default {
 </script>
 
 <style scoped>
-.aorun-guestbook {
+.kuromi-guestbook {
   padding: 20px 0;
-  color: #e6d9ff;
+  color: #333333;
 }
 
 .guestbook-header {
@@ -178,16 +171,14 @@ export default {
 }
 
 .guestbook-header h2 {
-  color: #e6d9ff;
+  color: #d45e7e;
   font-size: 24px;
   margin-bottom: 5px;
   font-weight: 700;
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px #9370db;
 }
 
 .subtitle {
-  color: #b8a9d4;
+  color: #8a6fd9;
   font-size: 14px;
   font-style: italic;
 }
@@ -195,11 +186,11 @@ export default {
 .guestbook-form {
   max-width: 700px;
   margin: 0 auto 40px;
-  background: #2d1b4a;
+  background: white;
   padding: 30px;
   border-radius: 20px;
-  border: 2px solid #9370db;
-  box-shadow: 0 0 20px rgba(147, 112, 219, 0.3);
+  border: 2px solid #ff9eb5;
+  box-shadow: 0 5px 15px rgba(255, 158, 181, 0.2);
 }
 
 .form-row {
@@ -215,69 +206,59 @@ export default {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: #e6d9ff;
+  color: #d45e7e;
   font-weight: 600;
   font-size: 14px;
-  letter-spacing: 0.5px;
 }
 
 .label-icon {
   margin-right: 5px;
-  color: #b8a9d4;
+  color: #8a6fd9;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 12px 15px;
-  background: #1a1025;
-  border: 2px solid #4a2b6e;
+  background: #fff0f3;
+  border: 2px solid #ff9eb5;
   border-radius: 12px;
   font-size: 14px;
-  color: #e6d9ff;
+  color: #333333;
   transition: all 0.3s ease;
-  font-family: 'Poppins', sans-serif;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #9370db;
-  background: #2d1b4a;
-  box-shadow: 0 0 15px rgba(147, 112, 219, 0.3);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #666;
-  font-style: italic;
+  border-color: #b28bff;
+  background: white;
+  box-shadow: 0 0 10px rgba(178, 139, 255, 0.2);
 }
 
 .error-message {
-  color: #ff6b6b;
-  background: rgba(255, 107, 107, 0.1);
-  border: 1px solid #ff6b6b;
+  color: #d45e7e;
+  background: #fff0f3;
+  border: 1px solid #ff9eb5;
   border-radius: 10px;
-  padding: 12px;
-  margin: 15px 0;
+  padding: 10px;
+  margin: 10px 0;
   text-align: center;
-  font-size: 14px;
 }
 
 .success-message {
-  color: #b8a9d4;
-  background: rgba(147, 112, 219, 0.2);
-  border: 1px solid #9370db;
+  color: #8a6fd9;
+  background: #f0e8ff;
+  border: 1px solid #b28bff;
   border-radius: 10px;
-  padding: 12px;
-  margin: 15px 0;
+  padding: 10px;
+  margin: 10px 0;
   text-align: center;
-  font-size: 14px;
 }
 
 .btn {
-  background: linear-gradient(135deg, #4a2b6e, #2d1b4a);
-  color: #e6d9ff;
+  background: linear-gradient(135deg, #ff9eb5, #b28bff);
+  color: white;
   border: none;
   padding: 14px 30px;
   border-radius: 50px;
@@ -286,36 +267,33 @@ export default {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 2px solid #9370db;
+  border: 2px solid white;
   width: 100%;
   transition: all 0.3s ease;
 }
 
-.btn:hover {
-  background: linear-gradient(135deg, #9370db, #4a2b6e);
+.btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 0 20px #9370db;
+  box-shadow: 0 5px 15px rgba(255, 158, 181, 0.4);
 }
 
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
 }
 
 .loading-state {
   text-align: center;
   padding: 40px;
-  background: #2d1b4a;
+  background: #fff0f3;
   border-radius: 20px;
-  border: 2px dashed #9370db;
+  border: 2px dashed #ff9eb5;
 }
 
 .loading-spinner {
   font-size: 48px;
   animation: spin 2s linear infinite;
-  color: #b8a9d4;
+  color: #ff9eb5;
   margin-bottom: 15px;
 }
 
@@ -327,9 +305,9 @@ export default {
 .no-entries {
   text-align: center;
   padding: 50px;
-  background: #2d1b4a;
+  background: #fff0f3;
   border-radius: 20px;
-  border: 2px dashed #9370db;
+  border: 2px dashed #ff9eb5;
 }
 
 .empty-illustration {
@@ -340,9 +318,8 @@ export default {
 
 .empty-sub {
   font-size: 12px;
-  color: #666;
+  color: #8a6fd9;
   margin-top: 10px;
-  font-style: italic;
 }
 
 .entries-header {
@@ -355,19 +332,18 @@ export default {
 }
 
 .entries-header h3 {
-  color: #e6d9ff;
+  color: #d45e7e;
   font-size: 18px;
   font-weight: 600;
 }
 
 .entry-count {
-  background: #4a2b6e;
-  color: #e6d9ff;
+  background: #ff9eb5;
+  color: white;
   padding: 5px 15px;
   border-radius: 50px;
   font-size: 12px;
   font-weight: 600;
-  border: 1px solid #9370db;
 }
 
 .entries-list {
@@ -391,7 +367,6 @@ export default {
   transform: translateX(-30px);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .form-row {
     grid-template-columns: 1fr;
@@ -404,30 +379,6 @@ export default {
   
   .guestbook-header h2 {
     font-size: 20px;
-  }
-  
-  .btn {
-    font-size: 14px;
-    padding: 12px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .guestbook-form {
-    padding: 15px;
-  }
-  
-  .entries-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .empty-illustration {
-    font-size: 48px;
-  }
-  
-  .loading-spinner {
-    font-size: 36px;
   }
 }
 </style>

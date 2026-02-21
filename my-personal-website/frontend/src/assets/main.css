@@ -1,27 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;600;700&family=Noto+Serif+SC:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;600;700&display=swap');
 
 :root {
-  /* Ao Run Color Palette */
-  --aorun-purple-dark: #1a1025;
-  --aorun-purple-deep: #2d1b4a;
-  --aorun-purple-medium: #4a2b6e;
-  --aorun-purple-soft: #6b4b8a;
-  --aorun-lavender: #9370db;
-  --aorun-lilac: #b8a9d4;
-  --aorun-glow: #e6d9ff;
-  --aorun-white: #ffffff;
+  /* Kuromi Light Color Palette - WHITE BACKGROUND */
+  --kuromi-white: #ffffff;           /* Pure white background */
+  --kuromi-soft-pink: #fff0f3;       /* Soft pink tint */
+  --kuromi-light-pink: #ffe4e9;       /* Light pink */
+  --kuromi-pink: #ff9eb5;             /* Kuromi signature pink */
+  --kuromi-medium-pink: #ff7b9c;      /* Medium pink */
+  --kuromi-dark-pink: #d45e7e;         /* Dark pink for text */
+  --kuromi-purple: #b28bff;            /* Kuromi signature purple */
+  --kuromi-light-purple: #e6dbff;      /* Light purple */
+  --kuromi-soft-purple: #d9c9ff;       /* Soft purple */
+  --kuromi-dark-purple: #8a6fd9;        /* Dark purple for text */
+  
+  /* Text colors - DARK for white background */
+  --text-primary: #333333;              /* Dark gray for main text */
+  --text-secondary: #555555;             /* Medium gray */
+  --text-muted: #777777;                 /* Light gray */
+  --text-dark: #1a1a1a;                  /* Almost black */
   
   /* Functional variables */
-  --bg-primary: var(--aorun-purple-dark);
-  --bg-secondary: var(--aorun-purple-deep);
-  --bg-tertiary: var(--aorun-purple-medium);
-  --text-primary: var(--aorun-glow);
-  --text-secondary: var(--aorun-lilac);
-  --text-muted: #9a8cb0;
-  --accent-primary: var(--aorun-lavender);
-  --accent-secondary: var(--aorun-lilac);
-  --border-color: var(--aorun-purple-medium);
-  --hover-color: var(--aorun-lavender);
+  --bg-primary: var(--kuromi-white);
+  --bg-secondary: var(--kuromi-soft-pink);
+  --bg-tertiary: var(--kuromi-light-pink);
+  --accent-primary: var(--kuromi-pink);
+  --accent-secondary: var(--kuromi-purple);
+  --border-color: var(--kuromi-light-pink);
+  --hover-color: var(--kuromi-medium-pink);
 }
 
 /* Reset and base styles */
@@ -37,7 +42,7 @@ html {
 
 body {
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: linear-gradient(135deg, var(--aorun-purple-dark) 0%, var(--aorun-purple-deep) 100%);
+  background: var(--kuromi-white);
   min-height: 100vh;
   color: var(--text-primary);
   line-height: 1.6;
@@ -45,43 +50,31 @@ body {
   overflow-x: hidden;
 }
 
-/* Background decorative elements */
+/* Decorative elements - very subtle on white */
 body::before {
-  content: "🌀";
+  content: "☠";
   position: fixed;
   bottom: 20px;
   left: 20px;
   font-size: 150px;
   opacity: 0.03;
-  color: var(--aorun-lavender);
-  transform: rotate(-15deg);
+  color: var(--kuromi-pink);
+  transform: rotate(-10deg);
   pointer-events: none;
   z-index: 0;
-  animation: slowSpin 50s linear infinite;
 }
 
 body::after {
-  content: "💜";
+  content: "♡";
   position: fixed;
   top: 20px;
   right: 20px;
   font-size: 180px;
   opacity: 0.03;
-  color: var(--aorun-lilac);
-  transform: rotate(15deg);
+  color: var(--kuromi-purple);
+  transform: rotate(10deg);
   pointer-events: none;
   z-index: 0;
-  animation: slowFloat 30s ease infinite;
-}
-
-@keyframes slowSpin {
-  from { transform: rotate(-15deg); }
-  to { transform: rotate(345deg); }
-}
-
-@keyframes slowFloat {
-  0%, 100% { transform: translateY(0) rotate(15deg); }
-  50% { transform: translateY(-20px) rotate(15deg); }
 }
 
 #app {
@@ -96,117 +89,115 @@ body::after {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text-dark);
   margin-bottom: 0.5em;
 }
 
 h1 {
   font-size: 2.5rem;
-  background: linear-gradient(135deg, var(--aorun-glow), var(--aorun-lavender));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--kuromi-dark-pink);
   display: inline-block;
 }
 
 h1::after {
-  content: " 💜";
+  content: " ♡";
   font-size: 0.8em;
-  opacity: 0.8;
+  color: var(--kuromi-purple);
 }
 
-.chinese-text {
-  font-family: 'Noto Serif SC', serif;
-  color: var(--aorun-lilac);
+h2 {
+  color: var(--kuromi-dark-purple);
 }
 
-/* Links */
-a {
-  color: var(--accent-primary);
-  text-decoration: none;
+/* Container - White with subtle pink border */
+.container {
+  background: var(--kuromi-white);
+  border: 2px solid var(--kuromi-light-pink);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(255, 158, 181, 0.2);
+}
+
+/* Buttons */
+.btn {
+  background: linear-gradient(135deg, var(--kuromi-pink), var(--kuromi-purple));
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
+  border: 2px solid white;
 }
 
-a:hover {
-  color: var(--aorun-glow);
-  text-decoration: underline;
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 158, 181, 0.4);
 }
 
-/* Scrollbar styling */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Form elements */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background: var(--kuromi-soft-pink);
+  border: 2px solid var(--kuromi-light-pink);
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--kuromi-pink);
+  background: white;
+  box-shadow: 0 0 10px rgba(255, 158, 181, 0.3);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--kuromi-dark-pink);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Scrollbar - Light theme */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--aorun-purple-dark);
+  background: var(--kuromi-soft-pink);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--aorun-purple-medium);
+  background: var(--kuromi-pink);
   border-radius: 5px;
-  border: 2px solid var(--aorun-lavender);
+  border: 2px solid var(--kuromi-light-pink);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--aorun-lavender);
+  background: var(--kuromi-medium-pink);
 }
 
-/* Selection styling */
+/* Selection */
 ::selection {
-  background: var(--aorun-lavender);
-  color: var(--aorun-purple-dark);
-}
-
-/* Utility classes */
-.text-center {
-  text-align: center;
-}
-
-.mt-1 { margin-top: 0.5rem; }
-.mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
-.mt-4 { margin-top: 2rem; }
-.mt-5 { margin-top: 3rem; }
-
-.mb-1 { margin-bottom: 0.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
-.mb-4 { margin-bottom: 2rem; }
-.mb-5 { margin-bottom: 3rem; }
-
-/* Container */
-.container {
-  background: rgba(26, 16, 37, 0.8);
-  backdrop-filter: blur(10px);
-  border: 2px solid var(--aorun-lavender);
-  border-radius: 30px;
-  padding: 30px;
-  box-shadow: 0 0 30px rgba(147, 112, 219, 0.2);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.fade-in {
-  animation: fadeIn 1s ease;
-}
-
-@keyframes slideInUp {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.slide-in-up {
-  animation: slideInUp 0.5s ease;
+  background: var(--kuromi-light-pink);
+  color: var(--kuromi-dark-pink);
 }
 
 /* Responsive */
@@ -232,10 +223,5 @@ a:hover {
   
   .container {
     padding: 20px;
-  }
-  
-  body::before,
-  body::after {
-    font-size: 60px;
   }
 }
