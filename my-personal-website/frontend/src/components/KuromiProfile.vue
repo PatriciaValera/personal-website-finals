@@ -22,8 +22,8 @@
 
         <!-- Bio -->
         <ul class="bio-list">
-          <li>🐸 Punk rock princess with a cute twist! ❤️</li>
-          <li>I love creating chaos with a smile~ My favorite things include skulls, pink accessories, and making new friends (even if I act tough!)</li>
+          <li>🐸 Punk rock princess with a cute twist! 💜</li>
+          <li>I love creating chaos with a smile~ My favorite things include purple skulls, accessories, and making new friends (even if I act tough!)</li>
         </ul>
 
         <!-- Stats -->
@@ -74,8 +74,8 @@
         <!-- Contact Section -->
         <div class="contact-section">
           <h3>Contact Info 💬</h3>
-          <div class="contact-item">📧 kuromi@dark-cute.com</div>
-          <div class="contact-item">🐦 @kuromi_official</div>
+          <div class="contact-item">📧 kuromi@purple-cute.com</div>
+          <div class="contact-item">🐦 @kuromi_purple</div>
           <div class="contact-item">💻 github.com/kuromi</div>
           <div class="contact-item">🏰 Based in Sanrio World</div>
         </div>
@@ -86,11 +86,11 @@
         <div class="favorites-section">
           <h3>Favorite Things ♡</h3>
           <div class="favorite-tags">
-            <span class="tag">Pink Skulls</span>
+            <span class="tag">Purple Skulls</span>
             <span class="tag">Black Lace</span>
             <span class="tag">Punk Music</span>
             <span class="tag">Rabbits</span>
-            <span class="tag">My Melody (sometimes)</span>
+            <span class="tag">My Melody</span>
           </div>
         </div>
       </div>
@@ -107,12 +107,12 @@ export default {
 <style scoped>
 .kuromi-profile {
   padding: 20px;
-  color: #333333;
+  color: #2d1b4a;
   max-width: 900px;
   margin: 0 auto;
   background: white;
   border-radius: 20px;
-  border: 3px solid #ff9eb5;
+  border: 3px solid #b28bff;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -123,7 +123,7 @@ export default {
 
 .profile-header h1 {
   font-size: 32px;
-  color: #d45e7e;
+  color: #5f3dc3;
   margin: 0;
   font-weight: 700;
   letter-spacing: 1px;
@@ -134,14 +134,14 @@ export default {
 }
 
 .profile-header .subtitle {
-  color: #8a6fd9;
+  color: #7c4dff;
   font-size: 16px;
   margin: 5px 0 0 0;
 }
 
 .divider {
   border: none;
-  border-top: 2px solid #ff9eb5;
+  border-top: 2px solid #b28bff;
   margin: 15px 0 25px 0;
 }
 
@@ -158,13 +158,13 @@ export default {
 .image-placeholder {
   width: 200px;
   height: 200px;
-  background: linear-gradient(135deg, #ff9eb5, #b28bff);
+  background: linear-gradient(135deg, #b28bff, #7c4dff);
   border: 4px solid white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 5px 0 #8a6fd9;
+  box-shadow: 0 5px 0 #5f3dc3;
 }
 
 .placeholder-icon {
@@ -185,13 +185,13 @@ export default {
 
 .profile-info h2 {
   font-size: 24px;
-  color: #d45e7e;
+  color: #5f3dc3;
   margin: 0 0 5px 0;
   font-weight: 600;
 }
 
 .bad-girl {
-  color: #8a6fd9;
+  color: #7c4dff;
   font-size: 14px;
   margin: 0 0 20px 0;
   font-style: italic;
@@ -208,11 +208,11 @@ export default {
   line-height: 1.6;
   font-size: 14px;
   padding-left: 5px;
-  border-left: 4px solid #ff9eb5;
-  background: #fff0f3;
+  border-left: 4px solid #b28bff;
+  background: #f5f0ff;
   padding: 8px 12px;
   border-radius: 0 8px 8px 0;
-  color: #333333;
+  color: #2d1b4a;
 }
 
 .stats {
@@ -220,7 +220,7 @@ export default {
   gap: 30px;
   margin: 20px 0;
   padding: 15px;
-  background: #fff0f3;
+  background: #f5f0ff;
   border-radius: 15px;
   flex-wrap: wrap;
 }
@@ -233,13 +233,13 @@ export default {
 .stat-number {
   font-size: 28px;
   font-weight: 700;
-  color: #d45e7e;
+  color: #5f3dc3;
   line-height: 1.2;
 }
 
 .stat-label {
   font-size: 11px;
-  color: #8a6fd9;
+  color: #7c4dff;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   font-weight: 600;
@@ -247,14 +247,14 @@ export default {
 
 .section-divider {
   border: none;
-  border-top: 2px dashed #ff9eb5;
+  border-top: 2px dashed #b28bff;
   margin: 25px 0;
 }
 
 .skills-section h3,
 .contact-section h3,
 .favorites-section h3 {
-  color: #d45e7e;
+  color: #5f3dc3;
   font-size: 20px;
   margin: 0 0 15px 0;
   font-weight: 600;
@@ -266,20 +266,20 @@ export default {
   align-items: center;
   margin-bottom: 12px;
   font-size: 14px;
-  border-bottom: 1px dotted #ff9eb5;
+  border-bottom: 1px dotted #b28bff;
   padding: 8px 5px;
-  color: #333333;
+  color: #2d1b4a;
 }
 
 .skill-name {
-  color: #333333;
+  color: #2d1b4a;
   font-weight: 500;
 }
 
 .skill-percent {
-  color: #8a6fd9;
+  color: #7c4dff;
   font-weight: 600;
-  background: #fff0f3;
+  background: #f5f0ff;
   padding: 2px 8px;
   border-radius: 12px;
 }
@@ -287,12 +287,12 @@ export default {
 .contact-item {
   margin-bottom: 12px;
   font-size: 14px;
-  color: #333333;
+  color: #2d1b4a;
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  background: #fff0f3;
+  background: #f5f0ff;
   border-radius: 8px;
 }
 
@@ -303,18 +303,18 @@ export default {
 }
 
 .tag {
-  background: #fff0f3;
-  color: #d45e7e;
+  background: #f5f0ff;
+  color: #5f3dc3;
   padding: 5px 15px;
   border-radius: 50px;
   font-size: 12px;
-  border: 1px solid #ff9eb5;
+  border: 1px solid #b28bff;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .tag:hover {
-  background: #ff9eb5;
+  background: #b28bff;
   color: white;
   transform: scale(1.05);
 }

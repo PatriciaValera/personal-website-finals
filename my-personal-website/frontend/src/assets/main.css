@@ -1,32 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;600;700&display=swap');
 
 :root {
-  /* Kuromi Light Color Palette - WHITE BACKGROUND */
+  /* Kuromi Light Color Palette - PURPLE MAIN */
   --kuromi-white: #ffffff;           /* Pure white background */
-  --kuromi-soft-pink: #fff0f3;       /* Soft pink tint */
-  --kuromi-light-pink: #ffe4e9;       /* Light pink */
-  --kuromi-pink: #ff9eb5;             /* Kuromi signature pink */
-  --kuromi-medium-pink: #ff7b9c;      /* Medium pink */
-  --kuromi-dark-pink: #d45e7e;         /* Dark pink for text */
-  --kuromi-purple: #b28bff;            /* Kuromi signature purple */
+  --kuromi-soft-purple: #f5f0ff;      /* Soft purple tint */
   --kuromi-light-purple: #e6dbff;      /* Light purple */
-  --kuromi-soft-purple: #d9c9ff;       /* Soft purple */
-  --kuromi-dark-purple: #8a6fd9;        /* Dark purple for text */
+  --kuromi-purple: #b28bff;            /* Kuromi signature purple - MAIN COLOR */
+  --kuromi-medium-purple: #9f7aea;      /* Medium purple */
+  --kuromi-dark-purple: #7c4dff;        /* Dark purple for accents */
+  --kuromi-deep-purple: #5f3dc3;        /* Deep purple for text */
+  --kuromi-pink-accent: #ff9eb5;        /* Pink accent (secondary) */
   
   /* Text colors - DARK for white background */
-  --text-primary: #333333;              /* Dark gray for main text */
-  --text-secondary: #555555;             /* Medium gray */
-  --text-muted: #777777;                 /* Light gray */
-  --text-dark: #1a1a1a;                  /* Almost black */
+  --text-primary: #2d1b4a;              /* Dark purple for main text */
+  --text-secondary: #4a2b6e;             /* Medium purple */
+  --text-muted: #6b4b8a;                 /* Light purple-gray */
+  --text-dark: #1a1025;                  /* Almost black */
   
   /* Functional variables */
   --bg-primary: var(--kuromi-white);
-  --bg-secondary: var(--kuromi-soft-pink);
-  --bg-tertiary: var(--kuromi-light-pink);
-  --accent-primary: var(--kuromi-pink);
-  --accent-secondary: var(--kuromi-purple);
-  --border-color: var(--kuromi-light-pink);
-  --hover-color: var(--kuromi-medium-pink);
+  --bg-secondary: var(--kuromi-soft-purple);
+  --bg-tertiary: var(--kuromi-light-purple);
+  --accent-primary: var(--kuromi-purple);
+  --accent-secondary: var(--kuromi-pink-accent);
+  --border-color: var(--kuromi-light-purple);
+  --hover-color: var(--kuromi-medium-purple);
 }
 
 /* Reset and base styles */
@@ -58,7 +56,7 @@ body::before {
   left: 20px;
   font-size: 150px;
   opacity: 0.03;
-  color: var(--kuromi-pink);
+  color: var(--kuromi-purple);
   transform: rotate(-10deg);
   pointer-events: none;
   z-index: 0;
@@ -71,7 +69,7 @@ body::after {
   right: 20px;
   font-size: 180px;
   opacity: 0.03;
-  color: var(--kuromi-purple);
+  color: var(--kuromi-medium-purple);
   transform: rotate(10deg);
   pointer-events: none;
   z-index: 0;
@@ -95,32 +93,32 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 2.5rem;
-  color: var(--kuromi-dark-pink);
+  color: var(--kuromi-deep-purple);
   display: inline-block;
 }
 
 h1::after {
   content: " ♡";
   font-size: 0.8em;
-  color: var(--kuromi-purple);
+  color: var(--kuromi-pink-accent);
 }
 
 h2 {
   color: var(--kuromi-dark-purple);
 }
 
-/* Container - White with subtle pink border */
+/* Container - White with subtle purple border */
 .container {
   background: var(--kuromi-white);
-  border: 2px solid var(--kuromi-light-pink);
+  border: 2px solid var(--kuromi-light-purple);
   border-radius: 30px;
   padding: 30px;
-  box-shadow: 0 5px 20px rgba(255, 158, 181, 0.2);
+  box-shadow: 0 5px 20px rgba(178, 139, 255, 0.2);
 }
 
 /* Buttons */
 .btn {
-  background: linear-gradient(135deg, var(--kuromi-pink), var(--kuromi-purple));
+  background: linear-gradient(135deg, var(--kuromi-purple), var(--kuromi-dark-purple));
   color: white;
   border: none;
   padding: 12px 30px;
@@ -136,7 +134,7 @@ h2 {
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 158, 181, 0.4);
+  box-shadow: 0 5px 15px rgba(178, 139, 255, 0.4);
 }
 
 .btn:disabled {
@@ -150,8 +148,8 @@ h2 {
 .form-group textarea {
   width: 100%;
   padding: 12px 15px;
-  background: var(--kuromi-soft-pink);
-  border: 2px solid var(--kuromi-light-pink);
+  background: var(--kuromi-soft-purple);
+  border: 2px solid var(--kuromi-light-purple);
   border-radius: 12px;
   font-size: 14px;
   color: var(--text-primary);
@@ -162,42 +160,42 @@ h2 {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--kuromi-pink);
+  border-color: var(--kuromi-purple);
   background: white;
-  box-shadow: 0 0 10px rgba(255, 158, 181, 0.3);
+  box-shadow: 0 0 10px rgba(178, 139, 255, 0.3);
 }
 
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: var(--kuromi-dark-pink);
+  color: var(--kuromi-dark-purple);
   font-weight: 600;
   font-size: 14px;
 }
 
-/* Scrollbar - Light theme */
+/* Scrollbar - Purple theme */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--kuromi-soft-pink);
+  background: var(--kuromi-soft-purple);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--kuromi-pink);
+  background: var(--kuromi-purple);
   border-radius: 5px;
-  border: 2px solid var(--kuromi-light-pink);
+  border: 2px solid var(--kuromi-light-purple);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--kuromi-medium-pink);
+  background: var(--kuromi-medium-purple);
 }
 
 /* Selection */
 ::selection {
-  background: var(--kuromi-light-pink);
-  color: var(--kuromi-dark-pink);
+  background: var(--kuromi-light-purple);
+  color: var(--kuromi-deep-purple);
 }
 
 /* Responsive */

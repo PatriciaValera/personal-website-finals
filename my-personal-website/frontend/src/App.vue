@@ -4,7 +4,7 @@
     <KuromiProfile />
     
     <div class="divider">
-      <span class="divider-text">✧ GUESTBOOK ✧</span>
+      <span class="divider-text">✧ PURPLE GUESTBOOK ✧</span>
     </div>
     
     <KuromiGuestbook />
@@ -12,10 +12,10 @@
     <footer class="footer">
       <div class="footer-content">
         <p>© 2024 KUROMI • 悪い子ちゃん</p>
-        <p class="small">Made with <span class="heart">♡</span> by Kuromi</p>
+        <p class="small">Made with <span class="heart">💜</span> by Kuromi</p>
         <div class="footer-icons">
           <span class="footer-icon">☠</span>
-          <span class="footer-icon">♡</span>
+          <span class="footer-icon">💜</span>
           <span class="footer-icon">👿</span>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default {
   top: 50%;
   width: 30%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #ff9eb5, #b28bff, transparent);
+  background: linear-gradient(90deg, transparent, #b28bff, #7c4dff, transparent);
 }
 
 .divider::before {
@@ -72,7 +72,7 @@ export default {
 .divider-text {
   background: white;
   padding: 0 20px;
-  color: #d45e7e;
+  color: #5f3dc3;
   font-weight: bold;
   font-size: 18px;
   position: relative;
@@ -82,10 +82,10 @@ export default {
 .footer {
   margin-top: 50px;
   padding: 30px 20px;
-  background: #fff0f3;
-  border-top: 3px solid #ff9eb5;
+  background: #f5f0ff;
+  border-top: 3px solid #b28bff;
   text-align: center;
-  color: #333333;
+  color: #2d1b4a;
   border-radius: 20px 20px 0 0;
 }
 
@@ -95,11 +95,11 @@ export default {
 
 .footer .small {
   font-size: 12px;
-  color: #8a6fd9;
+  color: #7c4dff;
 }
 
 .heart {
-  color: #ff9eb5;
+  color: #b28bff;
   animation: heartbeat 1.5s ease infinite;
   display: inline-block;
 }
@@ -118,13 +118,13 @@ export default {
 
 .footer-icon {
   font-size: 20px;
-  color: #d45e7e;
+  color: #5f3dc3;
   animation: float 3s ease infinite;
 }
 
 .footer-icon:nth-child(2) {
   animation-delay: 0.5s;
-  color: #8a6fd9;
+  color: #7c4dff;
 }
 
 .footer-icon:nth-child(3) {

@@ -1,7 +1,7 @@
 <template>
   <div class="kuromi-guestbook">
     <div class="guestbook-header">
-      <h2>✧ KUROMI'S GUESTBOOK ✧</h2>
+      <h2>✧ KUROMI'S PURPLE GUESTBOOK ✧</h2>
       <p class="subtitle">Leave a message for this bad girl! ☠</p>
     </div>
     
@@ -30,7 +30,7 @@
             type="email" 
             id="email" 
             v-model="formData.email"
-            placeholder="cute@dark.com"
+            placeholder="purple@cute.com"
           >
         </div>
       </div>
@@ -54,13 +54,13 @@
       
       <button type="submit" class="btn" :disabled="loading">
         <span v-if="loading">☠ Submitting... ☠</span>
-        <span v-else>♡ Sign Guestbook ♡</span>
+        <span v-else>♡ Sign Purple Guestbook ♡</span>
       </button>
     </form>
     
     <div class="entries-container">
       <div class="entries-header">
-        <h3>✧ Recent Messages ✧</h3>
+        <h3>✧ Recent Purple Messages ✧</h3>
         <span class="entry-count">{{ entries.length }} messages</span>
       </div>
       
@@ -144,7 +144,7 @@ export default {
           message: ''
         }
         
-        this.success = 'Message added successfully! ♡'
+        this.success = 'Purple message added successfully! ♡'
         
         setTimeout(() => {
           this.success = null
@@ -162,7 +162,7 @@ export default {
 <style scoped>
 .kuromi-guestbook {
   padding: 20px 0;
-  color: #333333;
+  color: #2d1b4a;
 }
 
 .guestbook-header {
@@ -171,14 +171,14 @@ export default {
 }
 
 .guestbook-header h2 {
-  color: #d45e7e;
+  color: #5f3dc3;
   font-size: 24px;
   margin-bottom: 5px;
   font-weight: 700;
 }
 
 .subtitle {
-  color: #8a6fd9;
+  color: #7c4dff;
   font-size: 14px;
   font-style: italic;
 }
@@ -189,8 +189,8 @@ export default {
   background: white;
   padding: 30px;
   border-radius: 20px;
-  border: 2px solid #ff9eb5;
-  box-shadow: 0 5px 15px rgba(255, 158, 181, 0.2);
+  border: 2px solid #b28bff;
+  box-shadow: 0 5px 15px rgba(178, 139, 255, 0.2);
 }
 
 .form-row {
@@ -206,40 +206,40 @@ export default {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: #d45e7e;
+  color: #5f3dc3;
   font-weight: 600;
   font-size: 14px;
 }
 
 .label-icon {
   margin-right: 5px;
-  color: #8a6fd9;
+  color: #7c4dff;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 12px 15px;
-  background: #fff0f3;
-  border: 2px solid #ff9eb5;
+  background: #f5f0ff;
+  border: 2px solid #b28bff;
   border-radius: 12px;
   font-size: 14px;
-  color: #333333;
+  color: #2d1b4a;
   transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #b28bff;
+  border-color: #7c4dff;
   background: white;
-  box-shadow: 0 0 10px rgba(178, 139, 255, 0.2);
+  box-shadow: 0 0 10px rgba(124, 77, 255, 0.2);
 }
 
 .error-message {
-  color: #d45e7e;
-  background: #fff0f3;
-  border: 1px solid #ff9eb5;
+  color: #5f3dc3;
+  background: #f5f0ff;
+  border: 1px solid #b28bff;
   border-radius: 10px;
   padding: 10px;
   margin: 10px 0;
@@ -247,7 +247,7 @@ export default {
 }
 
 .success-message {
-  color: #8a6fd9;
+  color: #7c4dff;
   background: #f0e8ff;
   border: 1px solid #b28bff;
   border-radius: 10px;
@@ -257,7 +257,7 @@ export default {
 }
 
 .btn {
-  background: linear-gradient(135deg, #ff9eb5, #b28bff);
+  background: linear-gradient(135deg, #b28bff, #7c4dff);
   color: white;
   border: none;
   padding: 14px 30px;
@@ -274,7 +274,7 @@ export default {
 
 .btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 158, 181, 0.4);
+  box-shadow: 0 5px 15px rgba(178, 139, 255, 0.4);
 }
 
 .btn:disabled {
@@ -285,15 +285,15 @@ export default {
 .loading-state {
   text-align: center;
   padding: 40px;
-  background: #fff0f3;
+  background: #f5f0ff;
   border-radius: 20px;
-  border: 2px dashed #ff9eb5;
+  border: 2px dashed #b28bff;
 }
 
 .loading-spinner {
   font-size: 48px;
   animation: spin 2s linear infinite;
-  color: #ff9eb5;
+  color: #b28bff;
   margin-bottom: 15px;
 }
 
@@ -305,9 +305,9 @@ export default {
 .no-entries {
   text-align: center;
   padding: 50px;
-  background: #fff0f3;
+  background: #f5f0ff;
   border-radius: 20px;
-  border: 2px dashed #ff9eb5;
+  border: 2px dashed #b28bff;
 }
 
 .empty-illustration {
@@ -318,7 +318,7 @@ export default {
 
 .empty-sub {
   font-size: 12px;
-  color: #8a6fd9;
+  color: #7c4dff;
   margin-top: 10px;
 }
 
@@ -332,13 +332,13 @@ export default {
 }
 
 .entries-header h3 {
-  color: #d45e7e;
+  color: #5f3dc3;
   font-size: 18px;
   font-weight: 600;
 }
 
 .entry-count {
-  background: #ff9eb5;
+  background: #b28bff;
   color: white;
   padding: 5px 15px;
   border-radius: 50px;
