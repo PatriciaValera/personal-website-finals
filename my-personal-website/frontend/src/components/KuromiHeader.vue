@@ -10,7 +10,7 @@
         <p class="subtitle">〜 悪い子ちゃんのプロフィール 〜</p>
       </div>
     </div>
-
+    
     <div class="banner">
       <span class="banner-item" v-for="i in 5" :key="i">♡</span>
       <span class="banner-text">WELCOME TO MY DARK & CUTE WORLD</span>
@@ -128,3 +128,4 @@ export default {
     gap: 8px;
   }
 }
+</style>

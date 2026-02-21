@@ -1,12 +1,11 @@
 <template>
   <div class="profile-section">
-
     <div class="profile-header">
       <div class="profile-avatar">
         <img src="https://i.pravatar.cc/300?img=5" alt="Kuromi Style Avatar">
         <div class="avatar-caption">☠ くろみ ☠</div>
       </div>
-
+      
       <div class="profile-info">
         <h2>Kuromi Chan</h2>
         <p class="title">〜 悪い子ちゃん (Bad Girl) 〜</p>
@@ -47,6 +46,7 @@
               <div class="skill-progress" :style="{ width: skill.level + '%' }"></div>
             </div>
           </div>
+        </div>
       </div>
       
       <div class="detail-card">
@@ -69,7 +69,7 @@
             <span>Based in Sanrio World</span>
           </li>
         </ul>
-
+        
         <div class="favorites">
           <h4>Favorite things:</h4>
           <div class="favorite-tags">
@@ -143,7 +143,7 @@ export default {
 
 .profile-info {
   flex: 1;
-
+}
 
 .profile-info h2 {
   margin-bottom: 5px;
@@ -293,7 +293,6 @@ export default {
   font-size: 12px;
   border: 1px solid var(--kuromi-purple);
   transition: all 0.3s ease;
-
 }
 
 .tag:hover {
@@ -312,7 +311,6 @@ export default {
   
   .profile-info .bio {
     text-align: left;
-
   }
   
   .stats {

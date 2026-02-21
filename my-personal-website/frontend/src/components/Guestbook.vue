@@ -1,8 +1,8 @@
 <template>
   <div class="guestbook-section">
     <div class="guestbook-header">
-      <h2>✧ Dare to sign? ✧</h2>
-      <p class="subtitle">Sign my guestbook if you dare~ ♡♡</p>
+      <h2>✧ Leave Your Mark ✧</h2>
+      <p class="subtitle">Sign my guestbook if you dare~ ♡</p>
     </div>
     
     <form @submit.prevent="submitEntry" class="guestbook-form">
@@ -10,7 +10,7 @@
         <div class="form-group">
           <label for="name">
             <span class="label-icon">☠</span>
-            Name, now!” *
+            Your Name *
           </label>
           <input 
             type="text" 
