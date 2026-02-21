@@ -1,84 +1,67 @@
 <template>
   <div class="profile-section">
+    <!-- Header Section -->
     <div class="profile-header">
-      <div class="profile-avatar">
-        <img src="https://i.pravatar.cc/300?img=5" alt="Kuromi Style Avatar">
-        <div class="avatar-caption">☠ くろみ ☠</div>
-      </div>
-      
-      <div class="profile-info">
-        <h2>Kuromi Chan</h2>
-        <p class="title">〜 悪い子ちゃん (Bad Girl) 〜</p>
-        <p class="bio">
-          ✧ Punk rock princess with a cute twist! ✧<br>
-          I love creating chaos with a smile~ 
-          My favorite things include skulls, pink accessories, 
-          and making new friends (even if I act tough!)
-        </p>
-        
-        <div class="stats">
-          <div class="stat-item">
-            <span class="stat-value">25</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-value">1337</span>
-            <span class="stat-label">Followers</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-value">∞</span>
-            <span class="stat-label">Cuteness</span>
-          </div>
-        </div>
-      </div>
+      <h1>Kuromi's Lair</h1>
+      <p class="subtitle">悪い子ちゃんのプロフィール</p>
     </div>
-    
-    <div class="profile-details">
-      <div class="detail-card">
-        <h3>✧ Skills & Spells ✧</h3>
-        <div class="skills-grid">
-          <div v-for="skill in skills" :key="skill.name" class="skill-item">
-            <div class="skill-info">
-              <span class="skill-name">{{ skill.name }}</span>
-              <span class="skill-level">{{ skill.level }}%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" :style="{ width: skill.level + '%' }"></div>
-            </div>
-          </div>
+
+    <hr class="divider" />
+
+    <!-- Profile Main Section -->
+    <div class="profile-main">
+      <h2>Kuromi Chan</h2>
+      <p class="bad-girl">悪い子ちゃん (Bad Girl)</p>
+
+      <!-- Bio with bullet points -->
+      <ul class="bio-list">
+        <li>🐸 Punk rock princess with a cute twist! ❤️</li>
+        <li>I love creating chaos with a smile~ My favorite things include skulls, pink accessories, and making new friends (even if I act tough!)</li>
+      </ul>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">25</span>
+          <span class="stat-label">PROJECTS</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1337</span>
+          <span class="stat-label">FOLLOWERS</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">CUTENESS</span>
         </div>
       </div>
-      
-      <div class="detail-card">
-        <h3>♡ Contact Info ♡</h3>
-        <ul class="contact-list">
-          <li>
-            <span class="contact-icon">📧</span>
-            <span>kuromi@dark-cute.com</span>
-          </li>
-          <li>
-            <span class="contact-icon">🎵</span>
-            <span>@kuromi_official</span>
-          </li>
-          <li>
-            <span class="contact-icon">💀</span>
-            <span>github.com/kuromi</span>
-          </li>
-          <li>
-            <span class="contact-icon">🏰</span>
-            <span>Based in Sanrio World</span>
-          </li>
-        </ul>
-        
-        <div class="favorites">
-          <h4>Favorite things:</h4>
-          <div class="favorite-tags">
-            <span class="tag">Pink Skulls</span>
-            <span class="tag">Black Lace</span>
-            <span class="tag">Punk Music</span>
-            <span class="tag">Rabbits</span>
-          </div>
+
+      <hr class="section-divider" />
+
+      <!-- Skills Section -->
+      <div class="skills-section">
+        <h3>Skills & Spells ⚔️</h3>
+        <div class="skill-item">
+          <span class="skill-name">Vue.js</span>
+          <span class="skill-percent">90%</span>
         </div>
+        <div class="skill-item">
+          <span class="skill-name">React</span>
+          <span class="skill-percent">85%</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Node.js</span>
+          <span class="skill-percent">88%</span>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- Contact Section -->
+      <div class="contact-section">
+        <h3>Contact Info 💬</h3>
+        <div class="contact-item">📧 kuromi@dark-cute.com</div>
+        <div class="contact-item">🐦 @kuromi_official</div>
+        <div class="contact-item">💻 github.com/kuromi</div>
       </div>
     </div>
   </div>
@@ -86,239 +69,185 @@
 
 <script>
 export default {
-  name: 'Profile',
-  data() {
-    return {
-      skills: [
-        { name: 'Vue.js', level: 90 },
-        { name: 'React', level: 85 },
-        { name: 'Node.js', level: 88 },
-        { name: 'Python', level: 75 },
-        { name: 'TypeScript', level: 82 },
-        { name: 'UI/UX Design', level: 95 }
-      ]
-    }
-  }
+  name: 'Profile'
 }
 </script>
 
 <style scoped>
 .profile-section {
-  padding: 20px 0;
+  padding: 20px;
+  color: var(--text-light);
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .profile-header {
-  display: flex;
-  gap: 40px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-  background: var(--kuromi-gray);
-  padding: 30px;
-  border-radius: 30px;
-  border: 2px solid var(--kuromi-purple);
-  position: relative;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
-.profile-avatar {
-  position: relative;
-  text-align: center;
-}
-
-.profile-avatar img {
-  width: 180px;
-  height: 180px;
-  border-radius: 30px 30px 50% 50%;
-  object-fit: cover;
-  border: 4px solid var(--kuromi-pink);
-  box-shadow: 0 8px 0 var(--kuromi-dark-purple);
-}
-
-.avatar-caption {
-  margin-top: 10px;
-  color: var(--kuromi-pink);
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: 2px;
-}
-
-.profile-info {
-  flex: 1;
-}
-
-.profile-info h2 {
-  margin-bottom: 5px;
+.profile-header h1 {
   font-size: 32px;
+  color: var(--kuromi-pink);
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-.profile-info .title {
+.profile-header .subtitle {
   color: var(--kuromi-purple);
   font-size: 16px;
-  margin-bottom: 15px;
+  margin: 5px 0 0 0;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid var(--kuromi-pink);
+  margin: 15px 0 25px 0;
+  opacity: 0.5;
+}
+
+.profile-main h2 {
+  font-size: 24px;
+  color: var(--kuromi-pink);
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+
+.bad-girl {
+  color: var(--kuromi-purple);
+  font-size: 14px;
+  margin: 0 0 20px 0;
   font-style: italic;
 }
 
-.profile-info .bio {
-  line-height: 1.8;
-  color: var(--text-light);
-  margin-bottom: 20px;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-  border-left: 4px solid var(--kuromi-pink);
+.bio-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.bio-list li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  font-size: 14px;
+  position: relative;
+  padding-left: 5px;
 }
 
 .stats {
   display: flex;
   gap: 30px;
-  margin-top: 20px;
+  margin: 20px 0;
+  padding: 10px 0;
 }
 
 .stat-item {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.stat-value {
-  display: block;
-  font-size: 28px;
-  font-weight: bold;
+.stat-number {
+  font-size: 24px;
+  font-weight: 700;
   color: var(--kuromi-pink);
-  text-shadow: 2px 2px 0 var(--kuromi-dark-purple);
+  line-height: 1.2;
 }
 
 .stat-label {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-muted);
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
-.profile-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--kuromi-purple);
+  margin: 20px 0;
+  opacity: 0.3;
 }
 
-.detail-card {
-  background: var(--kuromi-gray);
-  padding: 25px;
-  border-radius: 25px;
-  border: 2px solid var(--kuromi-pink);
-  transition: transform 0.3s ease;
+.skills-section,
+.contact-section {
+  margin: 15px 0;
 }
 
-.detail-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 0 var(--kuromi-dark-purple);
-}
-
-.detail-card h3 {
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
-.skills-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.skill-item {
-  width: 100%;
-}
-
-.skill-info {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-  color: var(--text-light);
-}
-
-.skill-name {
+.skills-section h3,
+.contact-section h3 {
+  color: var(--kuromi-pink);
+  font-size: 18px;
+  margin: 0 0 15px 0;
   font-weight: 600;
 }
 
-.skill-level {
-  color: var(--kuromi-pink);
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+  border-bottom: 1px dotted var(--kuromi-purple);
+  padding-bottom: 5px;
 }
 
-.skill-bar {
-  width: 100%;
-  height: 10px;
-  background: var(--kuromi-black);
-  border-radius: 10px;
-  overflow: hidden;
+.skill-name {
+  color: var(--text-light);
 }
 
-.skill-progress {
-  height: 100%;
-  background: linear-gradient(90deg, var(--kuromi-pink), var(--kuromi-purple));
-  border-radius: 10px;
-  transition: width 1s ease;
+.skill-percent {
+  color: var(--kuromi-purple);
+  font-weight: 600;
 }
 
-.contact-list {
-  list-style: none;
-  margin-bottom: 20px;
-}
-
-.contact-list li {
+.contact-item {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text-light);
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 12px 0;
-  border-bottom: 1px dashed var(--kuromi-purple);
+  gap: 8px;
 }
 
-.contact-icon {
-  font-size: 20px;
-  min-width: 30px;
-}
-
-.favorites h4 {
-  color: var(--kuromi-pink);
-  margin-bottom: 10px;
-}
-
-.favorite-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tag {
-  background: var(--kuromi-black);
-  color: var(--kuromi-pink);
-  padding: 5px 15px;
-  border-radius: 50px;
-  font-size: 12px;
-  border: 1px solid var(--kuromi-purple);
-  transition: all 0.3s ease;
-}
-
-.tag:hover {
-  background: var(--kuromi-purple);
-  color: var(--kuromi-black);
-  transform: scale(1.05);
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
-  .profile-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+  .profile-section {
+    padding: 15px;
   }
-  
-  .profile-info .bio {
-    text-align: left;
+
+  .profile-header h1 {
+    font-size: 28px;
   }
-  
+
   .stats {
-    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
   }
-  
-  .profile-details {
-    grid-template-columns: 1fr;
+
+  .stat-number {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-header h1 {
+    font-size: 24px;
+  }
+
+  .profile-main h2 {
+    font-size: 20px;
+  }
+
+  .stats {
+    gap: 15px;
+  }
+
+  .stat-number {
+    font-size: 18px;
+  }
+
+  .stat-label {
+    font-size: 10px;
   }
 }
 </style>
