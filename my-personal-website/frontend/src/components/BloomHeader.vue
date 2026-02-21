@@ -2,7 +2,7 @@
   <div class="bloom-header">
     <div class="header-content">
       <div class="bloom-icon">
-        <span class="flames">🔥</span>
+        <span class="flame">🔥</span>
         <span class="dragon">🐉</span>
       </div>
       <div class="header-text">
