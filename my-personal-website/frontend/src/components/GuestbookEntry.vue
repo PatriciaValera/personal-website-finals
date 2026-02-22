@@ -13,10 +13,10 @@
       <span>📧</span> {{ entry.email }}
     </div>
     
-    <div class="entry-stickers">
-      <span>🎀</span>
-      <span>🎁</span>
+    <div class="entry-skulls">
+      <span>☠️</span>
       <span>❤️</span>
+      <span>☠️</span>
     </div>
   </div>
 </template>
@@ -48,19 +48,34 @@ export default {
 
 <style scoped>
 .entry-card {
-  background: var(--kuromi-white);
-  border: 3px solid var(--kuromi-lavender);
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--kuromi-purple);
   border-radius: 25px;
   padding: 25px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
   position: relative;
+  box-shadow: 0 5px 15px var(--shadow-dark);
 }
 
 .entry-card:hover {
   transform: translateY(-5px);
   border-color: var(--kuromi-hot-pink);
-  box-shadow: 0 10px 0 var(--kuromi-lavender);
+  box-shadow: 
+    0 10px 0 var(--kuromi-dark-gray),
+    0 0 40px var(--glow-pink);
+}
+
+.entry-card::before {
+  content: "☠️";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  opacity: 0.2;
+  color: var(--kuromi-hot-pink);
+  transform: rotate(10deg);
 }
 
 .entry-header {
@@ -73,86 +88,87 @@ export default {
 }
 
 .entry-name {
-  background: linear-gradient(45deg, var(--kuromi-hot-pink), var(--kuromi-lavender));
-  color: white;
+  background: linear-gradient(135deg, var(--kuromi-hot-pink), var(--kuromi-neon-purple));
+  color: var(--kuromi-white);
   padding: 8px 20px;
   border-radius: 50px;
   font-weight: bold;
   font-size: 16px;
-  box-shadow: 0 3px 0 var(--kuromi-purple);
+  box-shadow: 0 3px 0 var(--kuromi-dark-gray);
+  text-shadow: 0 0 10px var(--glow-pink);
 }
 
 .entry-date {
-  color: var(--text-light);
+  color: var(--text-muted);
   font-size: 14px;
-  background: var(--kuromi-gray);
+  background: rgba(42, 42, 42, 0.8);
   padding: 5px 15px;
   border-radius: 50px;
-  border: 2px solid var(--kuromi-lavender);
+  border: 1px solid var(--kuromi-purple);
 }
 
 .entry-message {
-  background: var(--kuromi-off-white);
+  background: rgba(42, 42, 42, 0.5);
+  backdrop-filter: blur(5px);
   padding: 20px;
   border-radius: 20px;
   line-height: 1.8;
   font-size: 16px;
-  border-left: 5px solid var(--kuromi-hot-pink);
+  border-left: 4px solid var(--kuromi-hot-pink);
   margin: 15px 0;
   position: relative;
   font-style: italic;
+  color: var(--text-light);
 }
 
 .entry-message::before {
-  content: "💬";
+  content: "☠️";
   position: absolute;
   bottom: 5px;
   right: 10px;
-  opacity: 0.2;
-  font-size: 24px;
+  opacity: 0.1;
+  font-size: 30px;
+  color: var(--kuromi-hot-pink);
 }
 
 .entry-email {
   font-size: 14px;
-  color: var(--kuromi-purple);
+  color: var(--kuromi-light-purple);
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 10px;
-  background: var(--kuromi-gray);
+  background: rgba(10, 10, 10, 0.5);
   border-radius: 15px;
   margin-top: 10px;
+  border: 1px solid var(--kuromi-purple);
 }
 
-.entry-stickers {
+.entry-skulls {
   position: absolute;
-  top: -10px;
-  right: 20px;
+  bottom: 5px;
+  right: 15px;
   display: flex;
   gap: 5px;
-  background: white;
-  padding: 5px 10px;
-  border-radius: 50px;
-  border: 2px solid var(--kuromi-hot-pink);
-  box-shadow: 0 3px 0 var(--kuromi-lavender);
+  opacity: 0.3;
+  font-size: 16px;
 }
 
-.entry-stickers span {
-  animation: sparkle 2s ease infinite;
-  animation-delay: calc(var(--i) * 0.3s);
+.entry-skulls span {
+  animation: glow 3s infinite;
 }
 
-.entry-stickers span:nth-child(2) {
-  animation-delay: 0.3s;
+.entry-skulls span:nth-child(2) {
+  animation-delay: 1s;
 }
 
-.entry-stickers span:nth-child(3) {
-  animation-delay: 0.6s;
+.entry-skulls span:nth-child(3) {
+  animation-delay: 2s;
 }
 
-@keyframes sparkle {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
+@keyframes glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; text-shadow: 0 0 10px var(--kuromi-hot-pink); }
 }
 
 @media (max-width: 480px) {
@@ -170,7 +186,7 @@ export default {
     text-align: center;
   }
   
-  .entry-stickers {
+  .entry-skulls {
     position: static;
     justify-content: center;
     margin-top: 15px;

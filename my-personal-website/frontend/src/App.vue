@@ -1,44 +1,50 @@
 <template>
+  <!-- Background skull decorations -->
+  <div class="skull-bg"></div>
+  <div class="skull-decoration">
+    <span>☠️</span>
+    <span>☠️</span>
+    <span>☠️</span>
+    <span>☠️</span>
+    <span>☠️</span>
+  </div>
+
   <div class="container">
-    <!-- Header with emojis -->
+    <!-- Header -->
     <div class="header">
       <h1>My Profile & Guestbook</h1>
       <p class="header-subtitle">
-        Leave a message for me! <span class="emoji">🎁❤️</span>
+        Leave a message for me! <span class="emoji">❤️</span>
       </p>
+    </div>
+
+    <!-- Divider with skull -->
+    <div class="divider">
+      <span class="divider-line"></span>
+      <span class="divider-emoji">☠️</span>
+      <span class="divider-line"></span>
     </div>
 
     <!-- Profile Section -->
     <div class="profile-card">
       <div class="profile-header">
         <div class="profile-avatar">
-          <img src="https://i.pravatar.cc/300?img=5" alt="Profile Picture">
+          <img src="https://i.pravatar.cc/300?img=5" alt="Kuromi Profile">
         </div>
         <div class="profile-info">
           <h2>Kuromi Chan</h2>
-          <p class="profile-title">✨ Professional Daydreamer ✨</p>
           <div class="profile-bio">
-            <p>♡ 悪い子ちゃん (Bad Girl) but actually super sweet! ♡</p>
+            <p>❤️ 悪い子ちゃん (Bad Girl) but actually super sweet! ❤️</p>
             <p>I love coding, cute things, and making new friends!</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Divider with emojis -->
-    <div class="divider">
-      <span class="divider-line"></span>
-      <span class="divider-emoji">🎀</span>
-      <span class="divider-line"></span>
-    </div>
-
     <!-- Guestbook Section -->
     <div class="guestbook-section">
       <div class="guestbook-header">
         <h2>SIGN THE GUESTBOOK</h2>
-        <p class="subtitle">
-          <span>🎁</span> Leave your mark! <span>❤️</span>
-        </p>
       </div>
 
       <!-- Guestbook Form -->
@@ -68,7 +74,7 @@
 
         <div class="button-container">
           <button type="submit" class="btn" :disabled="loading">
-            {{ loading ? 'SIGNING...' : 'SIGN GUESTBOOK' }}
+            {{ loading ? 'SIGNING... ☠️' : 'SIGN GUESTBOOK ☠️' }}
           </button>
         </div>
       </form>
@@ -81,11 +87,11 @@
         </div>
 
         <div v-if="entriesLoading" class="loading-state">
-          <p>Loading messages... 🎀</p>
+          <p>Loading messages... ☠️</p>
         </div>
 
         <div v-else-if="entries.length === 0" class="empty-state">
-          <p>No messages yet! Be the first to sign! 🎁</p>
+          <p>No messages yet! Be the first to sign! ☠️❤️</p>
         </div>
 
         <div v-else>
@@ -154,7 +160,7 @@ export default {
           message: ''
         }
         
-        this.success = 'Message added successfully! 🎁❤️'
+        this.success = 'Message added successfully! ☠️❤️'
         
         setTimeout(() => {
           this.success = null
@@ -179,35 +185,13 @@ export default {
   font-size: 24px;
   color: var(--kuromi-hot-pink);
   margin-top: 10px;
+  text-shadow: 0 0 15px var(--glow-pink);
 }
 
 .emoji {
   font-size: 28px;
   margin: 0 5px;
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin: 30px 0;
-}
-
-.divider-line {
-  flex: 1;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--kuromi-hot-pink), var(--kuromi-lavender), transparent);
-}
-
-.divider-emoji {
-  font-size: 30px;
-  color: var(--kuromi-hot-pink);
-  animation: bounce 2s ease infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  filter: drop-shadow(0 0 10px var(--kuromi-hot-pink));
 }
 
 .button-container {
@@ -216,23 +200,9 @@ export default {
   margin-top: 20px;
 }
 
-.loading-state, .empty-state {
-  text-align: center;
-  padding: 40px;
-  background: var(--kuromi-off-white);
-  border-radius: 30px;
-  border: 3px dashed var(--kuromi-lavender);
-  color: var(--text-light);
-  font-size: 18px;
-}
-
 @media (max-width: 768px) {
   .header-subtitle {
     font-size: 20px;
-  }
-  
-  .divider-emoji {
-    font-size: 24px;
   }
 }
 </style>
