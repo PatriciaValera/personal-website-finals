@@ -36,7 +36,7 @@
     
     <div class="profile-details">
       <div class="detail-card">
-        <h3>✧ Skills & Spells ✧</h3>
+        <h3>☠ Skills & Spells ☠</h3>
         <div class="skills-grid">
           <div v-for="skill in skills" :key="skill.name" class="skill-item">
             <div class="skill-info">
@@ -55,15 +55,11 @@
         <ul class="contact-list">
           <li>
             <span class="contact-icon">📧</span>
-            <span>kuromi@dark-cute.com</span>
-          </li>
-          <li>
-            <span class="contact-icon">🎵</span>
-            <span>@kuromi_official</span>
+            <span>pdvalera@student.apc.edu.ph</span>
           </li>
           <li>
             <span class="contact-icon">💀</span>
-            <span>github.com/kuromi</span>
+            <span>github.com/PatriciaValera</span>
           </li>
           <li>
             <span class="contact-icon">🏰</span>
@@ -93,10 +89,9 @@ export default {
       skills: [
         { name: 'Vue.js', level: 90 },
         { name: 'React', level: 85 },
-        { name: 'Node.js', level: 88 },
-        { name: 'Python', level: 75 },
-        { name: 'TypeScript', level: 82 },
         { name: 'UI/UX Design', level: 95 }
+        { name: 'Node.js', level: 80 },
+        { name: 'Python', level: 75 },
       ]
     }
   }
