@@ -1,20 +1,19 @@
 <template>
   <div class="kuromi-header">
     <div class="header-content">
-      <div class="kuromi-icon">
-        <span class="ears">👿</span>
-        <span class="face">☠</span>
-      </div>
-      <div class="header-text">
-        <h1>Kuromi's Lair</h1>
-        <p class="subtitle">〜 悪い子ちゃんのプロフィール 〜</p>
+      <h1>Kuromi's Lair</h1>
+      <div class="header-icons">
+        <span class="icon">☠</span>
+        <span class="icon">♡</span>
+        <span class="icon">☠</span>
       </div>
     </div>
+    <p class="subtitle">〜 悪い子ちゃんのプロフィール 〜</p>
     
-    <div class="banner">
-      <span class="banner-item" v-for="i in 5" :key="i">♡</span>
-      <span class="banner-text">WELCOME TO MY DARK & CUTE WORLD</span>
-      <span class="banner-item" v-for="i in 5" :key="i">☠</span>
+    <div class="divider">
+      <span class="divider-icon">🎀</span>
+      <span class="divider-text">welcome to my world</span>
+      <span class="divider-icon">🍄</span>
     </div>
   </div>
 </template>
@@ -27,105 +26,79 @@ export default {
 
 <style scoped>
 .kuromi-header {
-  margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .header-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
   flex-wrap: wrap;
-}
-
-.kuromi-icon {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, var(--kuromi-pink), var(--kuromi-purple));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid var(--kuromi-white);
-  box-shadow: 0 5px 0 var(--kuromi-dark-purple);
-}
-
-.ears {
-  position: absolute;
-  top: -20px;
-  font-size: 40px;
-  filter: drop-shadow(0 2px 0 var(--kuromi-dark-purple));
-}
-
-.face {
-  font-size: 50px;
-  transform: rotate(-10deg);
-}
-
-.header-text {
-  text-align: left;
-}
-
-.header-text h1 {
   margin-bottom: 5px;
-  font-size: 36px;
+}
+
+.header-content h1 {
+  margin-bottom: 0;
+  font-size: 32px;
+}
+
+.header-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.icon {
+  color: var(--kuromi-pink);
+  font-size: 20px;
+  animation: float 3s ease infinite;
+}
+
+.icon:nth-child(2) {
+  color: var(--kuromi-purple);
+  animation-delay: 0.5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
 
 .subtitle {
-  color: var(--kuromi-pink);
-  font-size: 16px;
-  opacity: 0.8;
-}
-
-.banner {
-  background: var(--kuromi-gray);
-  padding: 15px;
-  border-radius: 50px;
-  margin-top: 20px;
-  text-align: center;
-  border: 2px dashed var(--kuromi-pink);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.banner-item {
-  color: var(--kuromi-pink);
-  font-size: 20px;
-  animation: sparkle 2s ease infinite;
-}
-
-.banner-text {
-  color: var(--kuromi-purple);
-  font-weight: bold;
+  color: var(--kuromi-skull);
   font-size: 14px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.divider-icon {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.divider-text {
+  color: var(--kuromi-purple);
+  font-size: 13px;
+  text-transform: lowercase;
   letter-spacing: 2px;
 }
 
-@keyframes sparkle {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); color: var(--kuromi-purple); }
-}
-
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    text-align: center;
+@media (max-width: 480px) {
+  .header-content h1 {
+    font-size: 26px;
   }
   
-  .header-text {
-    text-align: center;
-  }
-  
-  .header-text h1 {
-    font-size: 28px;
-  }
-  
-  .banner {
-    gap: 8px;
+  .divider {
+    gap: 10px;
   }
 }
 </style>
