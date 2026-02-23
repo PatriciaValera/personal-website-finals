@@ -89,7 +89,7 @@ export default {
       skills: [
         { name: 'Vue.js', level: 90 },
         { name: 'React', level: 85 },
-        { name: 'UI/UX Design', level: 95 }
+        { name: 'UI/UX Design', level: 95 },
         { name: 'Node.js', level: 80 },
         { name: 'Python', level: 75 },
       ]
