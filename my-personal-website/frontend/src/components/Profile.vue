@@ -10,12 +10,13 @@
         <h2>Kuromi Chan</h2>
         <p class="title">〜 悪い子ちゃん (Bad Girl) 〜</p>
         <p class="bio">
-          ✧ Punk rock princess with a cute twist! ✧<br>
-          I love creating chaos with a smile~ 
-          My favorite things include skulls, pink accessories, 
-          and making new friends (even if I act tough!)
+          ✧ Yo, I’m Patricia Marie Valera ✧<br>
+          I live for juicy stories and a bit of chaos—gossip is my guilty pleasure.
+          Curiosity keeps me lurking, always sniffing out what’s going on. 
+          Life’s way more fun when you stir things up, laugh loud, and make memories that stick.
+          I’m not bold, but I’ve got my own kind of mischief~ 🎀.
         </p>
-        
+       
         <div class="stats">
           <div class="stat-item">
             <span class="stat-value">25</span>

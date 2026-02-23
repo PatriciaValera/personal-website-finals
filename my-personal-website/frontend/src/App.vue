@@ -5,7 +5,7 @@
     <Profile />
     
     <div class="divider">
-      <span class="divider-text">✧ GUESTBOOK ✧</span>
+      <span class="divider-text">✧ Riri's Mischief Log ✧</span>
     </div>
     
     <Guestbook />
