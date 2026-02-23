@@ -1,8 +1,8 @@
 <template>
   <div class="guestbook-section">
     <div class="guestbook-header">
-      <h2>✧ Leave Your Mark ✧</h2>
-      <p class="subtitle">Sign my guestbook if you dare~ ♡</p>
+      <h2>✧ Kuromi's Mischief Log ✧</h2>
+      <p class="subtitle">Dare to Leave Your Scribble~ ♡</p>
     </div>
     
     <form @submit.prevent="submitEntry" class="guestbook-form">
@@ -10,7 +10,7 @@
         <div class="form-group">
           <label for="name">
             <span class="label-icon">☠</span>
-            Your Name *
+            Your name, now! *
           </label>
           <input 
             type="text" 
@@ -60,26 +60,26 @@
       </div>
       
       <button type="submit" class="btn" :disabled="loading">
-        <span v-if="loading">✧ Submitting... ✧</span>
-        <span v-else>☠ Submit Entry ☠</span>
+        <span v-if="loading">✧ Brewing Chaos... ✧</span>
+        <span v-else>☠ Seal Your Chaos ☠</span>
       </button>
     </form>
     
     <div class="entries-container">
       <div class="entries-header">
-        <h3>✧ Recent Messages ✧</h3>
-        <span class="entry-count">{{ entries.length }} entries</span>
+        <h3>✧ Mischief Messages ✧</h3>
+        <span class="entry-count">{{ entries.length }} scribbles</span>
       </div>
       
       <div v-if="entriesLoading" class="loading-state">
         <div class="loading-spinner">☠</div>
-        <p>Loading spooky messages...</p>
+        <p>Summoning spooky messages...</p>
       </div>
       
       <div v-else-if="entries.length === 0" class="no-entries">
         <div class="empty-illustration">📝</div>
-        <p>No entries yet... Be the first to leave a message!</p>
-        <p class="empty-sub">(Don't be shy~)</p>
+        <p>No scribbles yet... be bold, be first!</p>
+        <p class="empty-sub">(Don't be shy, leave your mark~)</p>
       </div>
       
       <transition-group name="entries" tag="div" class="entries-list">
@@ -151,7 +151,7 @@ export default {
           message: ''
         }
         
-        this.success = 'Message added successfully! ✧'
+        this.success = 'Chaos sealed successfully! ✧'
         
         setTimeout(() => {
           this.success = null
@@ -176,10 +176,39 @@ export default {
   margin-bottom: 30px;
 }
 
+.guestbook-header h2 {
+  font-size: 32px;
+  background: linear-gradient(135deg, var(--kuromi-pink), var(--kuromi-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
 .subtitle {
   color: var(--kuromi-purple);
-  font-size: 16px;
+  font-size: 18px;
   font-style: italic;
+  position: relative;
+  display: inline-block;
+}
+
+.subtitle::before,
+.subtitle::after {
+  content: "☠";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.subtitle::before {
+  left: -25px;
+}
+
+.subtitle::after {
+  right: -25px;
 }
 
 .guestbook-form {
@@ -189,6 +218,30 @@ export default {
   padding: 30px;
   border-radius: 30px;
   border: 2px dashed var(--kuromi-pink);
+  position: relative;
+  box-shadow: 0 10px 0 var(--kuromi-dark-purple);
+}
+
+.guestbook-form::before {
+  content: "☠";
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  font-size: 30px;
+  color: var(--kuromi-pink);
+  opacity: 0.3;
+  transform: rotate(-15deg);
+}
+
+.guestbook-form::after {
+  content: "♡";
+  position: absolute;
+  bottom: -15px;
+  right: 20px;
+  font-size: 30px;
+  color: var(--kuromi-purple);
+  opacity: 0.3;
+  transform: rotate(15deg);
 }
 
 .form-row {
@@ -197,9 +250,146 @@ export default {
   gap: 20px;
 }
 
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--kuromi-pink);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
 .label-icon {
   margin-right: 5px;
-  color: var(--kuromi-pink);
+  color: var(--kuromi-purple);
+  font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background: var(--kuromi-black);
+  border: 2px solid var(--kuromi-purple);
+  border-radius: 25px;
+  font-size: 16px;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--kuromi-pink);
+  box-shadow: 0 0 15px rgba(255, 158, 181, 0.3);
+  background: var(--kuromi-light-gray);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.btn {
+  background: linear-gradient(135deg, var(--kuromi-pink), var(--kuromi-purple));
+  color: var(--kuromi-black);
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--kuromi-white);
+  box-shadow: 0 8px 0 var(--kuromi-dark-purple);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn::before {
+  content: "☠";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.btn::after {
+  content: "♡";
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 11px 0 var(--kuromi-dark-purple);
+}
+
+.btn:hover::before {
+  left: 20px;
+  opacity: 0.5;
+}
+
+.btn:hover::after {
+  right: 20px;
+  opacity: 0.5;
+}
+
+.btn:active {
+  transform: translateY(5px);
+  box-shadow: 0 3px 0 var(--kuromi-dark-purple);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 8px 0 var(--kuromi-dark-purple);
+}
+
+.btn:disabled:hover::before,
+.btn:disabled:hover::after {
+  display: none;
+}
+
+.error-message {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid #ff6b6b;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.success-message {
+  color: #51cf66;
+  background: rgba(81, 207, 102, 0.1);
+  border: 1px solid #51cf66;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
 }
 
 .loading-state {
@@ -225,18 +415,46 @@ export default {
   background: var(--kuromi-gray);
   border-radius: 30px;
   border: 2px dashed var(--kuromi-purple);
+  position: relative;
+}
+
+.no-entries::before {
+  content: "☠";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 40px;
+  opacity: 0.1;
+  color: var(--kuromi-pink);
+}
+
+.no-entries::after {
+  content: "♡";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 40px;
+  opacity: 0.1;
+  color: var(--kuromi-purple);
 }
 
 .empty-illustration {
   font-size: 64px;
   margin-bottom: 20px;
   opacity: 0.7;
+  animation: float 3s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .empty-sub {
   font-size: 14px;
   color: var(--text-muted);
   margin-top: 10px;
+  font-style: italic;
 }
 
 .entries-header {
@@ -246,15 +464,23 @@ export default {
   margin-bottom: 20px;
   flex-wrap: wrap;
   gap: 10px;
+  padding: 0 10px;
+}
+
+.entries-header h3 {
+  margin-bottom: 0;
+  font-size: 24px;
 }
 
 .entry-count {
   background: var(--kuromi-pink);
   color: var(--kuromi-black);
-  padding: 5px 15px;
+  padding: 8px 20px;
   border-radius: 50px;
   font-size: 14px;
   font-weight: bold;
+  border: 2px solid var(--kuromi-white);
+  box-shadow: 0 4px 0 var(--kuromi-dark-purple);
 }
 
 .entries-list {
@@ -278,7 +504,21 @@ export default {
   transform: translateX(-30px);
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
+  .guestbook-header h2 {
+    font-size: 24px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+  }
+  
+  .subtitle::before,
+  .subtitle::after {
+    display: none;
+  }
+  
   .form-row {
     grid-template-columns: 1fr;
     gap: 0;
@@ -286,6 +526,40 @@ export default {
   
   .guestbook-form {
     padding: 20px;
+  }
+  
+  .guestbook-form::before,
+  .guestbook-form::after {
+    font-size: 20px;
+  }
+  
+  .btn {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+  
+  .btn::before,
+  .btn::after {
+    display: none;
+  }
+  
+  .entries-header h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .entry-count {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .empty-illustration {
+    font-size: 48px;
+  }
+  
+  .no-entries {
+    padding: 30px 20px;
   }
 }
 </style>

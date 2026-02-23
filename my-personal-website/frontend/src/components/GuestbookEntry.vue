@@ -10,6 +10,7 @@
         <div class="entry-author">
           <span class="author-icon">👤</span>
           <strong class="author-name">{{ entry.name }}</strong>
+          <span class="mischief-badge" v-if="isNewEntry">NEW CHAOS!</span>
         </div>
         <div class="entry-date">
           <span class="date-icon">🕒</span>
@@ -40,6 +41,14 @@ export default {
     entry: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    isNewEntry() {
+      const entryDate = new Date(this.entry.created_at)
+      const now = new Date()
+      const hoursDiff = (now - entryDate) / (1000 * 60 * 60)
+      return hoursDiff < 24 // New if less than 24 hours old
     }
   },
   methods: {
@@ -126,6 +135,7 @@ export default {
   padding: 5px 15px;
   border-radius: 50px;
   border: 1px solid var(--kuromi-pink);
+  flex-wrap: wrap;
 }
 
 .author-icon {
@@ -135,6 +145,23 @@ export default {
 .author-name {
   color: var(--kuromi-pink);
   font-size: 16px;
+  font-weight: 600;
+}
+
+.mischief-badge {
+  background: var(--kuromi-purple);
+  color: var(--kuromi-black);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }
 
 .entry-date {
@@ -233,7 +260,7 @@ export default {
   
   .entry-author, .entry-date {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
   }
   
   .entry-message {
@@ -243,6 +270,10 @@ export default {
   
   .entry-message::before {
     font-size: 20px;
+  }
+  
+  .mischief-badge {
+    margin-left: auto;
   }
 }
 </style>
