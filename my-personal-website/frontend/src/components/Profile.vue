@@ -215,17 +215,15 @@ export default {
 .profile-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 40px;
 }
 
 .detail-card {
   background: var(--kuromi-gray);
-  padding: 30px;
+  padding: 35px;
   border-radius: 25px;
   border: 2px solid var(--kuromi-pink);
   transition: transform 0.3s ease;
-  width: 100%;
-  min-width: 320px;
 }
 
 .detail-card:hover {
@@ -234,14 +232,14 @@ export default {
 }
 
 .detail-card h3 {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   font-size: var(--font-xl);
 }
 
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .skill-item {
@@ -269,7 +267,7 @@ export default {
 
 .skill-bar {
   width: 100%;
-  height: 12px;
+  height: 15px;
   background: var(--kuromi-black);
   border-radius: 10px;
   overflow: hidden;
@@ -284,14 +282,14 @@ export default {
 
 .contact-list {
   list-style: none;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .contact-list li {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 14px 0;
+  padding: 15px 0;
   border-bottom: 1px dashed var(--kuromi-purple);
   font-size: var(--font-base);
 }
@@ -323,13 +321,13 @@ export default {
 .favorite-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 15px;
 }
 
 .tag {
   background: var(--kuromi-black);
   color: var(--kuromi-pink);
-  padding: 8px 18px;
+  padding: 8px 20px;
   border-radius: 50px;
   font-size: var(--font-base);
   border: 1px solid var(--kuromi-purple);
@@ -342,23 +340,12 @@ export default {
   transform: scale(1.05);
 }
 
-@media (max-width: 1024px) {
-  .profile-details {
-    gap: 25px;
-  }
-  
-  .detail-card {
-    min-width: 280px;
-    padding: 25px;
-  }
-}
-
 @media (max-width: 768px) {
   .profile-header {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 30px;
+    padding: 25px;
     gap: 30px;
   }
   
@@ -373,17 +360,12 @@ export default {
   
   .stats {
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
   }
   
   .profile-details {
     grid-template-columns: 1fr;
-    gap: 25px;
-  }
-  
-  .detail-card {
-    min-width: 100%;
-    padding: 28px;
+    gap: 30px;
   }
   
   .stat-value {
@@ -401,65 +383,25 @@ export default {
     height: 150px;
   }
   
-  .avatar-caption {
-    font-size: var(--font-base);
-  }
-  
-  .profile-info h2 {
-    font-size: var(--font-xxl);
-  }
-  
-  .profile-info .title {
-    font-size: var(--font-base);
-  }
-  
   .stats {
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
   }
   
   .stat-item {
-    flex: 1 1 calc(50% - 20px);
+    flex: 1 1 calc(50% - 15px);
   }
   
   .detail-card {
-    padding: 22px;
-  }
-  
-  .detail-card h3 {
-    font-size: var(--font-lg);
-    margin-bottom: 20px;
+    padding: 25px;
   }
   
   .favorite-tags {
-    gap: 8px;
+    gap: 10px;
   }
   
   .tag {
-    padding: 6px 14px;
-    font-size: var(--font-sm);
-  }
-  
-  .contact-list li {
-    padding: 12px 0;
-    font-size: var(--font-sm);
-  }
-  
-  .contact-icon {
-    font-size: var(--font-base);
-    min-width: 30px;
-  }
-  
-  .contact-link {
-    font-size: var(--font-sm);
-  }
-  
-  .skill-info {
-    font-size: var(--font-sm);
-  }
-  
-  .skill-name,
-  .skill-level {
+    padding: 6px 15px;
     font-size: var(--font-sm);
   }
 }
