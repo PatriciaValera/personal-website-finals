@@ -37,7 +37,7 @@
     </div>
     
     <div class="profile-details">
-      <div class="detail-card">
+      <div class="detail-card skills-card">
         <h3>✧ Skills & Spells ✧</h3>
         <div class="skills-grid">
           <div v-for="skill in skills" :key="skill.name" class="skill-item">
@@ -52,7 +52,7 @@
         </div>
       </div>
       
-      <div class="detail-card">
+      <div class="detail-card contact-card">
         <h3>♡ Contact Info ♡</h3>
         <ul class="contact-list">
           <li>
@@ -108,10 +108,10 @@ export default {
 .profile-header {
   display: flex;
   gap: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
   background: var(--kuromi-gray);
-  padding: 40px;
+  padding: 35px;
   border-radius: 30px;
   border: 2px solid var(--kuromi-purple);
   position: relative;
@@ -123,8 +123,8 @@ export default {
 }
 
 .profile-avatar img {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   border-radius: 30px 30px 50% 50%;
   object-fit: cover;
   border: 4px solid var(--kuromi-pink);
@@ -132,10 +132,10 @@ export default {
 }
 
 .avatar-caption {
-  margin-top: 15px;
+  margin-top: 12px;
   color: var(--kuromi-pink);
   font-weight: bold;
-  font-size: var(--font-lg);
+  font-size: var(--font-base);
   letter-spacing: 2px;
 }
 
@@ -145,39 +145,39 @@ export default {
 
 .profile-info h2 {
   margin-bottom: 5px;
-  font-size: var(--font-xxxl);
+  font-size: var(--font-xxl);
 }
 
 .profile-info .title {
   color: var(--kuromi-purple);
-  font-size: var(--font-lg);
-  margin-bottom: 20px;
+  font-size: var(--font-base);
+  margin-bottom: 15px;
   font-style: italic;
 }
 
 .bio-box {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 20px;
-  padding: 25px;
-  margin-bottom: 25px;
+  padding: 20px;
+  margin-bottom: 20px;
   border-left: 4px solid var(--kuromi-pink);
 }
 
 .bio {
-  line-height: 2;
+  line-height: 1.8;
   color: var(--text-light);
-  font-size: var(--font-base);
+  font-size: var(--font-sm);
 }
 
 .highlight {
   color: var(--kuromi-pink);
   font-weight: 600;
-  font-size: var(--font-lg);
+  font-size: var(--font-base);
 }
 
 .heart {
   color: var(--kuromi-pink);
-  font-size: var(--font-xl);
+  font-size: var(--font-lg);
   animation: heartbeat 1.5s ease infinite;
   display: inline-block;
 }
@@ -189,8 +189,8 @@ export default {
 
 .stats {
   display: flex;
-  gap: 40px;
-  margin-top: 20px;
+  gap: 30px;
+  margin-top: 15px;
 }
 
 .stat-item {
@@ -199,14 +199,14 @@ export default {
 
 .stat-value {
   display: block;
-  font-size: var(--font-xxl);
+  font-size: var(--font-xl);
   font-weight: bold;
   color: var(--kuromi-pink);
   text-shadow: 2px 2px 0 var(--kuromi-dark-purple);
 }
 
 .stat-label {
-  font-size: var(--font-sm);
+  font-size: var(--font-xs);
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -215,31 +215,41 @@ export default {
 .profile-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 25px;
 }
 
 .detail-card {
   background: var(--kuromi-gray);
-  padding: 35px;
+  padding: 25px;
   border-radius: 25px;
   border: 2px solid var(--kuromi-pink);
   transition: transform 0.3s ease;
 }
 
 .detail-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 0 var(--kuromi-dark-purple);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 0 var(--kuromi-dark-purple);
 }
 
 .detail-card h3 {
-  margin-bottom: 30px;
-  font-size: var(--font-xl);
+  margin-bottom: 20px;
+  font-size: var(--font-lg);
+}
+
+.skills-card {
+  max-width: 350px;
+  justify-self: end;
+}
+
+.contact-card {
+  max-width: 350px;
+  justify-self: start;
 }
 
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .skill-item {
@@ -249,25 +259,23 @@ export default {
 .skill-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   color: var(--text-light);
-  font-size: var(--font-base);
+  font-size: var(--font-sm);
 }
 
 .skill-name {
   font-weight: 600;
-  font-size: var(--font-base);
 }
 
 .skill-level {
   color: var(--kuromi-pink);
-  font-size: var(--font-base);
   font-weight: 600;
 }
 
 .skill-bar {
   width: 100%;
-  height: 15px;
+  height: 10px;
   background: var(--kuromi-black);
   border-radius: 10px;
   overflow: hidden;
@@ -282,28 +290,28 @@ export default {
 
 .contact-list {
   list-style: none;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .contact-list li {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px 0;
+  gap: 12px;
+  padding: 12px 0;
   border-bottom: 1px dashed var(--kuromi-purple);
-  font-size: var(--font-base);
+  font-size: var(--font-sm);
 }
 
 .contact-icon {
-  font-size: var(--font-lg);
-  min-width: 35px;
+  font-size: var(--font-base);
+  min-width: 30px;
 }
 
 .contact-link {
   color: var(--text-light);
   text-decoration: none;
   transition: color 0.3s ease;
-  font-size: var(--font-base);
+  font-size: var(--font-sm);
   word-break: break-all;
 }
 
@@ -314,22 +322,22 @@ export default {
 
 .favorites h4 {
   color: var(--kuromi-pink);
-  margin-bottom: 15px;
-  font-size: var(--font-lg);
+  margin-bottom: 12px;
+  font-size: var(--font-base);
 }
 
 .favorite-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
 }
 
 .tag {
   background: var(--kuromi-black);
   color: var(--kuromi-pink);
-  padding: 8px 20px;
+  padding: 6px 15px;
   border-radius: 50px;
-  font-size: var(--font-base);
+  font-size: var(--font-xs);
   border: 1px solid var(--kuromi-purple);
   transition: all 0.3s ease;
 }
@@ -346,12 +354,12 @@ export default {
     align-items: center;
     text-align: center;
     padding: 25px;
-    gap: 30px;
+    gap: 25px;
   }
   
   .profile-avatar img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
   }
   
   .bio-box {
@@ -360,16 +368,24 @@ export default {
   
   .stats {
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
   }
   
   .profile-details {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
+    justify-items: center;
+  }
+  
+  .skills-card,
+  .contact-card {
+    max-width: 100%;
+    width: 100%;
+    justify-self: center;
   }
   
   .stat-value {
-    font-size: var(--font-xl);
+    font-size: var(--font-lg);
   }
 }
 
@@ -379,8 +395,8 @@ export default {
   }
   
   .profile-avatar img {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
   }
   
   .stats {
@@ -393,16 +409,19 @@ export default {
   }
   
   .detail-card {
-    padding: 25px;
+    padding: 20px;
   }
   
   .favorite-tags {
-    gap: 10px;
+    gap: 8px;
   }
   
   .tag {
-    padding: 6px 15px;
-    font-size: var(--font-sm);
+    padding: 5px 12px;
+  }
+  
+  .contact-list li {
+    padding: 10px 0;
   }
 }
 </style>
