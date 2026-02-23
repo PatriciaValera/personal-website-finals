@@ -5,7 +5,7 @@
         <span class="face">☠</span>
       </div>
       <div class="header-text">
-        <h1>Kuromi's Lair</h1>
+        <h1>Riri's Lair</h1>
         <p class="subtitle">Kuromi inspired profile website</p>
       </div>
     </div>
