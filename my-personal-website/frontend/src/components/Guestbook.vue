@@ -24,7 +24,7 @@
         <div class="form-group">
           <label for="email">
             <span class="label-icon">♡</span>
-            Email (optional)
+            Email
           </label>
           <input 
             type="email" 
@@ -45,7 +45,7 @@
           v-model="formData.message" 
           required
           rows="4"
-          placeholder="Write something cute or spooky..."
+          placeholder="Write something adorable here... but make it wicked too"
         ></textarea>
       </div>
       
@@ -53,16 +53,18 @@
         <span class="error-icon">⚠️</span>
         {{ error }}
       </div>
-      <div v-if="success" class="success-message">
-        <span class="success-icon">✨</span>
-        {{ success }}
-        <span class="success-icon">✨</span>
-      </div>
       
       <button type="submit" class="btn" :disabled="loading">
         <span v-if="loading">✧ Brewing Chaos... ✧</span>
         <span v-else>☠ Seal Your Chaos ☠</span>
       </button>
+      
+      <!-- Success message moved below the button -->
+      <div v-if="success" class="success-message">
+        <span class="success-icon">🎀</span>
+        {{ success }}
+        <span class="success-icon">🎀</span>
+      </div>
     </form>
     
     <div class="entries-container">
@@ -151,7 +153,7 @@ export default {
           message: ''
         }
         
-        this.success = 'Chaos sealed successfully! ✧'
+        this.success = 'Chaos sealed successfully! 🎉'
         
         setTimeout(() => {
           this.success = null
@@ -182,7 +184,7 @@ export default {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .subtitle {
@@ -234,7 +236,7 @@ export default {
 }
 
 .guestbook-form::after {
-  content: "♡";
+  content: "☠"; /* Changed from ♡ to ☠ */
   position: absolute;
   bottom: -15px;
   right: 20px;
@@ -330,7 +332,7 @@ export default {
 }
 
 .btn::after {
-  content: "♡";
+  content: "☠"; /* Changed from ♡ to ☠ */
   position: absolute;
   right: -30px;
   top: 50%;
@@ -383,13 +385,41 @@ export default {
 }
 
 .success-message {
-  color: #51cf66;
-  background: rgba(81, 207, 102, 0.1);
-  border: 1px solid #51cf66;
+  color: #b28bff; /* Changed to purple */
+  background: rgba(178, 139, 255, 0.1); /* Purple background with opacity */
+  border: 1px solid #b28bff; /* Purple border */
   border-radius: 15px;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 12px;
+  margin-top: 15px; /* Added margin top since it's below button */
   text-align: center;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-icon {
+  font-size: 20px;
+  animation: bowBounce 1s ease infinite;
+  display: inline-block;
+}
+
+@keyframes bowBounce {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(5deg); }
 }
 
 .loading-state {
@@ -560,6 +590,11 @@ export default {
   
   .no-entries {
     padding: 30px 20px;
+  }
+  
+  .success-message {
+    flex-direction: column;
+    gap: 5px;
   }
 }
 </style>
