@@ -2,7 +2,7 @@
   <div class="guestbook-section">
     <div class="guestbook-header">
       <h2>✧ Kuromi's Mischief Log ✧</h2>
-      <h3>Dare to Leave Your Scribble~</h3>
+      <p class="subtitle">Dare to Leave Your Scribble~</p>
     </div>
     
     <form @submit.prevent="submitEntry" class="guestbook-form">
@@ -59,10 +59,10 @@
         <span v-else>☠ Seal Your Chaos ☠</span>
       </button>
       
-      <!-- Success message below the button (no emoji) -->
+      <!-- Success message below the button -->
       <div v-if="success" class="success-message">
         <span class="success-icon">🎀</span>
-        {{ success }}
+        Chaos sealed successfully!
         <span class="success-icon">🎀</span>
       </div>
     </form>
@@ -153,7 +153,7 @@ export default {
           message: ''
         }
         
-        this.success = 'Chaos sealed successfully!' // Removed the 🎉 icon
+        this.success = 'Chaos sealed successfully!' 
         
         setTimeout(() => {
           this.success = null
@@ -185,6 +185,37 @@ export default {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+.guestbook-header h2::before {
+  content: "☠";
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: var(--kuromi-pink);
+  opacity: 0.6;
+  animation: skullFloat 3s ease infinite;
+}
+
+.guestbook-header h2::after {
+  content: "☠";
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: var(--kuromi-purple);
+  opacity: 0.6;
+  animation: skullFloat 3s ease infinite 0.5s;
+}
+
+@keyframes skullFloat {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-60%) scale(1.1); }
 }
 
 .subtitle {
@@ -538,6 +569,11 @@ export default {
 @media (max-width: 768px) {
   .guestbook-header h2 {
     font-size: 24px;
+  }
+  
+  .guestbook-header h2::before,
+  .guestbook-header h2::after {
+    display: none;
   }
   
   .subtitle {
