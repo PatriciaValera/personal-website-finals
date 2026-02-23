@@ -2,7 +2,7 @@
   <div class="guestbook-section">
     <div class="guestbook-header">
       <h2>✧ Kuromi's Mischief Log ✧</h2>
-      <p class="subtitle">Dare to Leave Your Scribble~ ♡</p>
+      <p class="subtitle">Dare to Leave Your Scribble~ ❤️</p>
     </div>
     
     <form @submit.prevent="submitEntry" class="guestbook-form">
@@ -59,7 +59,7 @@
         <span v-else>☠ Seal Your Chaos ☠</span>
       </button>
       
-      <!-- Success message moved below the button -->
+      <!-- Success message below the button (no emoji) -->
       <div v-if="success" class="success-message">
         <span class="success-icon">🎀</span>
         {{ success }}
@@ -153,7 +153,7 @@ export default {
           message: ''
         }
         
-        this.success = 'Chaos sealed successfully! 🎉'
+        this.success = 'Chaos sealed successfully!' // Removed the 🎉 icon
         
         setTimeout(() => {
           this.success = null
@@ -236,7 +236,7 @@ export default {
 }
 
 .guestbook-form::after {
-  content: "☠"; /* Changed from ♡ to ☠ */
+  content: "☠";
   position: absolute;
   bottom: -15px;
   right: 20px;
@@ -332,7 +332,7 @@ export default {
 }
 
 .btn::after {
-  content: "☠"; /* Changed from ♡ to ☠ */
+  content: "☠";
   position: absolute;
   right: -30px;
   top: 50%;
@@ -385,12 +385,12 @@ export default {
 }
 
 .success-message {
-  color: #b28bff; /* Changed to purple */
-  background: rgba(178, 139, 255, 0.1); /* Purple background with opacity */
-  border: 1px solid #b28bff; /* Purple border */
+  color: #b28bff;
+  background: rgba(178, 139, 255, 0.1);
+  border: 1px solid #b28bff;
   border-radius: 15px;
   padding: 12px;
-  margin-top: 15px; /* Added margin top since it's below button */
+  margin-top: 15px;
   text-align: center;
   font-weight: 500;
   display: flex;
