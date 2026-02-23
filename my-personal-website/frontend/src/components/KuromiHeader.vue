@@ -2,19 +2,18 @@
   <div class="kuromi-header">
     <div class="header-content">
       <div class="kuromi-icon">
-        <span class="ears">👿</span>
         <span class="face">☠</span>
       </div>
       <div class="header-text">
         <h1>Kuromi's Lair</h1>
-        <p class="subtitle">〜 悪い子ちゃんのプロフィール 〜</p>
+        <p class="subtitle">Kuromi inspired profile website</p>
       </div>
     </div>
     
     <div class="banner">
-      <span class="banner-item" v-for="i in 5" :key="i">♡</span>
+      <span class="banner-item" v-for="i in 3" :key="i">♡</span>
       <span class="banner-text">WELCOME TO MY DARK & CUTE WORLD</span>
-      <span class="banner-item" v-for="i in 5" :key="i">☠</span>
+      <span class="banner-item" v-for="i in 3" :key="i">☠</span>
     </div>
   </div>
 </template>
