@@ -1,5 +1,5 @@
 {
-  "name": "aorun-personal-website",
+  "name": "kuromi-personal-website",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
-    "vite": "^4.0.0",
-    "terser": "^5.0.0"
+    "vite": "^4.0.0"
   }
 }

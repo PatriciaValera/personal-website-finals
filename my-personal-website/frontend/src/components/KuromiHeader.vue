@@ -13,7 +13,7 @@
     
     <div class="banner">
       <span class="banner-item" v-for="i in 5" :key="i">♡</span>
-      <span class="banner-text">WELCOME TO MY PURPLE WORLD</span>
+      <span class="banner-text">WELCOME TO MY DARK & CUTE WORLD</span>
       <span class="banner-item" v-for="i in 5" :key="i">☠</span>
     </div>
   </div>
@@ -42,27 +42,25 @@ export default {
   position: relative;
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #b28bff, #7c4dff);
+  background: linear-gradient(135deg, var(--kuromi-pink), var(--kuromi-purple));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid white;
-  box-shadow: 0 5px 0 #5f3dc3;
+  border: 3px solid var(--kuromi-white);
+  box-shadow: 0 5px 0 var(--kuromi-dark-purple);
 }
 
 .ears {
   position: absolute;
   top: -20px;
   font-size: 40px;
-  color: #b28bff;
-  filter: drop-shadow(0 2px 0 #5f3dc3);
+  filter: drop-shadow(0 2px 0 var(--kuromi-dark-purple));
 }
 
 .face {
   font-size: 50px;
   transform: rotate(-10deg);
-  color: white;
 }
 
 .header-text {
@@ -72,25 +70,21 @@ export default {
 .header-text h1 {
   margin-bottom: 5px;
   font-size: 36px;
-  color: #5f3dc3;
-}
-
-.header-text h1::after {
-  display: none;
 }
 
 .subtitle {
-  color: #7c4dff;
+  color: var(--kuromi-pink);
   font-size: 16px;
+  opacity: 0.8;
 }
 
 .banner {
-  background: #f5f0ff;
+  background: var(--kuromi-gray);
   padding: 15px;
   border-radius: 50px;
   margin-top: 20px;
   text-align: center;
-  border: 2px dashed #b28bff;
+  border: 2px dashed var(--kuromi-pink);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,13 +93,13 @@ export default {
 }
 
 .banner-item {
-  color: #b28bff;
+  color: var(--kuromi-pink);
   font-size: 20px;
   animation: sparkle 2s ease infinite;
 }
 
 .banner-text {
-  color: #7c4dff;
+  color: var(--kuromi-purple);
   font-weight: bold;
   font-size: 14px;
   letter-spacing: 2px;
@@ -113,7 +107,7 @@ export default {
 
 @keyframes sparkle {
   0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); color: #9f7aea; }
+  50% { opacity: 1; transform: scale(1.2); color: var(--kuromi-purple); }
 }
 
 @media (max-width: 768px) {
@@ -128,6 +122,10 @@ export default {
   
   .header-text h1 {
     font-size: 28px;
+  }
+  
+  .banner {
+    gap: 8px;
   }
 }
 </style>

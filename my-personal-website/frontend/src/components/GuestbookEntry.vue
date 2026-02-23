@@ -1,22 +1,34 @@
 <template>
-  <div class="entry-card">
-    <div class="entry-header">
-      <span class="entry-name">{{ entry.name }}</span>
-      <span class="entry-date">{{ formatDate(entry.created_at) }}</span>
+  <div class="guestbook-entry">
+    <div class="entry-decoration">
+      <span class="decor-left">☠</span>
+      <span class="decor-right">♡</span>
     </div>
     
-    <div class="entry-message">
-      "{{ entry.message }}"
-    </div>
-    
-    <div v-if="entry.email" class="entry-email">
-      <span>📧</span> {{ entry.email }}
-    </div>
-    
-    <div class="entry-stickers">
-      <span>🎀</span>
-      <span>🎁</span>
-      <span>❤️</span>
+    <div class="entry-content">
+      <div class="entry-header">
+        <div class="entry-author">
+          <span class="author-icon">👤</span>
+          <strong class="author-name">{{ entry.name }}</strong>
+        </div>
+        <div class="entry-date">
+          <span class="date-icon">🕒</span>
+          {{ formatDate(entry.created_at) }}
+        </div>
+      </div>
+      
+      <div class="entry-message">
+        "{{ entry.message }}"
+      </div>
+      
+      <div v-if="entry.email" class="entry-footer">
+        <span class="email-icon">📧</span>
+        <span class="entry-email">{{ entry.email }}</span>
+      </div>
+      
+      <div class="entry-sticker">
+        <span class="sticker" v-for="n in 3" :key="n">✨</span>
+      </div>
     </div>
   </div>
 </template>
@@ -47,20 +59,54 @@ export default {
 </script>
 
 <style scoped>
-.entry-card {
-  background: var(--kuromi-white);
-  border: 3px solid var(--kuromi-lavender);
+.guestbook-entry {
+  background: linear-gradient(135deg, var(--kuromi-gray), var(--kuromi-light-gray));
+  border: 2px solid var(--kuromi-purple);
   border-radius: 25px;
-  padding: 25px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
+  padding: 20px;
   position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-.entry-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--kuromi-hot-pink);
-  box-shadow: 0 10px 0 var(--kuromi-lavender);
+.guestbook-entry:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--kuromi-pink);
+  box-shadow: 0 8px 0 var(--kuromi-dark-purple);
+}
+
+.entry-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.decor-left {
+  color: var(--kuromi-pink);
+  font-size: 14px;
+  animation: bounce 2s ease infinite;
+}
+
+.decor-right {
+  color: var(--kuromi-purple);
+  font-size: 14px;
+  animation: bounce 2s ease infinite 0.5s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.entry-content {
+  position: relative;
+  z-index: 1;
 }
 
 .entry-header {
@@ -72,92 +118,112 @@ export default {
   gap: 10px;
 }
 
-.entry-name {
-  background: linear-gradient(45deg, var(--kuromi-hot-pink), var(--kuromi-lavender));
-  color: white;
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 16px;
-  box-shadow: 0 3px 0 var(--kuromi-purple);
-}
-
-.entry-date {
-  color: var(--text-light);
-  font-size: 14px;
-  background: var(--kuromi-gray);
-  padding: 5px 15px;
-  border-radius: 50px;
-  border: 2px solid var(--kuromi-lavender);
-}
-
-.entry-message {
-  background: var(--kuromi-off-white);
-  padding: 20px;
-  border-radius: 20px;
-  line-height: 1.8;
-  font-size: 16px;
-  border-left: 5px solid var(--kuromi-hot-pink);
-  margin: 15px 0;
-  position: relative;
-  font-style: italic;
-}
-
-.entry-message::before {
-  content: "💬";
-  position: absolute;
-  bottom: 5px;
-  right: 10px;
-  opacity: 0.2;
-  font-size: 24px;
-}
-
-.entry-email {
-  font-size: 14px;
-  color: var(--kuromi-purple);
+.entry-author {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px;
-  background: var(--kuromi-gray);
-  border-radius: 15px;
-  margin-top: 10px;
-}
-
-.entry-stickers {
-  position: absolute;
-  top: -10px;
-  right: 20px;
-  display: flex;
-  gap: 5px;
-  background: white;
-  padding: 5px 10px;
+  background: var(--kuromi-black);
+  padding: 5px 15px;
   border-radius: 50px;
-  border: 2px solid var(--kuromi-hot-pink);
-  box-shadow: 0 3px 0 var(--kuromi-lavender);
+  border: 1px solid var(--kuromi-pink);
 }
 
-.entry-stickers span {
-  animation: sparkle 2s ease infinite;
-  animation-delay: calc(var(--i) * 0.3s);
+.author-icon {
+  font-size: 16px;
 }
 
-.entry-stickers span:nth-child(2) {
-  animation-delay: 0.3s;
+.author-name {
+  color: var(--kuromi-pink);
+  font-size: 16px;
 }
 
-.entry-stickers span:nth-child(3) {
-  animation-delay: 0.6s;
+.entry-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-muted);
+  font-size: 14px;
+  background: var(--kuromi-black);
+  padding: 5px 15px;
+  border-radius: 50px;
+  border: 1px solid var(--kuromi-purple);
+}
+
+.date-icon {
+  color: var(--kuromi-purple);
+}
+
+.entry-message {
+  background: var(--kuromi-black);
+  padding: 20px;
+  border-radius: 20px;
+  margin: 15px 0;
+  line-height: 1.6;
+  color: var(--text-light);
+  font-style: italic;
+  border-left: 4px solid var(--kuromi-pink);
+  position: relative;
+}
+
+.entry-message::before {
+  content: "☠";
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  opacity: 0.1;
+  font-size: 30px;
+  color: var(--kuromi-pink);
+  transform: rotate(10deg);
+}
+
+.entry-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--kuromi-purple);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.email-icon {
+  color: var(--kuromi-pink);
+}
+
+.entry-email {
+  word-break: break-all;
+}
+
+.entry-sticker {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  opacity: 0.3;
+  font-size: 12px;
+}
+
+.sticker {
+  display: inline-block;
+  animation: sparkle 3s ease infinite;
+}
+
+.sticker:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.sticker:nth-child(3) {
+  animation-delay: 1s;
 }
 
 @keyframes sparkle {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
+/* Responsive adjustments */
 @media (max-width: 480px) {
-  .entry-card {
-    padding: 20px;
+  .guestbook-entry {
+    padding: 15px;
   }
   
   .entry-header {
@@ -165,15 +231,18 @@ export default {
     align-items: flex-start;
   }
   
-  .entry-name, .entry-date {
+  .entry-author, .entry-date {
     width: 100%;
-    text-align: center;
+    justify-content: center;
   }
   
-  .entry-stickers {
-    position: static;
-    justify-content: center;
-    margin-top: 15px;
+  .entry-message {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  .entry-message::before {
+    font-size: 20px;
   }
 }
 </style>
