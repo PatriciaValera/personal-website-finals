@@ -2,7 +2,7 @@
   <div class="guestbook-section">
     <div class="guestbook-header">
       <h2>✧ Kuromi's Mischief Log ✧</h2>
-      <p class="subtitle">Dare to Leave Your Scribble~ ❤️</p>
+      <h3>Dare to Leave Your Scribble~</h3>
     </div>
     
     <form @submit.prevent="submitEntry" class="guestbook-form">
