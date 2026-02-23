@@ -3,34 +3,32 @@
     <div class="profile-header">
       <div class="profile-avatar">
         <img src="https://i.pravatar.cc/300?img=5" alt="Kuromi Style Avatar">
-        <div class="avatar-caption">☠ Riri ☠</div>
+        <div class="avatar-caption">☠ くろみ ☠</div>
       </div>
       
       <div class="profile-info">
         <h2>Kuromi Chan</h2>
-        <p class="title">～悪い子ちゃん (Bad Girl) ～</p>
-        <div class="bio-box">
-          <p class="bio">
-            Yo, I'm <span class="highlight">Patricia Marie Valera</span><br>
-            I live for juicy stories and a bit of chaos—gossip is my guilty pleasure. 
-            Curiosity keeps me lurking, always sniffing out what's going on. Life's way 
-            more fun when you stir things up, laugh loud, and make memories that stick. 
-            I'm not bold, but I've got my own kind of mischief~ <span class="heart">💕</span>
-          </p>
-        </div>
-        
+        <p class="title">〜 悪い子ちゃん (Bad Girl) 〜</p>
+        <p class="bio">
+          ✧ Yo, I’m Patricia Marie Valera ✧<br>
+          I live for juicy stories and a bit of chaos—gossip is my guilty pleasure.
+          Curiosity keeps me lurking, always sniffing out what’s going on. 
+          Life’s way more fun when you stir things up, laugh loud, and make memories that stick.
+          I’m not bold, but I’ve got my own kind of mischief~ 🎀.
+        </p>
+       
         <div class="stats">
           <div class="stat-item">
             <span class="stat-value">25</span>
-            <span class="stat-label">PROJECTS</span>
+            <span class="stat-label">Projects</span>
           </div>
           <div class="stat-item">
             <span class="stat-value">1337</span>
-            <span class="stat-label">FOLLOWERS</span>
+            <span class="stat-label">Followers</span>
           </div>
           <div class="stat-item">
             <span class="stat-value">∞</span>
-            <span class="stat-label">CUTENESS</span>
+            <span class="stat-label">Cuteness</span>
           </div>
         </div>
       </div>
@@ -38,7 +36,7 @@
     
     <div class="profile-details">
       <div class="detail-card">
-        <h3>✧ Skills & Spells ✧</h3>
+        <h3>☠ Skills & Spells ☠</h3>
         <div class="skills-grid">
           <div v-for="skill in skills" :key="skill.name" class="skill-item">
             <div class="skill-info">
@@ -57,11 +55,11 @@
         <ul class="contact-list">
           <li>
             <span class="contact-icon">📧</span>
-            <a href="mailto:pdvalera@student.apc.edu.ph" class="contact-link">pdvalera@student.apc.edu.ph</a>
+            <span>pdvalera@student.apc.edu.ph</span>
           </li>
           <li>
             <span class="contact-icon">💀</span>
-            <a href="https://github.com/PatriciaValera" target="_blank" class="contact-link">github.com/PatriciaValera</a>
+            <span>github.com/PatriciaValera</span>
           </li>
           <li>
             <span class="contact-icon">🏰</span>
@@ -93,7 +91,7 @@ export default {
         { name: 'React', level: 85 },
         { name: 'UI/UX Design', level: 95 },
         { name: 'Node.js', level: 80 },
-        { name: 'Python', level: 75 }
+        { name: 'Python', level: 75 },
       ]
     }
   }
@@ -107,11 +105,11 @@ export default {
 
 .profile-header {
   display: flex;
-  gap: 50px;
-  margin-bottom: 50px;
+  gap: 40px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
   background: var(--kuromi-gray);
-  padding: 40px;
+  padding: 30px;
   border-radius: 30px;
   border: 2px solid var(--kuromi-purple);
   position: relative;
@@ -123,8 +121,8 @@ export default {
 }
 
 .profile-avatar img {
-  width: 220px;
-  height: 220px;
+  width: 180px;
+  height: 180px;
   border-radius: 30px 30px 50% 50%;
   object-fit: cover;
   border: 4px solid var(--kuromi-pink);
@@ -132,10 +130,10 @@ export default {
 }
 
 .avatar-caption {
-  margin-top: 15px;
+  margin-top: 10px;
   color: var(--kuromi-pink);
   font-weight: bold;
-  font-size: var(--font-lg);
+  font-size: 14px;
   letter-spacing: 2px;
 }
 
@@ -145,51 +143,29 @@ export default {
 
 .profile-info h2 {
   margin-bottom: 5px;
-  font-size: var(--font-xxxl);
+  font-size: 32px;
 }
 
 .profile-info .title {
   color: var(--kuromi-purple);
-  font-size: var(--font-lg);
-  margin-bottom: 20px;
+  font-size: 16px;
+  margin-bottom: 15px;
   font-style: italic;
 }
 
-.bio-box {
+.profile-info .bio {
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-bottom: 20px;
+  padding: 15px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 20px;
-  padding: 25px;
-  margin-bottom: 25px;
   border-left: 4px solid var(--kuromi-pink);
-}
-
-.bio {
-  line-height: 2;
-  color: var(--text-light);
-  font-size: var(--font-base);
-}
-
-.highlight {
-  color: var(--kuromi-pink);
-  font-weight: 600;
-  font-size: var(--font-lg);
-}
-
-.heart {
-  color: var(--kuromi-pink);
-  font-size: var(--font-xl);
-  animation: heartbeat 1.5s ease infinite;
-  display: inline-block;
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
 }
 
 .stats {
   display: flex;
-  gap: 40px;
+  gap: 30px;
   margin-top: 20px;
 }
 
@@ -199,14 +175,14 @@ export default {
 
 .stat-value {
   display: block;
-  font-size: var(--font-xxl);
+  font-size: 28px;
   font-weight: bold;
   color: var(--kuromi-pink);
   text-shadow: 2px 2px 0 var(--kuromi-dark-purple);
 }
 
 .stat-label {
-  font-size: var(--font-sm);
+  font-size: 12px;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -215,12 +191,12 @@ export default {
 .profile-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 30px;
 }
 
 .detail-card {
   background: var(--kuromi-gray);
-  padding: 35px;
+  padding: 25px;
   border-radius: 25px;
   border: 2px solid var(--kuromi-pink);
   transition: transform 0.3s ease;
@@ -232,14 +208,14 @@ export default {
 }
 
 .detail-card h3 {
-  margin-bottom: 30px;
-  font-size: var(--font-xl);
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .skill-item {
@@ -249,25 +225,21 @@ export default {
 .skill-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   color: var(--text-light);
-  font-size: var(--font-base);
 }
 
 .skill-name {
   font-weight: 600;
-  font-size: var(--font-base);
 }
 
 .skill-level {
   color: var(--kuromi-pink);
-  font-size: var(--font-base);
-  font-weight: 600;
 }
 
 .skill-bar {
   width: 100%;
-  height: 15px;
+  height: 10px;
   background: var(--kuromi-black);
   border-radius: 10px;
   overflow: hidden;
@@ -282,54 +254,39 @@ export default {
 
 .contact-list {
   list-style: none;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .contact-list li {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 15px 0;
+  padding: 12px 0;
   border-bottom: 1px dashed var(--kuromi-purple);
-  font-size: var(--font-base);
 }
 
 .contact-icon {
-  font-size: var(--font-lg);
-  min-width: 35px;
-}
-
-.contact-link {
-  color: var(--text-light);
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: var(--font-base);
-  word-break: break-all;
-}
-
-.contact-link:hover {
-  color: var(--kuromi-pink);
-  text-decoration: underline;
+  font-size: 20px;
+  min-width: 30px;
 }
 
 .favorites h4 {
   color: var(--kuromi-pink);
-  margin-bottom: 15px;
-  font-size: var(--font-lg);
+  margin-bottom: 10px;
 }
 
 .favorite-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
 }
 
 .tag {
   background: var(--kuromi-black);
   color: var(--kuromi-pink);
-  padding: 8px 20px;
+  padding: 5px 15px;
   border-radius: 50px;
-  font-size: var(--font-base);
+  font-size: 12px;
   border: 1px solid var(--kuromi-purple);
   transition: all 0.3s ease;
 }
@@ -345,64 +302,19 @@ export default {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 25px;
-    gap: 30px;
+    padding: 20px;
   }
   
-  .profile-avatar img {
-    width: 180px;
-    height: 180px;
-  }
-  
-  .bio-box {
+  .profile-info .bio {
     text-align: left;
   }
   
   .stats {
     justify-content: center;
-    gap: 25px;
   }
   
   .profile-details {
     grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .stat-value {
-    font-size: var(--font-xl);
-  }
-}
-
-@media (max-width: 480px) {
-  .profile-header {
-    padding: 20px;
-  }
-  
-  .profile-avatar img {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .stats {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  
-  .stat-item {
-    flex: 1 1 calc(50% - 15px);
-  }
-  
-  .detail-card {
-    padding: 25px;
-  }
-  
-  .favorite-tags {
-    gap: 10px;
-  }
-  
-  .tag {
-    padding: 6px 15px;
-    font-size: var(--font-sm);
   }
 }
 </style>
