@@ -1,7 +1,8 @@
 <template>
   <div class="guestbook-section">
     <div class="guestbook-header">
-      <h2>✧ Dare to Leave Your Scribble~ ✧</h2>
+      <h2>✧ Kuromi's Mischief Log ✧</h2>
+      <p class="subtitle">Dare to Leave Your Scribble~ ♡</p>
     </div>
     
     <form @submit.prevent="submitEntry" class="guestbook-form">
@@ -23,7 +24,7 @@
         <div class="form-group">
           <label for="email">
             <span class="label-icon">♡</span>
-            Email *
+            Email
           </label>
           <input 
             type="email" 
@@ -58,10 +59,9 @@
         <span v-else>☠ Seal Your Chaos ☠</span>
       </button>
       
-      <!-- Success message below the button -->
       <div v-if="success" class="success-message">
         <span class="success-icon">🎀</span>
-        Chaos sealed successfully!
+        {{ success }}
         <span class="success-icon">🎀</span>
       </div>
     </form>
@@ -152,7 +152,7 @@ export default {
           message: ''
         }
         
-        this.success = 'Chaos sealed successfully!' 
+        this.success = 'Chaos sealed successfully! 🎉'
         
         setTimeout(() => {
           this.success = null
@@ -178,48 +178,17 @@ export default {
 }
 
 .guestbook-header h2 {
-  font-size: 32px;
+  font-size: var(--font-xxl);
   background: linear-gradient(135deg, var(--kuromi-pink), var(--kuromi-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 5px;
-  position: relative;
-  display: inline-block;
-}
-
-.guestbook-header h2::before {
-  content: "☠";
-  position: absolute;
-  left: -40px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: var(--kuromi-pink);
-  opacity: 0.6;
-  animation: skullFloat 3s ease infinite;
-}
-
-.guestbook-header h2::after {
-  content: "☠";
-  position: absolute;
-  right: -40px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: var(--kuromi-purple);
-  opacity: 0.6;
-  animation: skullFloat 3s ease infinite 0.5s;
-}
-
-@keyframes skullFloat {
-  0%, 100% { transform: translateY(-50%) scale(1); }
-  50% { transform: translateY(-60%) scale(1.1); }
 }
 
 .subtitle {
   color: var(--kuromi-purple);
-  font-size: 18px;
+  font-size: var(--font-lg);
   font-style: italic;
   position: relative;
   display: inline-block;
@@ -231,7 +200,7 @@ export default {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 14px;
+  font-size: var(--font-sm);
   opacity: 0.5;
 }
 
@@ -259,7 +228,7 @@ export default {
   position: absolute;
   top: -15px;
   left: 20px;
-  font-size: 30px;
+  font-size: var(--font-xl);
   color: var(--kuromi-pink);
   opacity: 0.3;
   transform: rotate(-15deg);
@@ -270,7 +239,7 @@ export default {
   position: absolute;
   bottom: -15px;
   right: 20px;
-  font-size: 30px;
+  font-size: var(--font-xl);
   color: var(--kuromi-purple);
   opacity: 0.3;
   transform: rotate(15deg);
@@ -292,14 +261,14 @@ export default {
   color: var(--kuromi-pink);
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: var(--font-sm);
   letter-spacing: 1px;
 }
 
 .label-icon {
   margin-right: 5px;
   color: var(--kuromi-purple);
-  font-size: 16px;
+  font-size: var(--font-base);
 }
 
 .form-group input,
@@ -309,7 +278,7 @@ export default {
   background: var(--kuromi-black);
   border: 2px solid var(--kuromi-purple);
   border-radius: 25px;
-  font-size: 16px;
+  font-size: var(--font-base);
   color: var(--text-light);
   transition: all 0.3s ease;
   font-family: 'Poppins', sans-serif;
@@ -337,7 +306,7 @@ export default {
   padding: 15px 40px;
   border-radius: 50px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: var(--font-lg);
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -356,7 +325,7 @@ export default {
   left: -30px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 24px;
+  font-size: var(--font-xl);
   opacity: 0;
   transition: 0.3s;
 }
@@ -367,7 +336,7 @@ export default {
   right: -30px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 24px;
+  font-size: var(--font-xl);
   opacity: 0;
   transition: 0.3s;
 }
@@ -428,6 +397,7 @@ export default {
   justify-content: center;
   gap: 10px;
   animation: slideIn 0.3s ease;
+  font-size: var(--font-base);
 }
 
 @keyframes slideIn {
@@ -442,7 +412,7 @@ export default {
 }
 
 .success-icon {
-  font-size: 20px;
+  font-size: var(--font-lg);
   animation: bowBounce 1s ease infinite;
   display: inline-block;
 }
@@ -511,7 +481,7 @@ export default {
 }
 
 .empty-sub {
-  font-size: 14px;
+  font-size: var(--font-sm);
   color: var(--text-muted);
   margin-top: 10px;
   font-style: italic;
@@ -529,7 +499,7 @@ export default {
 
 .entries-header h3 {
   margin-bottom: 0;
-  font-size: 24px;
+  font-size: var(--font-xl);
 }
 
 .entry-count {
@@ -537,7 +507,7 @@ export default {
   color: var(--kuromi-black);
   padding: 8px 20px;
   border-radius: 50px;
-  font-size: 14px;
+  font-size: var(--font-sm);
   font-weight: bold;
   border: 2px solid var(--kuromi-white);
   box-shadow: 0 4px 0 var(--kuromi-dark-purple);
@@ -564,19 +534,14 @@ export default {
   transform: translateX(-30px);
 }
 
-/* Responsive adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
   .guestbook-header h2 {
-    font-size: 24px;
-  }
-  
-  .guestbook-header h2::before,
-  .guestbook-header h2::after {
-    display: none;
+    font-size: var(--font-xl);
   }
   
   .subtitle {
-    font-size: 16px;
+    font-size: var(--font-base);
   }
   
   .subtitle::before,
@@ -595,11 +560,11 @@ export default {
   
   .guestbook-form::before,
   .guestbook-form::after {
-    font-size: 20px;
+    font-size: var(--font-lg);
   }
   
   .btn {
-    font-size: 16px;
+    font-size: var(--font-base);
     padding: 12px 20px;
   }
   
@@ -609,7 +574,7 @@ export default {
   }
   
   .entries-header h3 {
-    font-size: 20px;
+    font-size: var(--font-lg);
   }
 }
 

@@ -2,7 +2,7 @@
   <div class="profile-section">
     <div class="profile-header">
       <div class="profile-avatar">
-        <img src="https://i.pinimg.com/736x/fa/38/d9/fa38d985fcfaba8c68aee3091f393cf5.jpg" alt="Kuromi Style Avatar">
+        <img src="https://i.pinimg.com/236x/b1/94/74/b1947450a6a5f8eacdd349f0c99b2698.jpg" alt="Kuromi Style Avatar">
         <div class="avatar-caption">☠ くろみ ☠</div>
       </div>
       
@@ -16,7 +16,7 @@
           Life’s way more fun when you stir things up, laugh loud, and make memories that stick.
           I’m not bold, but I’ve got my own kind of mischief~ 🎀.
         </p>
-       
+        
         <div class="stats">
           <div class="stat-item">
             <span class="stat-value">25</span>
@@ -36,7 +36,7 @@
     
     <div class="profile-details">
       <div class="detail-card">
-        <h3>☠ Skills & Spells ☠</h3>
+        <h3>✧ Skills & Spells ✧</h3>
         <div class="skills-grid">
           <div v-for="skill in skills" :key="skill.name" class="skill-item">
             <div class="skill-info">
@@ -55,11 +55,15 @@
         <ul class="contact-list">
           <li>
             <span class="contact-icon">📧</span>
-            <span>pdvalera@student.apc.edu.ph</span>
+            <span>kuromi@dark-cute.com</span>
+          </li>
+          <li>
+            <span class="contact-icon">🎵</span>
+            <span>@kuromi_official</span>
           </li>
           <li>
             <span class="contact-icon">💀</span>
-            <span>github.com/PatriciaValera</span>
+            <span>github.com/kuromi</span>
           </li>
           <li>
             <span class="contact-icon">🏰</span>
@@ -89,9 +93,10 @@ export default {
       skills: [
         { name: 'Vue.js', level: 90 },
         { name: 'React', level: 85 },
-        { name: 'UI/UX Design', level: 95 },
-        { name: 'Node.js', level: 80 },
+        { name: 'Node.js', level: 88 },
         { name: 'Python', level: 75 },
+        { name: 'TypeScript', level: 82 },
+        { name: 'UI/UX Design', level: 95 }
       ]
     }
   }
@@ -115,6 +120,28 @@ export default {
   position: relative;
 }
 
+.profile-header::before {
+  content: "☠";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  font-size: 40px;
+  opacity: 0.2;
+  color: var(--kuromi-pink);
+  transform: rotate(-15deg);
+}
+
+.profile-header::after {
+  content: "♡";
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  font-size: 40px;
+  opacity: 0.2;
+  color: var(--kuromi-purple);
+  transform: rotate(15deg);
+}
+
 .profile-avatar {
   position: relative;
   text-align: center;
@@ -127,13 +154,18 @@ export default {
   object-fit: cover;
   border: 4px solid var(--kuromi-pink);
   box-shadow: 0 8px 0 var(--kuromi-dark-purple);
+  transition: transform 0.3s ease;
+}
+
+.profile-avatar img:hover {
+  transform: scale(1.05);
 }
 
 .avatar-caption {
   margin-top: 10px;
   color: var(--kuromi-pink);
   font-weight: bold;
-  font-size: 14px;
+  font-size: var(--font-sm);
   letter-spacing: 2px;
 }
 
@@ -143,12 +175,12 @@ export default {
 
 .profile-info h2 {
   margin-bottom: 5px;
-  font-size: 32px;
+  font-size: var(--font-xxl);
 }
 
 .profile-info .title {
   color: var(--kuromi-purple);
-  font-size: 16px;
+  font-size: var(--font-base);
   margin-bottom: 15px;
   font-style: italic;
 }
@@ -161,6 +193,7 @@ export default {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   border-left: 4px solid var(--kuromi-pink);
+  font-size: var(--font-base);
 }
 
 .stats {
@@ -175,14 +208,13 @@ export default {
 
 .stat-value {
   display: block;
-  font-size: 28px;
+  font-size: var(--font-xxl);
   font-weight: bold;
   color: var(--kuromi-pink);
-  text-shadow: 2px 2px 0 var(--kuromi-dark-purple);
 }
 
 .stat-label {
-  font-size: 12px;
+  font-size: var(--font-xs);
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -199,7 +231,9 @@ export default {
   padding: 25px;
   border-radius: 25px;
   border: 2px solid var(--kuromi-pink);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .detail-card:hover {
@@ -207,9 +241,20 @@ export default {
   box-shadow: 0 10px 0 var(--kuromi-dark-purple);
 }
 
+.detail-card::before {
+  content: "☠";
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  font-size: 60px;
+  opacity: 0.05;
+  color: var(--kuromi-pink);
+  transform: rotate(10deg);
+}
+
 .detail-card h3 {
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: var(--font-xl);
 }
 
 .skills-grid {
@@ -227,6 +272,7 @@ export default {
   justify-content: space-between;
   margin-bottom: 5px;
   color: var(--text-light);
+  font-size: var(--font-sm);
 }
 
 .skill-name {
@@ -263,16 +309,18 @@ export default {
   gap: 15px;
   padding: 12px 0;
   border-bottom: 1px dashed var(--kuromi-purple);
+  font-size: var(--font-base);
 }
 
 .contact-icon {
-  font-size: 20px;
+  font-size: var(--font-xl);
   min-width: 30px;
 }
 
 .favorites h4 {
   color: var(--kuromi-pink);
   margin-bottom: 10px;
+  font-size: var(--font-lg);
 }
 
 .favorite-tags {
@@ -284,11 +332,12 @@ export default {
 .tag {
   background: var(--kuromi-black);
   color: var(--kuromi-pink);
-  padding: 5px 15px;
+  padding: 8px 20px;
   border-radius: 50px;
-  font-size: 12px;
+  font-size: var(--font-sm);
   border: 1px solid var(--kuromi-purple);
   transition: all 0.3s ease;
+  cursor: default;
 }
 
 .tag:hover {
@@ -297,6 +346,7 @@ export default {
   transform: scale(1.05);
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .profile-header {
     flex-direction: column;
@@ -311,10 +361,34 @@ export default {
   
   .stats {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   
   .profile-details {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .stat-value {
+    font-size: var(--font-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-avatar img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .contact-list li {
+    font-size: var(--font-sm);
+    flex-wrap: wrap;
+  }
+  
+  .tag {
+    font-size: var(--font-xs);
+    padding: 5px 12px;
   }
 }
 </style>
