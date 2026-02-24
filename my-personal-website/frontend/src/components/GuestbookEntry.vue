@@ -63,8 +63,7 @@ export default {
   methods: {
     formatDate(dateString) {
       const date = new Date(dateString)
-      const options = { 
-        year: 'numeric', 
+      const options = {  
         month: 'short', 
         day: 'numeric',
         hour: '2-digit',

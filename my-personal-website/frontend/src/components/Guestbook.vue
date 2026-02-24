@@ -55,7 +55,7 @@
         </div>
         
         <div class="button-container">
-          <button type="submit" class="submit-btn" :disabled="loading">
+          <button type="submit" class="submit-btn" :disabled="loading" :class="{ 'loading-state': loading }">
             <span v-if="loading">
               <span class="btn-spinner">✧</span>
               Logging Chaos...
@@ -68,7 +68,7 @@
         
         <div v-if="success" class="success-message">
           <span class="success-icon">✧</span>
-          {{ success }}
+          Chao Submitted!
         </div>
       </form>
     </div>
@@ -174,13 +174,13 @@ export default {
           message: ''
         }
         
-        this.success = 'Chaos Submitted! ✧'
+        this.success = 'Chaos Submitted!'
         
         setTimeout(() => {
           this.success = null
         }, 3000)
       } catch (err) {
-        this.error = err.response?.data?.message || 'Failed to submit chaos'
+        this.error = err.response?.data?.message || 'FAILED TO SUBMIT CHAOS'
       } finally {
         this.loading = false
       }
@@ -289,7 +289,6 @@ export default {
   font-size: calc(var(--font-xxl) - 3px + 3px);
   color: var(--white-pure);
   margin-bottom: 5px;
-  /* Removed text-transform: lowercase */
 }
 
 .guestbook-header h2::after {
@@ -369,9 +368,8 @@ export default {
   color: var(--white-pure);
   font-weight: 600;
   font-size: calc(var(--font-base) - 3px + 3px);
-  /* Removed text-transform: lowercase */
-  text-transform: uppercase; /* Added uppercase */
-  letter-spacing: 1px; /* Slightly increased for uppercase */
+  text-transform: uppercase;
+  letter-spacing: 1px;
   text-shadow: 0 0 5px var(--purple-glow);
 }
 
@@ -406,7 +404,7 @@ export default {
   color: rgba(255, 255, 255, 0.5);
   opacity: 0.6;
   font-size: calc(var(--font-base) - 3px + 3px);
-  text-transform: none; /* Keep placeholders normal case */
+  text-transform: none;
 }
 
 /* Button Container - centers the button */
@@ -431,8 +429,15 @@ export default {
   min-width: 200px;
   max-width: 250px;
   width: auto;
-  text-transform: uppercase; /* Changed from lowercase to uppercase */
+  text-transform: uppercase;
   letter-spacing: 1px;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Loading state - wider for "LOGGING CHAOS..." */
+.submit-btn.loading-state {
+  min-width: 240px; /* Wider for the loading text */
+  padding: 12px 25px; /* Slightly adjusted padding */
 }
 
 .submit-btn:hover:not(:disabled) {
@@ -480,8 +485,8 @@ export default {
   color: var(--white-pure);
   background: rgba(155, 107, 179, 0.2);
   border: 1px solid var(--purple-light);
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 50px; /* Changed from 10px to 50px to match button */
+  padding: 12px 20px; /* Adjusted padding */
   margin-top: 15px;
   text-align: center;
   display: flex;
@@ -490,8 +495,15 @@ export default {
   gap: 8px;
   animation: slideUp 0.3s ease;
   backdrop-filter: blur(5px);
-  box-shadow: 0 0 15px var(--purple-glow);
   font-size: calc(var(--font-lg) - 3px + 3px);
+  font-weight: bold;
+  letter-spacing: 1px;
+  max-width: 250px; /* Match button max-width */
+  min-width: 200px; /* Match button min-width */
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content; /* Makes width fit content */
+  white-space: nowrap; /* Prevents text wrapping */
 }
 
 @keyframes slideUp {
@@ -516,7 +528,7 @@ export default {
   50% { transform: scale(1.2) rotate(5deg); }
 }
 
-/* Messages Section */
+/* Messages Section - rest of the styles remain the same */
 .messages-container {
   background: rgba(42, 26, 58, 0.6);
   backdrop-filter: blur(10px);
@@ -554,7 +566,7 @@ export default {
   color: var(--white-pure);
   font-size: calc(var(--font-xl) - 3px + 3px);
   margin: 0;
-  text-transform: lowercase; /* Keep this lowercase as is */
+  text-transform: lowercase;
   text-shadow: 0 0 8px var(--purple-glow);
 }
 
@@ -808,6 +820,17 @@ export default {
     min-width: 180px;
   }
   
+  .submit-btn.loading-state {
+    min-width: 220px; /* Adjusted for mobile */
+  }
+  
+  .success-message {
+    font-size: calc(var(--font-base) - 3px + 3px);
+    min-width: 180px;
+    max-width: 220px;
+    padding: 10px 15px;
+  }
+  
   .messages-container {
     padding: 20px;
   }
@@ -857,6 +880,16 @@ export default {
   .submit-btn {
     min-width: 160px;
     padding: 8px 20px;
+  }
+  
+  .submit-btn.loading-state {
+    min-width: 200px; /* Adjusted for mobile */
+  }
+  
+  .success-message {
+    min-width: 160px;
+    max-width: 200px;
+    padding: 8px 12px;
   }
 }
 </style>
