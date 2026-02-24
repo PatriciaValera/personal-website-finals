@@ -296,12 +296,11 @@ export default {
 
 .guestbook-header h2::before,
 .guestbook-header h2::after {
-  display: none; /* Remove any existing pseudo-element content */
+  display: none;
 }
 
 /* Style for the hearts in the text */
 .guestbook-header h2 span {
-  /* This is just to ensure the hearts are properly displayed */
   color: var(--purple-accent);
   text-shadow: 0 0 10px var(--purple-glow);
 }
@@ -487,31 +486,47 @@ export default {
   font-size: calc(var(--font-base) - 3px + 3px);
 }
 
+<<<<<<< HEAD
+/* Success message - transparent with inline text */
+=======
 /* Success message - matches input field styling with button width */
+>>>>>>> 534889b53f9d34ec3bbb6789d8bddb99b231952b
 .success-message {
+<<<<<<< HEAD
+  background: transparent; /* Transparent background */
+=======
   background: rgba(0, 0, 0, 0.3); /* Same as input background */
+>>>>>>> 534889b53f9d34ec3bbb6789d8bddb99b231952b
   color: var(--white-pure);
+<<<<<<< HEAD
+  border: none; /* Remove border */
+  padding: 8px 0; /* Minimal padding */
+=======
   border: 2px solid var(--purple-primary); /* Same as input border */
   border-radius: 15px; /* Same as input border radius */
   padding: 12px 15px; /* Same as input padding */
+>>>>>>> 534889b53f9d34ec3bbb6789d8bddb99b231952b
   margin-top: 15px;
   text-align: center;
-  display: flex;
+  display: inline-flex; /* Change to inline-flex */
   align-items: center;
   justify-content: center;
   gap: 8px;
   animation: slideUp 0.3s ease;
+<<<<<<< HEAD
+=======
   backdrop-filter: blur(5px);
+>>>>>>> 534889b53f9d34ec3bbb6789d8bddb99b231952b
   font-size: calc(var(--font-lg) - 3px + 3px);
   font-weight: bold;
   text-transform: none;
   letter-spacing: 0.5px;
-  min-width: 200px; /* Same min-width as button */
-  max-width: 250px; /* Same max-width as button */
-  width: 100%; /* Make it fill the container like button */
+  width: auto; /* Auto width based on content */
+  max-width: 100%; /* Prevent overflow */
+  white-space: nowrap; /* Keep text in one line */
   margin-left: auto;
   margin-right: auto;
-  box-shadow: none; /* Remove glow shadow to match inputs */
+  box-shadow: none;
 }
 
 .success-message:hover {
@@ -839,9 +854,13 @@ export default {
   
   .success-message {
     font-size: calc(var(--font-base) - 3px + 3px);
+<<<<<<< HEAD
+    padding: 6px 0;
+=======
     padding: 10px 15px;
     min-width: 180px;
     max-width: 220px;
+>>>>>>> 534889b53f9d34ec3bbb6789d8bddb99b231952b
   }
   
   .messages-container {
@@ -900,9 +919,14 @@ export default {
   }
   
   .success-message {
+<<<<<<< HEAD
+    font-size: calc(var(--font-sm) - 3px + 3px);
+    padding: 4px 0;
+=======
     min-width: 160px;
     max-width: 180px;
     padding: 8px 12px;
+>>>>>>> 534889b53f9d34ec3bbb6789d8bddb99b231952b
   }
 }
 </style>
