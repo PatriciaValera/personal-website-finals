@@ -9,10 +9,10 @@
     <!-- About Me -->
     <div class="about-section">
       <h2>About Me</h2>
-      <p>Yo, the name's Patricia Marie Valera. I live for juicy stories and a bit of chaos—gossip is my guilty pleasure. 
-      Curiosity keeps me lurking, always sniffing out what’s going on. Life’s sweeter 
-      when you laugh, stay social, and make memories that sparkle. I’m not bold, but 
-      I’ve got my own kind of mischief~ 🎀
+      <p>Yo, the name's Patricia Marie Valera!. I live for juicy stories and a bit of 
+      chaos—gossip is my guilty pleasure. Curiosity keeps me lurking, always sniffing 
+      out what’s going on. Life’s sweeter when you laugh, stay social, and make memories 
+      that sparkle. I’m not bold, but I’ve got my own kind of mischief~ 🎀
     </p>
     </div>
 
