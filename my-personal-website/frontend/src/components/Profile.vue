@@ -35,10 +35,10 @@
         <div class="resources-section">
           <h2>Resources</h2>
           <ul class="resources-list">
-            <li>Deepseek</li>
-            <li>Chatgpt</li>
-            <li>Copilot</li>
-            <li>Lesson Materials</li>
+            <li>🔍 Deepseek</li>
+            <li>🤖 Chatgpt</li>
+            <li>🪄 Copilot</li>
+            <li>📂 Lesson Materials</li>
           </ul>
         </div>
       </div>
@@ -53,6 +53,10 @@
               <span class="hobby-name">Vibing to music</span>
             </li>
             <li>
+              <span class="hobby-icon">💤</span>
+              <span class="hobby-name">Sleeping</span>
+            </li>
+            <li>
               <span class="hobby-icon">🎬</span>
               <span class="hobby-name">Watching anime, movies, and tv shows</span>
             </li>
@@ -63,6 +67,10 @@
             <li>
               <span class="hobby-icon">📖</span>
               <span class="hobby-name">Reading novels and manhwas</span>
+            </li>
+            <li>
+              <span class="hobby-icon">🎮</span>
+              <span class="hobby-name">Playing games</span>
             </li>
           </ul>
         </div>
