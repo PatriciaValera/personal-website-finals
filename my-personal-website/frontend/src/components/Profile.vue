@@ -1,131 +1,106 @@
 <template>
   <div class="profile-section">
-    <!-- Magic transformation sequence -->
-    <div class="transformation-sparkle" v-if="showSparkle">
-      <span>✨</span>
-      <span>👠</span>
-      <span>🎃</span>
-      <span>👑</span>
-    </div>
-    
     <div class="profile-header">
       <div class="profile-avatar">
-        <img src="https://i.pravatar.cc/300?img=5" alt="Rose Cinderella">
-        <div class="avatar-caption">
-          <span class="caption-text">Rose Cinderella</span>
-          <span class="magic-wand">✨</span>
-        </div>
-        <!-- Family heirloom badge -->
-        <div class="glass-slipper-badge">
-          <span class="slipper">👠</span>
-          <span class="badge-text">Family Heirloom</span>
-        </div>
+        <img src="https://i.pravatar.cc/300?img=12" alt="Inosuke Style Avatar">
+        <div class="avatar-caption">⚡ 猪突猛進 ⚡</div>
       </div>
       
       <div class="profile-info">
-        <h2>Rose Cinderella</h2>
-        <p class="title">〜 Heir to Pumpkin Magic 〜</p>
+        <h2>INO♯UKE HASHIBIRA</h2>
+        <p class="title">〜 Beast Breathing Hashira 〜</p>
         <p class="bio">
-          ✨ An ordinary girl from Earth who discovered she's Cinderella's granddaughter! ✨<br><br>
-          I'm now studying at Regal Academy, learning to master my Pumpkin Magic and 
-          making the best fairy tale friends ever! I may be a bit clumsy and I absolutely 
-          LOVE shoes (thanks Grandma!), but my heart is full of dreams and magic.
+          ⚔️ Born and raised by boars in the mountains! ⚔️<br><br>
+          I'm the strongest demon slayer you'll ever meet! 
+          I use Beast Breathing and fight with two swords. 
+          Don't underestimate me just because I wear a boar mask - 
+          I'll defeat any demon that gets in my way!
         </p>
         
-        <div class="magical-stats">
-          <div class="stat-card">
-            <span class="stat-icon">🎃</span>
-            <span class="stat-value">Pumpkin Magic</span>
-            <div class="magic-meter">
-              <div class="meter-fill" style="width: 90%"></div>
-            </div>
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-value">⚡99</span>
+            <span class="stat-label">Strength</span>
           </div>
-          
-          <div class="stat-card">
-            <span class="stat-icon">👠</span>
-            <span class="stat-value">Shoe Collection</span>
-            <div class="magic-meter">
-              <div class="meter-fill" style="width: 100%"></div>
-            </div>
+          <div class="stat-item">
+            <span class="stat-value">∞</span>
+            <span class="stat-label">Fighting Spirit</span>
           </div>
-          
-          <div class="stat-card">
-            <span class="stat-icon">📚</span>
-            <span class="stat-value">Fairy Tale Knowledge</span>
-            <div class="magic-meter">
-              <div class="meter-fill" style="width: 95%"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="fairy-tale-friends">
-          <h3>My Fairy Tale Friends ✨</h3>
-          <div class="friends-grid">
-            <div v-for="friend in friends" :key="friend.name" class="friend-badge">
-              <span class="friend-icon">{{ friend.icon }}</span>
-              <span class="friend-name">{{ friend.name }}</span>
-            </div>
+          <div class="stat-item">
+            <span class="stat-value">🐗</span>
+            <span class="stat-label">Boar Power</span>
           </div>
         </div>
       </div>
     </div>
     
     <div class="profile-details">
-      <div class="detail-card magic-card">
-        <h3>🎃 Pumpkin Magic Spells 🎃</h3>
-        <div class="spells-grid">
-          <div v-for="spell in spells" :key="spell.name" class="spell-item">
-            <div class="spell-icon">{{ spell.icon }}</div>
-            <div class="spell-info">
-              <span class="spell-name">{{ spell.name }}</span>
-              <span class="spell-desc">{{ spell.description }}</span>
+      <div class="detail-card">
+        <h3>⚔️ Beast Breathing Forms ⚔️</h3>
+        <div class="skills-grid">
+          <div v-for="skill in skills" :key="skill.name" class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-level">{{ skill.level }}%</span>
             </div>
-          </div>
-        </div>
-        
-        <div class="magical-items">
-          <h4>Magical Items:</h4>
-          <div class="items-list">
-            <span class="item">👠 Glass Slippers</span>
-            <span class="item">🎃 Magic Wand</span>
-            <span class="item">🐭 Gigi (my mouse friend)</span>
+            <div class="skill-bar">
+              <div class="skill-progress" :style="{ width: skill.level + '%' }"></div>
+            </div>
+            <span class="skill-desc">{{ skill.description }}</span>
           </div>
         </div>
       </div>
       
-      <div class="detail-card fairytale-card">
-        <h3>👑 About Me 👑</h3>
+      <div class="detail-card">
+        <h3>🐗 Boar Warrior Info 🐗</h3>
+        <ul class="info-list">
+          <li>
+            <span class="info-icon">🎂</span>
+            <div>
+              <strong>Age:</strong> 17 (Boar years = eternal)
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">🗡️</span>
+            <div>
+              <strong>Weapon:</strong> Dual Nichirin Blades (Serrated)
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">🏔️</span>
+            <div>
+              <strong>Origin:</strong> Raised by Boars in the Mountains
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">👥</span>
+            <div>
+              <strong>Companions:</strong> Tanjiro, Zenitsu, Nezuko
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">🎯</span>
+            <div>
+              <strong>Goal:</strong> Become the strongest Hashira!
+            </div>
+          </li>
+        </ul>
         
-        <div class="story-section">
-          <h4>My Story:</h4>
-          <p>I discovered I'm Cinderella's granddaughter when I found a magical key 
-          that led me to FairyTale Land! Now I study at Regal Academy and have the 
-          most amazing adventures with my friends.</p>
-        </div>
-        
-        <div class="likes-section">
-          <h4>Things I Love:</h4>
-          <div class="like-tags">
-            <span class="tag" v-for="like in likes" :key="like">{{ like }}</span>
+        <div class="fighting-style">
+          <h4>Fighting Style:</h4>
+          <div class="style-tags">
+            <span class="tag">Wild</span>
+            <span class="tag">Aggressive</span>
+            <span class="tag">Instinctive</span>
+            <span class="tag">Unpredictable</span>
+            <span class="tag">Beast-like</span>
           </div>
         </div>
         
-        <div class="contact-info">
-          <h4>Find Me:</h4>
-          <ul class="contact-list">
-            <li>
-              <span class="contact-icon">🏰</span>
-              <span>Regal Academy, FairyTale Land</span>
-            </li>
-            <li>
-              <span class="contact-icon">🌍</span>
-              <span>Also on Earth with Travis</span>
-            </li>
-            <li>
-              <span class="contact-icon">💌</span>
-              <span>rose.cinderella@regalacademy.edu</span>
-            </li>
-          </ul>
+        <div class="quote-box">
+          <span class="quote-mark">"</span>
+          <p class="quote">I don't need friends! I'm strong enough on my own! ...But Tanjiro, you're okay I guess.</p>
+          <span class="quote-mark">"</span>
         </div>
       </div>
     </div>
@@ -137,31 +112,39 @@ export default {
   name: 'Profile',
   data() {
     return {
-      showSparkle: true,
-      friends: [
-        { name: 'Astoria', icon: '👩‍🦰' },
-        { name: 'Joy', icon: '🐸' },
-        { name: 'Hawk', icon: '❄️' },
-        { name: 'Travis', icon: '🐻' },
-        { name: 'Ling Ling', icon: '🌸' }
-      ],
-      spells: [
-        { name: 'Pumpkin Carriage', icon: '🎃', description: 'Create magical vehicles' },
-        { name: 'Sparkle Dust', icon: '✨', description: 'Sprinkle fairy dust' },
-        { name: 'Shoe Shine', icon: '👠', description: 'Polish any footwear' },
-        { name: 'Midnight Glow', icon: '🌙', description: 'Light up dark places' }
-      ],
-      likes: [
-        'Shoes!', 'Fairy Tales', 'Pumpkins', 'Adventures', 
-        'Making Friends', 'Dancing', 'Grandma\'s Stories', 'Magic'
+      skills: [
+        { 
+          name: '壱ノ型 穿ち抜き (Piercing Rain)', 
+          level: 100,
+          description: 'Rapid thrusting attack'
+        },
+        { 
+          name: '弐ノ型 切り裂き (Slash)', 
+          level: 98,
+          description: 'Wild slashing motion'
+        },
+        { 
+          name: '参ノ型 喰い裂き (Devour)', 
+          level: 95,
+          description: 'Biting attack pattern'
+        },
+        { 
+          name: '肆ノ型 砕き (Smash)', 
+          level: 96,
+          description: 'Powerful crushing blow'
+        },
+        { 
+          name: '伍ノ型 狂い裂き (Mad Slash)', 
+          level: 97,
+          description: 'Berserker-style attacks'
+        },
+        { 
+          name: '陸ノ型 乱れ (Wild Chaos)', 
+          level: 94,
+          description: 'Chaotic multi-directional slashes'
+        }
       ]
     }
-  },
-  mounted() {
-    // Hide sparkle after animation
-    setTimeout(() => {
-      this.showSparkle = false
-    }, 3000)
   }
 }
 </script>
@@ -169,27 +152,6 @@ export default {
 <style scoped>
 .profile-section {
   padding: 20px 0;
-  position: relative;
-}
-
-.transformation-sparkle {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  gap: 20px;
-  font-size: 60px;
-  z-index: 1000;
-  animation: transformMagic 3s ease-out forwards;
-  pointer-events: none;
-}
-
-@keyframes transformMagic {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-  20% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-  80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
 }
 
 .profile-header {
@@ -197,12 +159,12 @@ export default {
   gap: 40px;
   margin-bottom: 40px;
   flex-wrap: wrap;
-  background: linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(255, 255, 255, 0.7));
+  background: var(--inosuke-gray);
   padding: 30px;
-  border-radius: 40px;
-  border: 3px solid var(--rose-pink);
+  border-radius: 0 50px 0 50px;
+  border: 3px solid var(--inosuke-blue);
   position: relative;
-  backdrop-filter: blur(5px);
+  box-shadow: 10px 10px 0 var(--inosuke-dark-blue);
 }
 
 .profile-avatar {
@@ -213,69 +175,21 @@ export default {
 .profile-avatar img {
   width: 200px;
   height: 200px;
-  border-radius: 30px 30px 50% 50%;
+  border-radius: 40% 40% 20% 20%;
   object-fit: cover;
-  border: 5px solid var(--fairy-gold);
-  box-shadow: 0 10px 0 var(--pumpkin-orange);
-  transition: transform 0.3s ease;
-}
-
-.profile-avatar img:hover {
-  transform: scale(1.05) rotate(2deg);
+  border: 4px solid var(--inosuke-beige);
+  box-shadow: 8px 8px 0 var(--inosuke-blue);
+  filter: contrast(1.1);
 }
 
 .avatar-caption {
   margin-top: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-.caption-text {
-  color: var(--rose-magenta);
+  color: var(--inosuke-beige);
   font-weight: bold;
   font-size: 16px;
-  background: white;
-  padding: 5px 15px;
-  border-radius: 50px;
-  border: 2px solid var(--fairy-gold);
-}
-
-.magic-wand {
-  font-size: 20px;
-  animation: wandWave 2s ease infinite;
-}
-
-@keyframes wandWave {
-  0%, 100% { transform: rotate(-10deg); }
-  50% { transform: rotate(10deg); }
-}
-
-.glass-slipper-badge {
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--glass-slipper), white);
-  padding: 8px 15px;
-  border-radius: 50px;
-  border: 2px solid var(--fairy-gold);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
-  box-shadow: 0 4px 0 var(--pumpkin-orange);
-}
-
-.slipper {
-  font-size: 18px;
-}
-
-.badge-text {
-  color: var(--rose-magenta);
-  font-size: 12px;
-  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: 'Bangers', cursive;
+  text-shadow: 2px 2px 0 var(--inosuke-dark-blue);
 }
 
 .profile-info {
@@ -283,99 +197,59 @@ export default {
 }
 
 .profile-info h2 {
-  font-size: 36px;
   margin-bottom: 5px;
-  background: linear-gradient(135deg, var(--rose-magenta), var(--magic-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 36px;
+  color: var(--inosuke-blue);
 }
 
-.title {
-  color: var(--pumpkin-orange);
+.profile-info .title {
+  color: var(--inosuke-beige);
   font-size: 18px;
   margin-bottom: 15px;
   font-style: italic;
+  border-bottom: 2px dashed var(--inosuke-blue);
+  padding-bottom: 10px;
 }
 
-.bio {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 25px;
+.profile-info .bio {
   line-height: 1.8;
+  color: var(--text-light);
   margin-bottom: 20px;
-  border-left: 5px solid var(--rose-pink);
-  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0 30px 0 30px;
+  border-left: 5px solid var(--inosuke-blue);
+  border-bottom: 3px solid var(--inosuke-beige);
 }
 
-.magical-stats {
+.stats {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-.stat-card {
-  background: white;
+  gap: 30px;
+  margin-top: 20px;
+  background: var(--inosuke-black);
   padding: 15px;
-  border-radius: 20px;
-  border: 2px solid var(--rose-pink);
+  border-radius: 0 20px 0 20px;
+  border: 2px solid var(--inosuke-blue);
 }
 
-.stat-icon {
-  font-size: 24px;
-  margin-right: 10px;
+.stat-item {
+  text-align: center;
+  flex: 1;
 }
 
 .stat-value {
+  display: block;
+  font-size: 32px;
   font-weight: bold;
-  color: var(--rose-magenta);
+  color: var(--inosuke-beige);
+  text-shadow: 3px 3px 0 var(--inosuke-dark-blue);
 }
 
-.magic-meter {
-  width: 100%;
-  height: 10px;
-  background: #ffe4e1;
-  border-radius: 10px;
-  margin-top: 8px;
-  overflow: hidden;
-}
-
-.meter-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--rose-pink), var(--pumpkin-orange));
-  border-radius: 10px;
-  transition: width 1s ease;
-}
-
-.fairy-tale-friends h3 {
-  margin: 20px 0 15px;
-  font-size: 22px;
-}
-
-.friends-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.friend-badge {
-  background: linear-gradient(135deg, var(--rose-pink), var(--cinderella-blue));
-  color: white;
-  padding: 8px 15px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 2px solid var(--fairy-gold);
-  transition: transform 0.3s ease;
-}
-
-.friend-badge:hover {
-  transform: translateY(-3px) scale(1.05);
-}
-
-.friend-icon {
-  font-size: 18px;
+.stat-label {
+  font-size: 12px;
+  color: var(--inosuke-light-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .profile-details {
@@ -385,133 +259,150 @@ export default {
 }
 
 .detail-card {
-  background: white;
-  padding: 30px;
-  border-radius: 30px;
-  border: 3px solid var(--rose-pink);
-  transition: all 0.3s ease;
+  background: var(--inosuke-gray);
+  padding: 25px;
+  border-radius: 0 40px 0 40px;
+  border: 2px solid var(--inosuke-blue);
+  transition: transform 0.3s ease;
+  box-shadow: 8px 8px 0 var(--inosuke-dark-blue);
 }
 
 .detail-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 0 var(--pumpkin-orange);
+  transform: translate(-5px, -5px);
+  box-shadow: 13px 13px 0 var(--inosuke-dark-blue);
 }
 
-.magic-card {
-  background: linear-gradient(135deg, #fff5f5, white);
+.detail-card h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  border-bottom: 2px solid var(--inosuke-beige);
+  padding-bottom: 10px;
 }
 
-.fairytale-card {
-  background: linear-gradient(135deg, #f0f8ff, white);
-}
-
-.spells-grid {
+.skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin: 20px 0;
+  gap: 20px;
 }
 
-.spell-item {
+.skill-item {
+  width: 100%;
+}
+
+.skill-info {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 10px;
-  background: rgba(255, 182, 193, 0.1);
-  border-radius: 15px;
-  border: 1px dashed var(--rose-pink);
+  justify-content: space-between;
+  margin-bottom: 5px;
+  color: var(--text-light);
 }
 
-.spell-icon {
-  font-size: 30px;
-  min-width: 50px;
-  text-align: center;
+.skill-name {
+  font-weight: 600;
+  color: var(--inosuke-beige);
+  font-size: 14px;
 }
 
-.spell-info {
-  flex: 1;
-}
-
-.spell-name {
-  display: block;
+.skill-level {
+  color: var(--inosuke-blue);
   font-weight: bold;
-  color: var(--rose-magenta);
 }
 
-.spell-desc {
-  font-size: 14px;
-  color: var(--text-soft);
+.skill-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--inosuke-black);
+  border-radius: 0 10px 0 10px;
+  overflow: hidden;
+  border: 1px solid var(--inosuke-beige);
 }
 
-.magical-items {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 2px dashed var(--rose-pink);
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--inosuke-blue), var(--inosuke-light-blue));
+  border-radius: 0 8px 0 8px;
+  transition: width 1s ease;
 }
 
-.items-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.item {
-  background: var(--cinderella-blue);
-  color: white;
-  padding: 5px 15px;
-  border-radius: 50px;
-  font-size: 14px;
-}
-
-.story-section {
-  margin-bottom: 20px;
-}
-
-.story-section p {
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 15px;
-  line-height: 1.8;
+.skill-desc {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 5px;
   font-style: italic;
 }
 
-.likes-section {
-  margin: 20px 0;
-}
-
-.like-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.tag {
-  background: var(--rose-pink);
-  color: white;
-  padding: 5px 12px;
-  border-radius: 50px;
-  font-size: 13px;
-  border: 1px solid var(--fairy-gold);
-}
-
-.contact-list {
+.info-list {
   list-style: none;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
-.contact-list li {
+.info-list li {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 10px 0;
-  border-bottom: 1px dashed var(--rose-pink);
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--inosuke-blue);
 }
 
-.contact-icon {
-  font-size: 20px;
-  min-width: 30px;
+.info-icon {
+  font-size: 24px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.fighting-style h4 {
+  color: var(--inosuke-beige);
+  margin: 20px 0 10px;
+  font-size: 18px;
+}
+
+.style-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  background: var(--inosuke-black);
+  color: var(--inosuke-light-blue);
+  padding: 5px 15px;
+  border-radius: 0 15px 0 15px;
+  font-size: 12px;
+  border: 1px solid var(--inosuke-blue);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: var(--inosuke-blue);
+  color: var(--inosuke-black);
+  transform: scale(1.05);
+}
+
+.quote-box {
+  background: var(--inosuke-black);
+  padding: 20px;
+  border-radius: 0 30px 0 30px;
+  margin-top: 20px;
+  border-left: 5px solid var(--inosuke-beige);
+  position: relative;
+}
+
+.quote-mark {
+  color: var(--inosuke-blue);
+  font-size: 40px;
+  font-family: serif;
+  line-height: 0;
+  opacity: 0.5;
+}
+
+.quote {
+  font-style: italic;
+  margin: 10px 0;
+  color: var(--text-light);
+  font-size: 16px;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -522,18 +413,20 @@ export default {
     padding: 20px;
   }
   
-  .glass-slipper-badge {
-    position: relative;
-    bottom: 0;
-    margin-top: 10px;
+  .profile-info .bio {
+    text-align: left;
+  }
+  
+  .stats {
+    justify-content: center;
   }
   
   .profile-details {
     grid-template-columns: 1fr;
   }
   
-  .friends-grid {
-    justify-content: center;
+  .stat-value {
+    font-size: 24px;
   }
 }
 </style>
