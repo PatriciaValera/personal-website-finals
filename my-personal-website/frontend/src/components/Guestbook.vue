@@ -23,7 +23,7 @@
         <div class="form-group">
           <label for="email">
             <span class="label-icon">♡</span>
-            Email
+            Email *
           </label>
           <input 
             type="email" 

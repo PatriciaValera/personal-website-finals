@@ -2,7 +2,7 @@
   <div class="profile-section">
     <div class="profile-header">
       <div class="profile-avatar">
-        <img src="https://i.pravatar.cc/300?img=5" alt="Kuromi Style Avatar">
+        <img src="https://i.pinimg.com/736x/fa/38/d9/fa38d985fcfaba8c68aee3091f393cf5.jpg" alt="Kuromi Style Avatar">
         <div class="avatar-caption">☠ くろみ ☠</div>
       </div>
       

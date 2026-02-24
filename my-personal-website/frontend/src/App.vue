@@ -8,7 +8,7 @@
     <Profile />
     
     <div class="divider">
-      <span class="divider-text">✧ GUESTBOOK ✧</span>
+      <span class="divider-text">✧ Riri's Chaos Logs ✧</span>
     </div>
     
     <Guestbook />
