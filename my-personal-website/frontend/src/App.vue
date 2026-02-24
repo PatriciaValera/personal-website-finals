@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="site-header">
-      <h1>Riri's Lair <span class="fish-emoji">🐟</span></h1>
+      <h1>Riri's Lair <span class="fish-emoji">🎀</span></h1>
       <p class="site-subtitle">Kuromi inspired profile website</p>
     </div>
     
