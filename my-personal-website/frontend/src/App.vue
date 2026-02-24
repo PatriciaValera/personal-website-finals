@@ -59,16 +59,16 @@ export default {
 <style scoped>
 .site-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px; /* Reduced by 5px */
 }
 
 .site-header h1 {
-  margin-bottom: 5px;
-  color: var(--white-pure); /* White text */
+  margin-bottom: 3px; /* Reduced by 2px */
+  color: var(--white-pure);
   font-size: var(--font-xxxl);
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px; /* Reduced by 2px */
 }
 
 .site-header h1::after {
@@ -89,7 +89,7 @@ export default {
 }
 
 .site-subtitle {
-  color: var(--white-pure); /* White text */
+  color: var(--white-pure);
   font-size: var(--font-lg);
   font-style: italic;
   text-shadow: 0 0 8px var(--purple-glow);
@@ -100,7 +100,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reduced by 5px */
   position: relative;
   z-index: 2;
   border-bottom: 2px solid var(--purple-primary);
@@ -110,8 +110,8 @@ export default {
 .tab-btn {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.6); /* White with opacity */
-  padding: 12px 40px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 8px 35px; /* Reduced from 12px 40px */
   font-size: var(--font-lg);
   font-weight: 600;
   letter-spacing: 1px;
@@ -137,12 +137,12 @@ export default {
 }
 
 .tab-btn:hover {
-  color: var(--white-pure); /* White text */
+  color: var(--white-pure);
   text-shadow: 0 0 8px var(--purple-accent);
 }
 
 .tab-btn.active {
-  color: var(--white-pure); /* White text */
+  color: var(--white-pure);
 }
 
 .tab-btn.active::after {
@@ -166,10 +166,10 @@ export default {
 
 .footer {
   text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
+  margin-top: 35px; /* Reduced by 5px */
+  padding-top: 15px; /* Reduced by 5px */
   border-top: 2px dashed var(--purple-primary);
-  color: rgba(255, 255, 255, 0.7); /* White with opacity */
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .heart {
@@ -183,7 +183,7 @@ export default {
 .small {
   font-size: var(--font-sm);
   opacity: 0.7;
-  color: rgba(255, 255, 255, 0.7); /* White with opacity */
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @keyframes pulse {
@@ -196,7 +196,7 @@ export default {
   .site-header h1 {
     font-size: var(--font-xxl);
     flex-direction: column;
-    gap: 5px;
+    gap: 3px; /* Reduced */
   }
   
   .star-icon {
@@ -212,16 +212,16 @@ export default {
     gap: 5px;
     border-bottom: none;
     padding-bottom: 0;
-    margin-bottom: 15px;
+    margin-bottom: 10px; /* Reduced by 5px */
   }
   
   .tab-btn {
     width: 100%;
-    padding: 12px 20px;
+    padding: 8px 15px; /* Reduced */
     font-size: var(--font-base);
     border: 2px solid var(--purple-primary);
-    border-radius: 50px;
-    margin-bottom: 5px;
+    border-radius: 45px; /* Reduced by 5px */
+    margin-bottom: 3px; /* Reduced by 2px */
   }
   
   .tab-btn::after {
@@ -230,7 +230,7 @@ export default {
   
   .tab-btn.active {
     background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
-    color: var(--white-pure); /* White text */
+    color: var(--white-pure);
     border-color: var(--purple-pastel);
     box-shadow: 0 0 15px var(--purple-glow);
   }
@@ -242,7 +242,7 @@ export default {
 
 @media (max-width: 480px) {
   .tab-btn {
-    padding: 10px 15px;
+    padding: 8px 12px; /* Reduced */
     font-size: var(--font-sm);
   }
 }
