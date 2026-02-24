@@ -167,7 +167,7 @@ export default {
 
 .avatar-caption {
   margin-top: 10px;
-  color: var(--purple-pastel);
+  color: var(--white-pure); /* White text */
   font-weight: bold;
   font-size: var(--font-sm);
   letter-spacing: 2px;
@@ -181,18 +181,20 @@ export default {
 .profile-info h2 {
   margin-bottom: 5px;
   font-size: var(--font-xxl);
+  color: var(--white-pure); /* White text */
 }
 
 .profile-info .title {
-  color: var(--purple-soft);
+  color: var(--white-pure); /* White text */
   font-size: var(--font-base);
   margin-bottom: 15px;
   font-style: italic;
+  opacity: 0.9;
 }
 
 .profile-info .bio {
   line-height: 1.8;
-  color: var(--text-light);
+  color: var(--white-pure); /* White text */
   margin-bottom: 20px;
   padding: 15px;
   background: rgba(0, 0, 0, 0.2);
@@ -216,13 +218,13 @@ export default {
   display: block;
   font-size: var(--font-xxl);
   font-weight: bold;
-  color: var(--purple-pastel);
+  color: var(--white-pure); /* White text */
   text-shadow: 0 0 15px var(--purple-accent);
 }
 
 .stat-label {
   font-size: var(--font-xs);
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7); /* White with opacity */
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -266,6 +268,7 @@ export default {
 .detail-card h3 {
   margin-bottom: 20px;
   font-size: var(--font-xl);
+  color: var(--white-pure); /* White text */
 }
 
 .skills-grid {
@@ -282,7 +285,7 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
-  color: var(--text-light);
+  color: var(--white-pure); /* White text */
   font-size: var(--font-sm);
 }
 
@@ -291,7 +294,7 @@ export default {
 }
 
 .skill-level {
-  color: var(--purple-pastel);
+  color: var(--purple-accent); /* Purple accent for percentages */
 }
 
 .skill-bar {
@@ -323,6 +326,7 @@ export default {
   padding: 12px 0;
   border-bottom: 1px dashed var(--purple-primary);
   font-size: var(--font-base);
+  color: var(--white-pure); /* White text */
 }
 
 .contact-icon {
@@ -332,7 +336,7 @@ export default {
 }
 
 .favorites h4 {
-  color: var(--purple-pastel);
+  color: var(--white-pure); /* White text */
   margin-bottom: 10px;
   font-size: var(--font-lg);
 }
@@ -345,7 +349,7 @@ export default {
 
 .tag {
   background: rgba(0, 0, 0, 0.3);
-  color: var(--purple-pastel);
+  color: var(--white-pure); /* White text */
   padding: 8px 20px;
   border-radius: 50px;
   font-size: var(--font-sm);
@@ -357,7 +361,7 @@ export default {
 
 .tag:hover {
   background: var(--purple-primary);
-  color: var(--white-soft);
+  color: var(--white-pure); /* White text */
   transform: scale(1.05);
   box-shadow: 0 0 15px var(--purple-glow);
   border-color: var(--purple-accent);

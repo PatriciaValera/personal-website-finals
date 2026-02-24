@@ -64,7 +64,7 @@ export default {
 
 .site-header h1 {
   margin-bottom: 5px;
-  color: var(--purple-pastel);
+  color: var(--white-pure); /* White text */
   font-size: var(--font-xxxl);
   display: inline-flex;
   align-items: center;
@@ -89,7 +89,7 @@ export default {
 }
 
 .site-subtitle {
-  color: var(--purple-soft);
+  color: var(--white-pure); /* White text */
   font-size: var(--font-lg);
   font-style: italic;
   text-shadow: 0 0 8px var(--purple-glow);
@@ -110,7 +110,7 @@ export default {
 .tab-btn {
   background: transparent;
   border: none;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.6); /* White with opacity */
   padding: 12px 40px;
   font-size: var(--font-lg);
   font-weight: 600;
@@ -137,12 +137,12 @@ export default {
 }
 
 .tab-btn:hover {
-  color: var(--purple-pastel);
+  color: var(--white-pure); /* White text */
   text-shadow: 0 0 8px var(--purple-accent);
 }
 
 .tab-btn.active {
-  color: var(--purple-pastel);
+  color: var(--white-pure); /* White text */
 }
 
 .tab-btn.active::after {
@@ -169,7 +169,7 @@ export default {
   margin-top: 40px;
   padding-top: 20px;
   border-top: 2px dashed var(--purple-primary);
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7); /* White with opacity */
 }
 
 .heart {
@@ -183,6 +183,7 @@ export default {
 .small {
   font-size: var(--font-sm);
   opacity: 0.7;
+  color: rgba(255, 255, 255, 0.7); /* White with opacity */
 }
 
 @keyframes pulse {
@@ -229,7 +230,7 @@ export default {
   
   .tab-btn.active {
     background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
-    color: var(--white-soft);
+    color: var(--white-pure); /* White text */
     border-color: var(--purple-pastel);
     box-shadow: 0 0 15px var(--purple-glow);
   }
