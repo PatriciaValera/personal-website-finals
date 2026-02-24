@@ -429,14 +429,14 @@ export default {
   min-width: 200px;
   max-width: 250px;
   width: auto;
-  text-transform: none; /* Changed from uppercase to none */
-  letter-spacing: 0.5px; /* Reduced from 1px */
+  text-transform: none;
+  letter-spacing: 0.5px;
   white-space: nowrap;
 }
 
 /* Loading state - wider for "Logging Chaos..." */
 .submit-btn.loading-state {
-  min-width: 220px; /* Slightly reduced from 240px */
+  min-width: 220px;
   padding: 12px 25px;
 }
 
@@ -482,11 +482,11 @@ export default {
 }
 
 .success-message {
+  background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
   color: var(--white-pure);
-  background: rgba(155, 107, 179, 0.2);
-  border: 1px solid var(--purple-light);
+  border: 2px solid var(--purple-pastel);
   border-radius: 50px;
-  padding: 12px 20px;
+  padding: 12px 30px;
   margin-top: 15px;
   text-align: center;
   display: flex;
@@ -494,18 +494,18 @@ export default {
   justify-content: center;
   gap: 8px;
   animation: slideUp 0.3s ease;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 15px var(--purple-glow);
+  box-shadow: 0 5px 0 var(--purple-deep), 0 0 20px var(--purple-glow);
   font-size: calc(var(--font-lg) - 3px + 3px);
   font-weight: bold;
-  text-transform: none; /* Changed from uppercase to none */
-  letter-spacing: 0.5px; /* Reduced from 1px */
-  max-width: 250px;
+  text-transform: none;
+  letter-spacing: 0.5px;
   min-width: 200px;
+  max-width: 250px;
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
   white-space: nowrap;
+  backdrop-filter: none; /* Remove backdrop-filter to match button */
 }
 
 @keyframes slideUp {
@@ -522,7 +522,7 @@ export default {
 .success-icon {
   font-size: calc(var(--font-lg) - 3px + 3px);
   animation: bounce 1s ease infinite;
-  color: var(--purple-accent);
+  color: var(--white-pure); /* Changed to white to match button text */
 }
 
 @keyframes bounce {
@@ -568,7 +568,7 @@ export default {
   color: var(--white-pure);
   font-size: calc(var(--font-xl) - 3px + 3px);
   margin: 0;
-  text-transform: none; /* Changed from lowercase to none */
+  text-transform: none;
   text-shadow: 0 0 8px var(--purple-glow);
 }
 
@@ -823,14 +823,14 @@ export default {
   }
   
   .submit-btn.loading-state {
-    min-width: 200px; /* Adjusted for mobile */
+    min-width: 200px;
   }
   
   .success-message {
     font-size: calc(var(--font-base) - 3px + 3px);
+    padding: 10px 25px;
     min-width: 180px;
     max-width: 220px;
-    padding: 10px 15px;
   }
   
   .messages-container {
@@ -885,13 +885,13 @@ export default {
   }
   
   .submit-btn.loading-state {
-    min-width: 180px; /* Adjusted for mobile */
+    min-width: 180px;
   }
   
   .success-message {
     min-width: 160px;
     max-width: 180px;
-    padding: 8px 12px;
+    padding: 8px 20px;
   }
 }
 </style>
