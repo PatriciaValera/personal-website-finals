@@ -12,7 +12,7 @@
       <form @submit.prevent="submitEntry" class="guestbook-form">
         <div class="form-group">
           <label for="name">
-            Name <span class="required">*</span>
+            NAME <span class="required">*</span>
           </label>
           <input 
             type="text" 
@@ -25,7 +25,7 @@
         
         <div class="form-group">
           <label for="email">
-            Email <span class="required">*</span>
+            EMAIL <span class="required">*</span>
           </label>
           <input 
             type="email" 
@@ -38,7 +38,7 @@
         
         <div class="form-group">
           <label for="message">
-            Message <span class="required">*</span>
+            MESSAGE <span class="required">*</span>
           </label>
           <textarea 
             id="message" 
@@ -286,10 +286,10 @@ export default {
 }
 
 .guestbook-header h2 {
-  font-size: calc(var(--font-xxl) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-xxl) - 3px + 3px);
   color: var(--white-pure);
   margin-bottom: 5px;
-  text-transform: lowercase;
+  /* Removed text-transform: lowercase */
 }
 
 .guestbook-header h2::after {
@@ -303,7 +303,7 @@ export default {
 
 .subtitle {
   color: var(--white-pure);
-  font-size: calc(var(--font-lg) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-lg) - 3px + 3px);
   opacity: 0.9;
   text-shadow: 0 0 8px var(--purple-glow);
 }
@@ -368,9 +368,10 @@ export default {
   margin-bottom: 8px;
   color: var(--white-pure);
   font-weight: 600;
-  font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
-  text-transform: lowercase;
-  letter-spacing: 0.5px;
+  font-size: calc(var(--font-base) - 3px + 3px);
+  /* Removed text-transform: lowercase */
+  text-transform: uppercase; /* Added uppercase */
+  letter-spacing: 1px; /* Slightly increased for uppercase */
   text-shadow: 0 0 5px var(--purple-glow);
 }
 
@@ -386,7 +387,7 @@ export default {
   background: rgba(0, 0, 0, 0.3);
   border: 2px solid var(--purple-primary);
   border-radius: 15px;
-  font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-base) - 3px + 3px);
   color: var(--white-pure);
   transition: all 0.3s ease;
   font-family: 'Poppins', sans-serif;
@@ -404,7 +405,8 @@ export default {
 .form-group textarea::placeholder {
   color: rgba(255, 255, 255, 0.5);
   opacity: 0.6;
-  font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-base) - 3px + 3px);
+  text-transform: none; /* Keep placeholders normal case */
 }
 
 /* Button Container - centers the button */
@@ -421,7 +423,7 @@ export default {
   padding: 12px 30px;
   border-radius: 50px;
   cursor: pointer;
-  font-size: calc(var(--font-lg) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-lg) - 3px + 3px);
   font-weight: bold;
   transition: all 0.3s ease;
   border: 2px solid var(--purple-pastel);
@@ -429,7 +431,7 @@ export default {
   min-width: 200px;
   max-width: 250px;
   width: auto;
-  text-transform: lowercase;
+  text-transform: uppercase; /* Changed from lowercase to uppercase */
   letter-spacing: 1px;
 }
 
@@ -454,7 +456,7 @@ export default {
   animation: spin 1s linear infinite;
   margin-right: 8px;
   color: var(--white-pure);
-  font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-base) - 3px + 3px);
 }
 
 @keyframes spin {
@@ -471,7 +473,7 @@ export default {
   margin: 15px 0;
   text-align: center;
   backdrop-filter: blur(5px);
-  font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-base) - 3px + 3px);
 }
 
 .success-message {
@@ -489,7 +491,7 @@ export default {
   animation: slideUp 0.3s ease;
   backdrop-filter: blur(5px);
   box-shadow: 0 0 15px var(--purple-glow);
-  font-size: calc(var(--font-lg) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-lg) - 3px + 3px);
 }
 
 @keyframes slideUp {
@@ -504,7 +506,7 @@ export default {
 }
 
 .success-icon {
-  font-size: calc(var(--font-lg) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-lg) - 3px + 3px);
   animation: bounce 1s ease infinite;
   color: var(--purple-accent);
 }
@@ -550,15 +552,15 @@ export default {
 
 .messages-header h3 {
   color: var(--white-pure);
-  font-size: calc(var(--font-xl) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-xl) - 3px + 3px);
   margin: 0;
-  text-transform: lowercase;
+  text-transform: lowercase; /* Keep this lowercase as is */
   text-shadow: 0 0 8px var(--purple-glow);
 }
 
 .message-count {
   color: var(--white-pure);
-  font-size: calc(var(--font-lg) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-lg) - 3px + 3px);
   font-weight: bold;
   opacity: 0.8;
 }
@@ -570,7 +572,7 @@ export default {
 
 .loading-state p {
   color: var(--white-pure);
-  font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-base) - 3px + 3px);
 }
 
 .loading-spinner {
@@ -622,7 +624,7 @@ export default {
 
 .empty-message {
   color: var(--white-pure);
-  font-size: calc(var(--font-lg) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-lg) - 3px + 3px);
   font-weight: 600;
   margin-bottom: 8px;
   text-shadow: 0 0 8px var(--purple-glow);
@@ -630,7 +632,7 @@ export default {
 
 .empty-sub {
   color: rgba(255, 255, 255, 0.7);
-  font-size: calc(var(--font-sm) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-sm) - 3px + 3px);
   font-style: italic;
 }
 
@@ -709,19 +711,19 @@ export default {
 }
 
 .author-avatar {
-  font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-base) - 3px + 3px);
   color: var(--purple-accent);
 }
 
 .author-name {
   color: var(--white-pure);
-  font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-base) - 3px + 3px);
   font-weight: 600;
 }
 
 .message-date {
   color: rgba(255, 255, 255, 0.7);
-  font-size: calc(var(--font-sm) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-sm) - 3px + 3px);
   background: rgba(0, 0, 0, 0.3);
   padding: 5px 12px;
   border-radius: 50px;
@@ -737,7 +739,7 @@ export default {
   color: var(--white-pure);
   font-style: italic;
   border-left: 3px solid var(--purple-accent);
-  font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-base) - 3px + 3px);
 }
 
 .message-footer {
@@ -746,19 +748,19 @@ export default {
   gap: 8px;
   padding-top: 8px;
   border-top: 1px dashed var(--purple-primary);
-  font-size: calc(var(--font-sm) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-sm) - 3px + 3px);
   color: rgba(255, 255, 255, 0.7);
 }
 
 .email-icon {
   color: var(--purple-accent);
-  font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-base) - 3px + 3px);
 }
 
 .message-email {
   word-break: break-all;
   color: rgba(255, 255, 255, 0.7);
-  font-size: calc(var(--font-sm) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-sm) - 3px + 3px);
 }
 
 .message-sticker {
@@ -766,7 +768,7 @@ export default {
   bottom: 5px;
   right: 5px;
   opacity: 0.2;
-  font-size: calc(var(--font-lg) - 3px + 3px); /* Increased by 3px (back to original) */
+  font-size: calc(var(--font-lg) - 3px + 3px);
   color: var(--purple-accent);
 }
 
@@ -789,11 +791,11 @@ export default {
 /* Responsive Design */
 @media (max-width: 768px) {
   .guestbook-header h2 {
-    font-size: calc(var(--font-xl) - 3px + 3px); /* Increased by 3px (back to original) */
+    font-size: calc(var(--font-xl) - 3px + 3px);
   }
   
   .subtitle {
-    font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+    font-size: calc(var(--font-base) - 3px + 3px);
   }
   
   .guestbook-form {
@@ -801,7 +803,7 @@ export default {
   }
   
   .submit-btn {
-    font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+    font-size: calc(var(--font-base) - 3px + 3px);
     padding: 10px 25px;
     min-width: 180px;
   }
@@ -811,15 +813,15 @@ export default {
   }
   
   .messages-header h3 {
-    font-size: calc(var(--font-lg) - 3px + 3px); /* Increased by 3px (back to original) */
+    font-size: calc(var(--font-lg) - 3px + 3px);
   }
   
   .message-count {
-    font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+    font-size: calc(var(--font-base) - 3px + 3px);
   }
   
   .empty-message {
-    font-size: calc(var(--font-base) - 3px + 3px); /* Increased by 3px (back to original) */
+    font-size: calc(var(--font-base) - 3px + 3px);
   }
   
   .message-header {
@@ -849,7 +851,7 @@ export default {
   
   .message-content {
     padding: 12px;
-    font-size: calc(var(--font-sm) - 3px + 3px); /* Increased by 3px (back to original) */
+    font-size: calc(var(--font-sm) - 3px + 3px);
   }
   
   .submit-btn {
