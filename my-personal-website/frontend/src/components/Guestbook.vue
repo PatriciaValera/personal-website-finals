@@ -2,7 +2,7 @@
   <div class="guestbook-section">
     <!-- Main header -->
     <div class="guestbook-header">
-      <h2>guestbook</h2>
+      <h2>Riri's Mischief Log</h2>
       <p class="subtitle">Dare to Leave Your Scribble~</p>
     </div>
     
@@ -58,7 +58,7 @@
           <button type="submit" class="submit-btn" :disabled="loading">
             <span v-if="loading">
               <span class="btn-spinner">✧</span>
-              Logging chaos...
+              Logging Chaos...
             </span>
             <span v-else>
               Submit Chaos
@@ -82,7 +82,7 @@
       
       <div v-if="entriesLoading" class="loading-state">
         <div class="loading-spinner">✧</div>
-        <p>summoning messages...</p>
+        <p>Summoning Mischiefs...</p>
       </div>
       
       <div v-else-if="entries.length === 0" class="empty-state">
@@ -91,7 +91,7 @@
           <span class="purple-star">✦</span>
           <span class="purple-star">✧</span>
         </div>
-        <p class="empty-message">the realm is quiet... be the first to speak!</p>
+        <p class="empty-message">The realm is quiet... be the first to cause havoc!</p>
         <p class="empty-sub">(your message will appear here)</p>
       </div>
       
@@ -201,6 +201,79 @@ export default {
 </script>
 
 <style scoped>
+/* Custom scrollbar styling - invisible by default */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Show scrollbar when scrolling */
+*:hover::-webkit-scrollbar-thumb,
+*:focus::-webkit-scrollbar-thumb,
+*:active::-webkit-scrollbar-thumb {
+  background-color: var(--purple-primary);
+}
+
+*:hover::-webkit-scrollbar-thumb:hover {
+  background-color: var(--purple-accent);
+}
+
+/* Specific container styling */
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.messages-list:hover {
+  scrollbar-color: var(--purple-primary) transparent;
+}
+
+.messages-list::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+.messages-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messages-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.messages-list:hover::-webkit-scrollbar-thumb,
+.messages-list:focus::-webkit-scrollbar-thumb {
+  background-color: var(--purple-primary);
+}
+
+.messages-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--purple-accent);
+}
+
 .guestbook-section {
   padding: 20px 0;
   max-width: 800px;
@@ -213,7 +286,7 @@ export default {
 }
 
 .guestbook-header h2 {
-  font-size: var(--font-xxl);
+  font-size: calc(var(--font-xxl) - 3px); /* Reduced by 3px */
   color: var(--white-pure);
   margin-bottom: 5px;
   text-transform: lowercase;
@@ -230,7 +303,7 @@ export default {
 
 .subtitle {
   color: var(--white-pure);
-  font-size: var(--font-lg);
+  font-size: calc(var(--font-lg) - 3px); /* Reduced by 3px */
   opacity: 0.9;
   text-shadow: 0 0 8px var(--purple-glow);
 }
@@ -295,7 +368,7 @@ export default {
   margin-bottom: 8px;
   color: var(--white-pure);
   font-weight: 600;
-  font-size: var(--font-base);
+  font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
   text-transform: lowercase;
   letter-spacing: 0.5px;
   text-shadow: 0 0 5px var(--purple-glow);
@@ -313,7 +386,7 @@ export default {
   background: rgba(0, 0, 0, 0.3);
   border: 2px solid var(--purple-primary);
   border-radius: 15px;
-  font-size: var(--font-base);
+  font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
   color: var(--white-pure);
   transition: all 0.3s ease;
   font-family: 'Poppins', sans-serif;
@@ -331,6 +404,7 @@ export default {
 .form-group textarea::placeholder {
   color: rgba(255, 255, 255, 0.5);
   opacity: 0.6;
+  font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
 }
 
 /* Button Container - centers the button */
@@ -344,17 +418,17 @@ export default {
   background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
   color: var(--white-pure);
   border: none;
-  padding: 12px 30px; /* Reduced padding */
+  padding: 12px 30px;
   border-radius: 50px;
   cursor: pointer;
-  font-size: var(--font-lg);
+  font-size: calc(var(--font-lg) - 3px); /* Reduced by 3px */
   font-weight: bold;
   transition: all 0.3s ease;
   border: 2px solid var(--purple-pastel);
   box-shadow: 0 5px 0 var(--purple-deep), 0 0 20px var(--purple-glow);
-  min-width: 200px; /* Set a fixed minimum width */
-  max-width: 250px; /* Set a maximum width */
-  width: auto; /* Allow it to be auto width */
+  min-width: 200px;
+  max-width: 250px;
+  width: auto;
   text-transform: lowercase;
   letter-spacing: 1px;
 }
@@ -380,6 +454,7 @@ export default {
   animation: spin 1s linear infinite;
   margin-right: 8px;
   color: var(--white-pure);
+  font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
 }
 
 @keyframes spin {
@@ -396,6 +471,7 @@ export default {
   margin: 15px 0;
   text-align: center;
   backdrop-filter: blur(5px);
+  font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
 }
 
 .success-message {
@@ -413,6 +489,7 @@ export default {
   animation: slideUp 0.3s ease;
   backdrop-filter: blur(5px);
   box-shadow: 0 0 15px var(--purple-glow);
+  font-size: calc(var(--font-lg) - 3px); /* Reduced by 3px */
 }
 
 @keyframes slideUp {
@@ -427,7 +504,7 @@ export default {
 }
 
 .success-icon {
-  font-size: var(--font-lg);
+  font-size: calc(var(--font-lg) - 3px); /* Reduced by 3px */
   animation: bounce 1s ease infinite;
   color: var(--purple-accent);
 }
@@ -473,7 +550,7 @@ export default {
 
 .messages-header h3 {
   color: var(--white-pure);
-  font-size: var(--font-xl);
+  font-size: calc(var(--font-xl) - 3px); /* Reduced by 3px */
   margin: 0;
   text-transform: lowercase;
   text-shadow: 0 0 8px var(--purple-glow);
@@ -481,7 +558,7 @@ export default {
 
 .message-count {
   color: var(--white-pure);
-  font-size: var(--font-lg);
+  font-size: calc(var(--font-lg) - 3px); /* Reduced by 3px */
   font-weight: bold;
   opacity: 0.8;
 }
@@ -493,6 +570,7 @@ export default {
 
 .loading-state p {
   color: var(--white-pure);
+  font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
 }
 
 .loading-spinner {
@@ -544,7 +622,7 @@ export default {
 
 .empty-message {
   color: var(--white-pure);
-  font-size: var(--font-lg);
+  font-size: calc(var(--font-lg) - 3px); /* Reduced by 3px */
   font-weight: 600;
   margin-bottom: 8px;
   text-shadow: 0 0 8px var(--purple-glow);
@@ -552,7 +630,7 @@ export default {
 
 .empty-sub {
   color: rgba(255, 255, 255, 0.7);
-  font-size: var(--font-sm);
+  font-size: calc(var(--font-sm) - 3px); /* Reduced by 3px */
   font-style: italic;
 }
 
@@ -560,6 +638,39 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.messages-list:hover {
+  scrollbar-color: var(--purple-primary) transparent;
+}
+
+.messages-list::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+.messages-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messages-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.messages-list:hover::-webkit-scrollbar-thumb,
+.messages-list:focus::-webkit-scrollbar-thumb {
+  background-color: var(--purple-primary);
+}
+
+.messages-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--purple-accent);
 }
 
 .message-card {
@@ -598,19 +709,19 @@ export default {
 }
 
 .author-avatar {
-  font-size: var(--font-base);
+  font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
   color: var(--purple-accent);
 }
 
 .author-name {
   color: var(--white-pure);
-  font-size: var(--font-base);
+  font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
   font-weight: 600;
 }
 
 .message-date {
   color: rgba(255, 255, 255, 0.7);
-  font-size: var(--font-sm);
+  font-size: calc(var(--font-sm) - 3px); /* Reduced by 3px */
   background: rgba(0, 0, 0, 0.3);
   padding: 5px 12px;
   border-radius: 50px;
@@ -626,7 +737,7 @@ export default {
   color: var(--white-pure);
   font-style: italic;
   border-left: 3px solid var(--purple-accent);
-  font-size: var(--font-base);
+  font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
 }
 
 .message-footer {
@@ -635,17 +746,19 @@ export default {
   gap: 8px;
   padding-top: 8px;
   border-top: 1px dashed var(--purple-primary);
-  font-size: var(--font-sm);
+  font-size: calc(var(--font-sm) - 3px); /* Reduced by 3px */
   color: rgba(255, 255, 255, 0.7);
 }
 
 .email-icon {
   color: var(--purple-accent);
+  font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
 }
 
 .message-email {
   word-break: break-all;
   color: rgba(255, 255, 255, 0.7);
+  font-size: calc(var(--font-sm) - 3px); /* Reduced by 3px */
 }
 
 .message-sticker {
@@ -653,7 +766,7 @@ export default {
   bottom: 5px;
   right: 5px;
   opacity: 0.2;
-  font-size: var(--font-lg);
+  font-size: calc(var(--font-lg) - 3px); /* Reduced by 3px */
   color: var(--purple-accent);
 }
 
@@ -676,11 +789,11 @@ export default {
 /* Responsive Design */
 @media (max-width: 768px) {
   .guestbook-header h2 {
-    font-size: var(--font-xl);
+    font-size: calc(var(--font-xl) - 3px); /* Reduced by 3px */
   }
   
   .subtitle {
-    font-size: var(--font-base);
+    font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
   }
   
   .guestbook-form {
@@ -688,7 +801,7 @@ export default {
   }
   
   .submit-btn {
-    font-size: var(--font-base);
+    font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
     padding: 10px 25px;
     min-width: 180px;
   }
@@ -698,15 +811,15 @@ export default {
   }
   
   .messages-header h3 {
-    font-size: var(--font-lg);
+    font-size: calc(var(--font-lg) - 3px); /* Reduced by 3px */
   }
   
   .message-count {
-    font-size: var(--font-base);
+    font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
   }
   
   .empty-message {
-    font-size: var(--font-base);
+    font-size: calc(var(--font-base) - 3px); /* Reduced by 3px */
   }
   
   .message-header {
@@ -736,7 +849,7 @@ export default {
   
   .message-content {
     padding: 12px;
-    font-size: var(--font-sm);
+    font-size: calc(var(--font-sm) - 3px); /* Reduced by 3px */
   }
   
   .submit-btn {

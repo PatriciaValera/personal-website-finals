@@ -18,10 +18,15 @@
       </button>
     </div>
     
+    <div class="site-header">
+      <h1>Riri's Realm <span class="star-icon">✧</span></h1>
+      <p class="site-subtitle">purple aesthetic profile</p>
+    </div>
+    
     <!-- Tab Content -->
     <transition name="fade" mode="out-in">
       <div :key="activeTab" class="tab-content">
-        <Profile v-if="activeTab === 'profile'" @switch-tab="switchTab" />
+        <Profile v-if="activeTab === 'profile'" />
         <Guestbook v-else-if="activeTab === 'guestbook'" />
       </div>
     </transition>
@@ -59,16 +64,16 @@ export default {
 <style scoped>
 .site-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .site-header h1 {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   color: var(--white-pure);
   font-size: var(--font-xxxl);
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .site-header h1::after {
@@ -100,7 +105,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   position: relative;
   z-index: 2;
   border-bottom: 2px solid var(--purple-primary);
@@ -111,7 +116,7 @@ export default {
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.6);
-  padding: 12px 40px;
+  padding: 8px 35px;
   font-size: var(--font-lg);
   font-weight: 600;
   letter-spacing: 1px;
@@ -166,8 +171,8 @@ export default {
 
 .footer {
   text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
+  margin-top: 35px;
+  padding-top: 15px;
   border-top: 2px dashed var(--purple-primary);
   color: rgba(255, 255, 255, 0.7);
 }
@@ -196,7 +201,7 @@ export default {
   .site-header h1 {
     font-size: var(--font-xxl);
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
   }
   
   .star-icon {
@@ -212,16 +217,16 @@ export default {
     gap: 5px;
     border-bottom: none;
     padding-bottom: 0;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   
   .tab-btn {
     width: 100%;
-    padding: 12px 20px;
+    padding: 8px 15px;
     font-size: var(--font-base);
     border: 2px solid var(--purple-primary);
-    border-radius: 50px;
-    margin-bottom: 5px;
+    border-radius: 45px;
+    margin-bottom: 3px;
   }
   
   .tab-btn::after {
@@ -242,7 +247,7 @@ export default {
 
 @media (max-width: 480px) {
   .tab-btn {
-    padding: 10px 15px;
+    padding: 8px 12px;
     font-size: var(--font-sm);
   }
 }
