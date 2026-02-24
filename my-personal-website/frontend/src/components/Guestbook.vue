@@ -2,7 +2,7 @@
   <div class="guestbook-section">
     <!-- Main header -->
     <div class="guestbook-header">
-      <h2>Riri's Mischief Log</h2>
+      <h2>♡ Riri's Mischief Log ♡</h2>
       <p class="subtitle">Dare to Leave Your Scribble~</p>
     </div>
     
@@ -289,13 +289,19 @@ export default {
   font-size: calc(var(--font-xxl) - 3px + 3px);
   color: var(--white-pure);
   margin-bottom: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
+.guestbook-header h2::before,
 .guestbook-header h2::after {
-  content: "✦";
-  font-size: 0.7em;
-  margin-left: 8px;
-  opacity: 0.8;
+  display: none; /* Remove any existing pseudo-element content */
+}
+
+/* Style for the hearts in the text */
+.guestbook-header h2 span {
+  /* This is just to ensure the hearts are properly displayed */
   color: var(--purple-accent);
   text-shadow: 0 0 10px var(--purple-glow);
 }
@@ -482,9 +488,9 @@ export default {
 }
 
 .success-message {
-  background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
+  background: rgba(107, 63, 140, 0.3);
   color: var(--white-pure);
-  border: 2px solid var(--purple-pastel);
+  border: 2px solid var(--purple-primary);
   border-radius: 50px;
   padding: 12px 30px;
   margin-top: 15px;
@@ -494,6 +500,7 @@ export default {
   justify-content: center;
   gap: 8px;
   animation: slideUp 0.3s ease;
+  backdrop-filter: blur(10px);
   box-shadow: 0 5px 0 var(--purple-deep), 0 0 20px var(--purple-glow);
   font-size: calc(var(--font-lg) - 3px + 3px);
   font-weight: bold;
@@ -505,7 +512,6 @@ export default {
   margin-right: auto;
   width: fit-content;
   white-space: nowrap;
-  backdrop-filter: none; /* Remove backdrop-filter to match button */
 }
 
 @keyframes slideUp {
@@ -522,7 +528,7 @@ export default {
 .success-icon {
   font-size: calc(var(--font-lg) - 3px + 3px);
   animation: bounce 1s ease infinite;
-  color: var(--white-pure); /* Changed to white to match button text */
+  color: var(--purple-accent);
 }
 
 @keyframes bounce {
