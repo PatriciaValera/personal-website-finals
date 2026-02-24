@@ -77,18 +77,31 @@
       </div>
     </div>
 
-    <!-- Projects -->
+    <!-- Projects Section -->
     <div class="projects-section">
       <h2>Projects</h2>
       
-      <div class="project-card">
-        <h3>Personal Website</h3>
-        <p>Full-stack portfolio with REST API.</p>
-      </div>
-      
-      <div class="project-card">
-        <h3>Guestbook App</h3>
-        <p>GET & POST connected to backend.</p>
+      <!-- Projects Grid - Side by Side (2 columns) -->
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Personal Website</h3>
+          <p>Full-stack portfolio with REST API.</p>
+        </div>
+        
+        <div class="project-card">
+          <h3>Guestbook App</h3>
+          <p>GET & POST connected to backend.</p>
+        </div>
+        
+        <div class="project-card">
+          <h3>Gas Leak Detector Prototype</h3>
+          <p>IoT safety system with real‑time alerts</p>
+        </div>
+        
+        <div class="project-card">
+          <h3>Personal Profile Mobile App</h3>
+          <p>Mobile app for creating and managing profiles</p>
+        </div>
       </div>
     </div>
   </div>
@@ -260,8 +273,8 @@ p {
 }
 
 .resources-list {
-  list-style: disc; /* Adds bullet points */
-  padding-left: 25px; /* Indent for bullets */
+  list-style: disc;
+  padding-left: 25px;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -348,6 +361,13 @@ p {
   margin-bottom: 40px;
 }
 
+/* Projects Grid - Side by Side (2 columns) */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
 .project-card {
   background: rgba(42, 26, 58, 0.3);
   padding: 20px 25px;
@@ -355,13 +375,15 @@ p {
   border: 1px solid var(--purple-primary);
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
-  margin-bottom: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
   border-color: var(--purple-accent);
   box-shadow: 0 0 20px var(--purple-glow);
-  transform: translateX(5px);
+  transform: translateY(-2px);
 }
 
 .project-card h3 {
@@ -431,6 +453,12 @@ p {
   .hobby-name {
     font-size: var(--font-sm);
   }
+  
+  /* Projects grid stacks on mobile */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -460,7 +488,7 @@ p {
   }
   
   .project-card:hover {
-    transform: translateX(0);
+    transform: translateY(-2px);
   }
 }
 </style>
