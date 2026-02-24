@@ -480,15 +480,16 @@ export default {
   font-size: calc(var(--font-base) - 3px + 3px);
 }
 
-/* Success message - transparent with inline text */
+/* Success message - transparent with purple outline */
 .success-message {
   background: transparent;
   color: var(--white-pure);
-  border: none;
-  padding: 8px 0;
+  border: 2px dashed var(--purple-accent); /* Purple dashed outline */
+  border-radius: 50px; /* Same border radius as button */
+  padding: 10px 30px; /* Same padding as button */
   margin-top: 15px;
   text-align: center;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -497,12 +498,21 @@ export default {
   font-weight: bold;
   text-transform: none;
   letter-spacing: 0.5px;
-  width: auto;
-  max-width: 100%;
-  white-space: nowrap;
+  min-width: 200px; /* Same min-width as button */
+  max-width: 250px; /* Same max-width as button */
+  width: fit-content; /* Fit content width */
+  white-space: nowrap; /* Keep text in one line */
   margin-left: auto;
   margin-right: auto;
   box-shadow: none;
+  backdrop-filter: blur(5px); /* Slight blur for glass effect */
+  transition: all 0.3s ease;
+}
+
+.success-message:hover {
+  border-color: var(--purple-primary);
+  border-style: solid; /* Change to solid on hover */
+  box-shadow: 0 0 15px var(--purple-glow);
 }
 
 @keyframes slideUp {
@@ -825,7 +835,9 @@ export default {
   
   .success-message {
     font-size: calc(var(--font-base) - 3px + 3px);
-    padding: 6px 0;
+    padding: 8px 25px;
+    min-width: 180px;
+    max-width: 220px;
   }
   
   .messages-container {
@@ -885,7 +897,9 @@ export default {
   
   .success-message {
     font-size: calc(var(--font-sm) - 3px + 3px);
-    padding: 4px 0;
+    padding: 6px 20px;
+    min-width: 160px;
+    max-width: 180px;
   }
 }
 </style>
