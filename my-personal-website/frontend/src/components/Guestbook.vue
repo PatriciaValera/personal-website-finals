@@ -1,11 +1,12 @@
 <template>
   <div class="guestbook-section">
+    <!-- Main header - only appears once -->
     <div class="guestbook-header">
       <h2>guestbook</h2>
       <p class="subtitle">leave a message for me ✧</p>
     </div>
     
-    <!-- Form card with purple background -->
+    <!-- Form card - removed the duplicate header -->
     <div class="guestbook-card">
       <div class="purple-bg"></div>
       <form @submit.prevent="submitEntry" class="guestbook-form">
