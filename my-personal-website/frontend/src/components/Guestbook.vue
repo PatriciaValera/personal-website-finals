@@ -13,7 +13,7 @@
         <div class="form-group">
           <label for="name">
             <span class="label-icon">✧</span>
-            your name
+            Name *
           </label>
           <input 
             type="text" 
@@ -27,7 +27,7 @@
         <div class="form-group">
           <label for="email">
             <span class="label-icon">✦</span>
-            email (optional)
+            Email *
           </label>
           <input 
             type="email" 
@@ -40,14 +40,14 @@
         <div class="form-group">
           <label for="message">
             <span class="label-icon">💬</span>
-            your message
+            Message *
           </label>
           <textarea 
             id="message" 
             v-model="formData.message" 
             required
             rows="4"
-            placeholder="what would you like to say?"
+            placeholder="Write something adorable… but make it wicked too"
           ></textarea>
         </div>
         
@@ -59,10 +59,10 @@
         <button type="submit" class="share-btn" :disabled="loading">
           <span v-if="loading">
             <span class="btn-spinner">✧</span>
-            sharing...
+            Logging Chaos
           </span>
           <span v-else>
-            share message
+             Submit Chaos
             <span class="btn-icon">✦</span>
           </span>
         </button>
