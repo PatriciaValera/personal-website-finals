@@ -76,7 +76,7 @@
     <!-- Messages section -->
     <div class="messages-container">
       <div class="messages-header">
-        <h3>recent messages</h3>
+        <h3>Latest scribbles of chaos</h3>
         <span class="message-count">({{ entries.length }})</span>
       </div>
       
