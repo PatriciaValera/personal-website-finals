@@ -77,7 +77,7 @@
     <!-- Messages section -->
     <div class="messages-container">
       <div class="messages-header">
-        <h3>recent messages</h3>
+        <h3>Mischief Logs</h3>
         <span class="message-count">({{ entries.length }})</span>
       </div>
       
@@ -175,13 +175,13 @@ export default {
           message: ''
         }
         
-        this.success = 'message shared! ✧'
+        this.success = 'Chaos Logged! ✧'
         
         setTimeout(() => {
           this.success = null
         }, 3000)
       } catch (err) {
-        this.error = err.response?.data?.message || 'failed to share message'
+        this.error = err.response?.data?.message || 'Failed to log chaos'
       } finally {
         this.loading = false
       }
@@ -192,6 +192,7 @@ export default {
       const options = { 
         month: 'short', 
         day: 'numeric',
+        year: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
       }
