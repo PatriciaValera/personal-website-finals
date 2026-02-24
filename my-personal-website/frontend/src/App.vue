@@ -27,7 +27,7 @@
     </transition>
     
     <div class="footer">
-      <p>Made with <span class="heart">✧</span> in purple</p>
+      <p>Made with <span class="heart-outline">♡</span> in purple</p>
       <p class="small">✦ purple dreams ✦</p>
     </div>
   </div>
@@ -57,50 +57,12 @@ export default {
 </script>
 
 <style scoped>
-.site-header {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.site-header h1 {
-  margin-bottom: 3px;
-  color: var(--white-pure);
-  font-size: var(--font-xxxl);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.site-header h1::after {
-  display: none;
-}
-
-.star-icon {
-  font-size: var(--font-xxl);
-  display: inline-block;
-  animation: twinkle 2s ease infinite;
-  color: var(--purple-accent);
-  text-shadow: 0 0 15px var(--purple-glow);
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); text-shadow: 0 0 25px var(--purple-accent); }
-}
-
-.site-subtitle {
-  color: var(--white-pure);
-  font-size: var(--font-lg);
-  font-style: italic;
-  text-shadow: 0 0 8px var(--purple-glow);
-}
-
 /* Tab Navigation */
 .tab-navigation {
   display: flex;
   justify-content: center;
   gap: 0;
-  margin-bottom: 15px;
+  margin-bottom: 30px; /* Increased from 15px to 30px for better spacing */
   position: relative;
   z-index: 2;
   border-bottom: 2px solid var(--purple-primary);
@@ -172,12 +134,32 @@ export default {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.heart {
-  color: var(--purple-accent);
+.heart-outline {
+  color: transparent;
   font-size: var(--font-xl);
   animation: pulse 1.5s ease infinite;
   display: inline-block;
-  text-shadow: 0 0 10px var(--purple-glow);
+  text-shadow: 
+    0 0 0 var(--purple-accent),
+    0 0 10px var(--purple-glow);
+  -webkit-text-stroke: 2px var(--purple-accent);
+  text-stroke: 2px var(--purple-accent);
+  margin: 0 2px;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1);
+    text-shadow: 
+      0 0 0 var(--purple-accent),
+      0 0 10px var(--purple-glow);
+  }
+  50% { 
+    transform: scale(1.2);
+    text-shadow: 
+      0 0 0 var(--purple-accent),
+      0 0 20px var(--purple-glow);
+  }
 }
 
 .small {
@@ -186,33 +168,14 @@ export default {
   color: rgba(255, 255, 255, 0.7);
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-  .site-header h1 {
-    font-size: var(--font-xxl);
-    flex-direction: column;
-    gap: 3px;
-  }
-  
-  .star-icon {
-    font-size: var(--font-xl);
-  }
-  
-  .site-subtitle {
-    font-size: var(--font-base);
-  }
-  
   .tab-navigation {
     flex-direction: column;
     gap: 5px;
     border-bottom: none;
     padding-bottom: 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Adjusted for mobile */
   }
   
   .tab-btn {
