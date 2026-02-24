@@ -487,12 +487,13 @@ export default {
   font-size: calc(var(--font-base) - 3px + 3px);
 }
 
+/* Success message - matches input field styling with button width */
 .success-message {
-  background: rgba(107, 63, 140, 0.3);
+  background: rgba(0, 0, 0, 0.3); /* Same as input background */
   color: var(--white-pure);
-  border: 2px solid var(--purple-primary);
-  border-radius: 50px;
-  padding: 12px 30px;
+  border: 2px solid var(--purple-primary); /* Same as input border */
+  border-radius: 15px; /* Same as input border radius */
+  padding: 12px 15px; /* Same as input padding */
   margin-top: 15px;
   text-align: center;
   display: flex;
@@ -500,18 +501,22 @@ export default {
   justify-content: center;
   gap: 8px;
   animation: slideUp 0.3s ease;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 5px 0 var(--purple-deep), 0 0 20px var(--purple-glow);
+  backdrop-filter: blur(5px);
   font-size: calc(var(--font-lg) - 3px + 3px);
   font-weight: bold;
   text-transform: none;
   letter-spacing: 0.5px;
-  min-width: 200px;
-  max-width: 250px;
+  min-width: 200px; /* Same min-width as button */
+  max-width: 250px; /* Same max-width as button */
+  width: 100%; /* Make it fill the container like button */
   margin-left: auto;
   margin-right: auto;
-  width: fit-content;
-  white-space: nowrap;
+  box-shadow: none; /* Remove glow shadow to match inputs */
+}
+
+.success-message:hover {
+  border-color: var(--purple-accent); /* Same as input focus */
+  box-shadow: 0 0 20px var(--purple-glow); /* Add glow on hover like inputs */
 }
 
 @keyframes slideUp {
@@ -834,7 +839,7 @@ export default {
   
   .success-message {
     font-size: calc(var(--font-base) - 3px + 3px);
-    padding: 10px 25px;
+    padding: 10px 15px;
     min-width: 180px;
     max-width: 220px;
   }
@@ -897,7 +902,7 @@ export default {
   .success-message {
     min-width: 160px;
     max-width: 180px;
-    padding: 8px 20px;
+    padding: 8px 12px;
   }
 }
 </style>
