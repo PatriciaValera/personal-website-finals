@@ -2,7 +2,7 @@
   <div class="profile-section">
     <div class="profile-header">
       <div class="profile-avatar">
-        <img src="https://i.pravatar.cc/300?img=5" alt="Kuromi Style Avatar">
+        <img src="https://i.pinimg.com/736x/fa/38/d9/fa38d985fcfaba8c68aee3091f393cf5.jpg" alt="Kuromi Style Avatar">
         <div class="avatar-caption">☠ くろみ ☠</div>
       </div>
       
@@ -10,12 +10,13 @@
         <h2>Kuromi Chan</h2>
         <p class="title">〜 悪い子ちゃん (Bad Girl) 〜</p>
         <p class="bio">
-          ✧ Punk rock princess with a cute twist! ✧<br>
-          I love creating chaos with a smile~ 
-          My favorite things include skulls, pink accessories, 
-          and making new friends (even if I act tough!)
+          ✧ Yo, I’m Patricia Marie Valera ✧<br>
+          I live for juicy stories and a bit of chaos—gossip is my guilty pleasure.
+          Curiosity keeps me lurking, always sniffing out what’s going on. 
+          Life’s way more fun when you stir things up, laugh loud, and make memories that stick.
+          I’m not bold, but I’ve got my own kind of mischief~ 🎀.
         </p>
-        
+       
         <div class="stats">
           <div class="stat-item">
             <span class="stat-value">25</span>
@@ -35,7 +36,7 @@
     
     <div class="profile-details">
       <div class="detail-card">
-        <h3>✧ Skills & Spells ✧</h3>
+        <h3>☠ Skills & Spells ☠</h3>
         <div class="skills-grid">
           <div v-for="skill in skills" :key="skill.name" class="skill-item">
             <div class="skill-info">
@@ -54,15 +55,11 @@
         <ul class="contact-list">
           <li>
             <span class="contact-icon">📧</span>
-            <span>kuromi@dark-cute.com</span>
-          </li>
-          <li>
-            <span class="contact-icon">🎵</span>
-            <span>@kuromi_official</span>
+            <span>pdvalera@student.apc.edu.ph</span>
           </li>
           <li>
             <span class="contact-icon">💀</span>
-            <span>github.com/kuromi</span>
+            <span>github.com/PatriciaValera</span>
           </li>
           <li>
             <span class="contact-icon">🏰</span>
@@ -92,10 +89,9 @@ export default {
       skills: [
         { name: 'Vue.js', level: 90 },
         { name: 'React', level: 85 },
-        { name: 'Node.js', level: 88 },
+        { name: 'UI/UX Design', level: 95 },
+        { name: 'Node.js', level: 80 },
         { name: 'Python', level: 75 },
-        { name: 'TypeScript', level: 82 },
-        { name: 'UI/UX Design', level: 95 }
       ]
     }
   }
@@ -119,28 +115,6 @@ export default {
   position: relative;
 }
 
-.profile-header::before {
-  content: "☠";
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  font-size: 40px;
-  opacity: 0.2;
-  color: var(--kuromi-pink);
-  transform: rotate(-15deg);
-}
-
-.profile-header::after {
-  content: "♡";
-  position: absolute;
-  bottom: -10px;
-  right: -10px;
-  font-size: 40px;
-  opacity: 0.2;
-  color: var(--kuromi-purple);
-  transform: rotate(15deg);
-}
-
 .profile-avatar {
   position: relative;
   text-align: center;
@@ -153,18 +127,13 @@ export default {
   object-fit: cover;
   border: 4px solid var(--kuromi-pink);
   box-shadow: 0 8px 0 var(--kuromi-dark-purple);
-  transition: transform 0.3s ease;
-}
-
-.profile-avatar img:hover {
-  transform: scale(1.05);
 }
 
 .avatar-caption {
   margin-top: 10px;
   color: var(--kuromi-pink);
   font-weight: bold;
-  font-size: var(--font-sm);
+  font-size: 14px;
   letter-spacing: 2px;
 }
 
@@ -174,12 +143,12 @@ export default {
 
 .profile-info h2 {
   margin-bottom: 5px;
-  font-size: var(--font-xxl);
+  font-size: 32px;
 }
 
 .profile-info .title {
   color: var(--kuromi-purple);
-  font-size: var(--font-base);
+  font-size: 16px;
   margin-bottom: 15px;
   font-style: italic;
 }
@@ -192,7 +161,6 @@ export default {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   border-left: 4px solid var(--kuromi-pink);
-  font-size: var(--font-base);
 }
 
 .stats {
@@ -207,13 +175,14 @@ export default {
 
 .stat-value {
   display: block;
-  font-size: var(--font-xxl);
+  font-size: 28px;
   font-weight: bold;
   color: var(--kuromi-pink);
+  text-shadow: 2px 2px 0 var(--kuromi-dark-purple);
 }
 
 .stat-label {
-  font-size: var(--font-xs);
+  font-size: 12px;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -230,9 +199,7 @@ export default {
   padding: 25px;
   border-radius: 25px;
   border: 2px solid var(--kuromi-pink);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
 .detail-card:hover {
@@ -240,20 +207,9 @@ export default {
   box-shadow: 0 10px 0 var(--kuromi-dark-purple);
 }
 
-.detail-card::before {
-  content: "☠";
-  position: absolute;
-  bottom: -10px;
-  right: -10px;
-  font-size: 60px;
-  opacity: 0.05;
-  color: var(--kuromi-pink);
-  transform: rotate(10deg);
-}
-
 .detail-card h3 {
   margin-bottom: 20px;
-  font-size: var(--font-xl);
+  font-size: 20px;
 }
 
 .skills-grid {
@@ -271,7 +227,6 @@ export default {
   justify-content: space-between;
   margin-bottom: 5px;
   color: var(--text-light);
-  font-size: var(--font-sm);
 }
 
 .skill-name {
@@ -308,18 +263,16 @@ export default {
   gap: 15px;
   padding: 12px 0;
   border-bottom: 1px dashed var(--kuromi-purple);
-  font-size: var(--font-base);
 }
 
 .contact-icon {
-  font-size: var(--font-xl);
+  font-size: 20px;
   min-width: 30px;
 }
 
 .favorites h4 {
   color: var(--kuromi-pink);
   margin-bottom: 10px;
-  font-size: var(--font-lg);
 }
 
 .favorite-tags {
@@ -331,12 +284,11 @@ export default {
 .tag {
   background: var(--kuromi-black);
   color: var(--kuromi-pink);
-  padding: 8px 20px;
+  padding: 5px 15px;
   border-radius: 50px;
-  font-size: var(--font-sm);
+  font-size: 12px;
   border: 1px solid var(--kuromi-purple);
   transition: all 0.3s ease;
-  cursor: default;
 }
 
 .tag:hover {
@@ -345,7 +297,6 @@ export default {
   transform: scale(1.05);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .profile-header {
     flex-direction: column;
@@ -360,34 +311,10 @@ export default {
   
   .stats {
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
   }
   
   .profile-details {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .stat-value {
-    font-size: var(--font-xl);
-  }
-}
-
-@media (max-width: 480px) {
-  .profile-avatar img {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .contact-list li {
-    font-size: var(--font-sm);
-    flex-wrap: wrap;
-  }
-  
-  .tag {
-    font-size: var(--font-xs);
-    padding: 5px 12px;
   }
 }
 </style>
