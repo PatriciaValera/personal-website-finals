@@ -2,7 +2,7 @@
   <div class="profile-section">
     <!-- Name and Title -->
     <div class="name-title">
-      <h1>Riri</h1>
+      <h1>Riri's Lair</h1>
       <p class="title">Web Developer • Vue • Nest • Supabase</p>
     </div>
 
