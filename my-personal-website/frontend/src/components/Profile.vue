@@ -2,33 +2,31 @@
   <div class="profile-section">
     <div class="profile-header">
       <div class="profile-avatar">
-        <img src="https://i.pravatar.cc/300?img=12" alt="Inosuke Style Avatar">
-        <div class="avatar-caption">⚡ 猪突猛進 ⚡</div>
+        <img src="https://i.pravatar.cc/300?img=5" alt="Profile Avatar">
+        <div class="avatar-caption">✧ riri ✧</div>
       </div>
       
       <div class="profile-info">
-        <h2>INO♯UKE HASHIBIRA</h2>
-        <p class="title">〜 Beast Breathing Hashira 〜</p>
+        <h2>Riri</h2>
+        <p class="title">✦ purple aesthetic ✦</p>
         <p class="bio">
-          ⚔️ Born and raised by boars in the mountains! ⚔️<br><br>
-          I'm the strongest demon slayer you'll ever meet! 
-          I use Beast Breathing and fight with two swords. 
-          Don't underestimate me just because I wear a boar mask - 
-          I'll defeat any demon that gets in my way!
+          ✧ dreamer | creator | stargazer ✧<br>
+          living in a purple haze, creating beautiful things 
+          and chasing stars. welcome to my little corner of the internet.
         </p>
         
         <div class="stats">
           <div class="stat-item">
-            <span class="stat-value">⚡99</span>
-            <span class="stat-label">Strength</span>
+            <span class="stat-value">42</span>
+            <span class="stat-label">projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">888</span>
+            <span class="stat-label">followers</span>
           </div>
           <div class="stat-item">
             <span class="stat-value">∞</span>
-            <span class="stat-label">Fighting Spirit</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-value">🐗</span>
-            <span class="stat-label">Boar Power</span>
+            <span class="stat-label">dreams</span>
           </div>
         </div>
       </div>
@@ -36,7 +34,7 @@
     
     <div class="profile-details">
       <div class="detail-card">
-        <h3>⚔️ Beast Breathing Forms ⚔️</h3>
+        <h3>✧ skills ✧</h3>
         <div class="skills-grid">
           <div v-for="skill in skills" :key="skill.name" class="skill-item">
             <div class="skill-info">
@@ -46,61 +44,40 @@
             <div class="skill-bar">
               <div class="skill-progress" :style="{ width: skill.level + '%' }"></div>
             </div>
-            <span class="skill-desc">{{ skill.description }}</span>
           </div>
         </div>
       </div>
       
       <div class="detail-card">
-        <h3>🐗 Boar Warrior Info 🐗</h3>
-        <ul class="info-list">
+        <h3>✧ contact ✧</h3>
+        <ul class="contact-list">
           <li>
-            <span class="info-icon">🎂</span>
-            <div>
-              <strong>Age:</strong> 17 (Boar years = eternal)
-            </div>
+            <span class="contact-icon">📧</span>
+            <span>riri@purple.realm</span>
           </li>
           <li>
-            <span class="info-icon">🗡️</span>
-            <div>
-              <strong>Weapon:</strong> Dual Nichirin Blades (Serrated)
-            </div>
+            <span class="contact-icon">✨</span>
+            <span>@riri_aesthetic</span>
           </li>
           <li>
-            <span class="info-icon">🏔️</span>
-            <div>
-              <strong>Origin:</strong> Raised by Boars in the Mountains
-            </div>
+            <span class="contact-icon">✧</span>
+            <span>github.com/riri</span>
           </li>
           <li>
-            <span class="info-icon">👥</span>
-            <div>
-              <strong>Companions:</strong> Tanjiro, Zenitsu, Nezuko
-            </div>
-          </li>
-          <li>
-            <span class="info-icon">🎯</span>
-            <div>
-              <strong>Goal:</strong> Become the strongest Hashira!
-            </div>
+            <span class="contact-icon">🏰</span>
+            <span>purple realm</span>
           </li>
         </ul>
         
-        <div class="fighting-style">
-          <h4>Fighting Style:</h4>
-          <div class="style-tags">
-            <span class="tag">Wild</span>
-            <span class="tag">Aggressive</span>
-            <span class="tag">Instinctive</span>
-            <span class="tag">Unpredictable</span>
-            <span class="tag">Beast-like</span>
+        <div class="favorites">
+          <h4>favorites:</h4>
+          <div class="favorite-tags">
+            <span class="tag">purple</span>
+            <span class="tag">stars</span>
+            <span class="tag">moon</span>
+            <span class="tag">dreams</span>
+            <span class="tag">aesthetic</span>
           </div>
-        </div>
-        
-        <div class="quote-box">
-          <span class="quote-mark">"</span>
-          <p class="quote">I don't need friends! I'm strong enough on my own! ...But Tanjiro, you're okay I guess.</p>
-          <span class="quote-mark">"</span>
         </div>
       </div>
     </div>
@@ -113,36 +90,12 @@ export default {
   data() {
     return {
       skills: [
-        { 
-          name: '壱ノ型 穿ち抜き (Piercing Rain)', 
-          level: 100,
-          description: 'Rapid thrusting attack'
-        },
-        { 
-          name: '弐ノ型 切り裂き (Slash)', 
-          level: 98,
-          description: 'Wild slashing motion'
-        },
-        { 
-          name: '参ノ型 喰い裂き (Devour)', 
-          level: 95,
-          description: 'Biting attack pattern'
-        },
-        { 
-          name: '肆ノ型 砕き (Smash)', 
-          level: 96,
-          description: 'Powerful crushing blow'
-        },
-        { 
-          name: '伍ノ型 狂い裂き (Mad Slash)', 
-          level: 97,
-          description: 'Berserker-style attacks'
-        },
-        { 
-          name: '陸ノ型 乱れ (Wild Chaos)', 
-          level: 94,
-          description: 'Chaotic multi-directional slashes'
-        }
+        { name: 'Vue.js', level: 90 },
+        { name: 'React', level: 85 },
+        { name: 'Node.js', level: 88 },
+        { name: 'Python', level: 75 },
+        { name: 'TypeScript', level: 82 },
+        { name: 'UI/UX Design', level: 95 }
       ]
     }
   }
@@ -159,12 +112,37 @@ export default {
   gap: 40px;
   margin-bottom: 40px;
   flex-wrap: wrap;
-  background: var(--inosuke-gray);
+  background: rgba(42, 26, 58, 0.6);
+  backdrop-filter: blur(10px);
   padding: 30px;
-  border-radius: 0 50px 0 50px;
-  border: 3px solid var(--inosuke-blue);
+  border-radius: 30px;
+  border: 2px solid var(--purple-primary);
   position: relative;
-  box-shadow: 10px 10px 0 var(--inosuke-dark-blue);
+  box-shadow: 0 10px 0 var(--purple-deep), 0 0 30px var(--purple-glow);
+}
+
+.profile-header::before {
+  content: "✧";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  font-size: 40px;
+  opacity: 0.3;
+  color: var(--purple-accent);
+  transform: rotate(-15deg);
+  text-shadow: 0 0 15px var(--purple-glow);
+}
+
+.profile-header::after {
+  content: "✦";
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  font-size: 40px;
+  opacity: 0.3;
+  color: var(--purple-light);
+  transform: rotate(15deg);
+  text-shadow: 0 0 15px var(--purple-glow);
 }
 
 .profile-avatar {
@@ -173,23 +151,27 @@ export default {
 }
 
 .profile-avatar img {
-  width: 200px;
-  height: 200px;
-  border-radius: 40% 40% 20% 20%;
+  width: 180px;
+  height: 180px;
+  border-radius: 30px 30px 50% 50%;
   object-fit: cover;
-  border: 4px solid var(--inosuke-beige);
-  box-shadow: 8px 8px 0 var(--inosuke-blue);
-  filter: contrast(1.1);
+  border: 4px solid var(--purple-light);
+  box-shadow: 0 8px 0 var(--purple-deep), 0 0 30px var(--purple-accent);
+  transition: all 0.3s ease;
+}
+
+.profile-avatar img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 0 var(--purple-deep), 0 0 40px var(--purple-glow);
 }
 
 .avatar-caption {
-  margin-top: 15px;
-  color: var(--inosuke-beige);
+  margin-top: 10px;
+  color: var(--purple-pastel);
   font-weight: bold;
-  font-size: 16px;
+  font-size: var(--font-sm);
   letter-spacing: 2px;
-  font-family: 'Bangers', cursive;
-  text-shadow: 2px 2px 0 var(--inosuke-dark-blue);
+  text-shadow: 0 0 8px var(--purple-accent);
 }
 
 .profile-info {
@@ -198,56 +180,49 @@ export default {
 
 .profile-info h2 {
   margin-bottom: 5px;
-  font-size: 36px;
-  color: var(--inosuke-blue);
+  font-size: var(--font-xxl);
 }
 
 .profile-info .title {
-  color: var(--inosuke-beige);
-  font-size: 18px;
+  color: var(--purple-soft);
+  font-size: var(--font-base);
   margin-bottom: 15px;
   font-style: italic;
-  border-bottom: 2px dashed var(--inosuke-blue);
-  padding-bottom: 10px;
 }
 
 .profile-info .bio {
   line-height: 1.8;
   color: var(--text-light);
   margin-bottom: 20px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 0 30px 0 30px;
-  border-left: 5px solid var(--inosuke-blue);
-  border-bottom: 3px solid var(--inosuke-beige);
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  border-left: 4px solid var(--purple-accent);
+  font-size: var(--font-base);
+  backdrop-filter: blur(5px);
 }
 
 .stats {
   display: flex;
   gap: 30px;
   margin-top: 20px;
-  background: var(--inosuke-black);
-  padding: 15px;
-  border-radius: 0 20px 0 20px;
-  border: 2px solid var(--inosuke-blue);
 }
 
 .stat-item {
   text-align: center;
-  flex: 1;
 }
 
 .stat-value {
   display: block;
-  font-size: 32px;
+  font-size: var(--font-xxl);
   font-weight: bold;
-  color: var(--inosuke-beige);
-  text-shadow: 3px 3px 0 var(--inosuke-dark-blue);
+  color: var(--purple-pastel);
+  text-shadow: 0 0 15px var(--purple-accent);
 }
 
 .stat-label {
-  font-size: 12px;
-  color: var(--inosuke-light-blue);
+  font-size: var(--font-xs);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -259,30 +234,44 @@ export default {
 }
 
 .detail-card {
-  background: var(--inosuke-gray);
+  background: rgba(42, 26, 58, 0.6);
+  backdrop-filter: blur(10px);
   padding: 25px;
-  border-radius: 0 40px 0 40px;
-  border: 2px solid var(--inosuke-blue);
-  transition: transform 0.3s ease;
-  box-shadow: 8px 8px 0 var(--inosuke-dark-blue);
+  border-radius: 25px;
+  border: 2px solid var(--purple-primary);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 0 var(--purple-deep);
 }
 
 .detail-card:hover {
-  transform: translate(-5px, -5px);
-  box-shadow: 13px 13px 0 var(--inosuke-dark-blue);
+  transform: translateY(-5px);
+  box-shadow: 0 13px 0 var(--purple-deep), 0 0 30px var(--purple-glow);
+  border-color: var(--purple-accent);
+}
+
+.detail-card::before {
+  content: "✧";
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  font-size: 80px;
+  opacity: 0.1;
+  color: var(--purple-accent);
+  transform: rotate(10deg);
+  text-shadow: 0 0 20px var(--purple-glow);
 }
 
 .detail-card h3 {
   margin-bottom: 20px;
-  font-size: 24px;
-  border-bottom: 2px solid var(--inosuke-beige);
-  padding-bottom: 10px;
+  font-size: var(--font-xl);
 }
 
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .skill-item {
@@ -294,117 +283,87 @@ export default {
   justify-content: space-between;
   margin-bottom: 5px;
   color: var(--text-light);
+  font-size: var(--font-sm);
 }
 
 .skill-name {
   font-weight: 600;
-  color: var(--inosuke-beige);
-  font-size: 14px;
 }
 
 .skill-level {
-  color: var(--inosuke-blue);
-  font-weight: bold;
+  color: var(--purple-pastel);
 }
 
 .skill-bar {
   width: 100%;
-  height: 12px;
-  background: var(--inosuke-black);
-  border-radius: 0 10px 0 10px;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
   overflow: hidden;
-  border: 1px solid var(--inosuke-beige);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .skill-progress {
   height: 100%;
-  background: linear-gradient(90deg, var(--inosuke-blue), var(--inosuke-light-blue));
-  border-radius: 0 8px 0 8px;
+  background: linear-gradient(90deg, var(--purple-primary), var(--purple-accent));
+  border-radius: 10px;
   transition: width 1s ease;
+  box-shadow: 0 0 10px var(--purple-glow);
 }
 
-.skill-desc {
-  display: block;
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-top: 5px;
-  font-style: italic;
-}
-
-.info-list {
+.contact-list {
   list-style: none;
   margin-bottom: 20px;
 }
 
-.info-list li {
+.contact-list li {
   display: flex;
   align-items: center;
   gap: 15px;
   padding: 12px 0;
-  border-bottom: 1px dashed var(--inosuke-blue);
+  border-bottom: 1px dashed var(--purple-primary);
+  font-size: var(--font-base);
 }
 
-.info-icon {
-  font-size: 24px;
-  min-width: 40px;
-  text-align: center;
+.contact-icon {
+  font-size: var(--font-xl);
+  min-width: 30px;
+  color: var(--purple-accent);
 }
 
-.fighting-style h4 {
-  color: var(--inosuke-beige);
-  margin: 20px 0 10px;
-  font-size: 18px;
+.favorites h4 {
+  color: var(--purple-pastel);
+  margin-bottom: 10px;
+  font-size: var(--font-lg);
 }
 
-.style-tags {
+.favorite-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
 .tag {
-  background: var(--inosuke-black);
-  color: var(--inosuke-light-blue);
-  padding: 5px 15px;
-  border-radius: 0 15px 0 15px;
-  font-size: 12px;
-  border: 1px solid var(--inosuke-blue);
-  font-weight: bold;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--purple-pastel);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: var(--font-sm);
+  border: 1px solid var(--purple-primary);
   transition: all 0.3s ease;
+  cursor: default;
+  backdrop-filter: blur(5px);
 }
 
 .tag:hover {
-  background: var(--inosuke-blue);
-  color: var(--inosuke-black);
+  background: var(--purple-primary);
+  color: var(--white-soft);
   transform: scale(1.05);
+  box-shadow: 0 0 15px var(--purple-glow);
+  border-color: var(--purple-accent);
 }
 
-.quote-box {
-  background: var(--inosuke-black);
-  padding: 20px;
-  border-radius: 0 30px 0 30px;
-  margin-top: 20px;
-  border-left: 5px solid var(--inosuke-beige);
-  position: relative;
-}
-
-.quote-mark {
-  color: var(--inosuke-blue);
-  font-size: 40px;
-  font-family: serif;
-  line-height: 0;
-  opacity: 0.5;
-}
-
-.quote {
-  font-style: italic;
-  margin: 10px 0;
-  color: var(--text-light);
-  font-size: 16px;
-  text-align: center;
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
   .profile-header {
     flex-direction: column;
@@ -419,14 +378,34 @@ export default {
   
   .stats {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   
   .profile-details {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   
   .stat-value {
-    font-size: 24px;
+    font-size: var(--font-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-avatar img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .contact-list li {
+    font-size: var(--font-sm);
+    flex-wrap: wrap;
+  }
+  
+  .tag {
+    font-size: var(--font-xs);
+    padding: 5px 12px;
   }
 }
 </style>
