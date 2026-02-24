@@ -19,7 +19,7 @@
             id="name" 
             v-model="formData.name" 
             required
-            placeholder="enter your name"
+            placeholder="Enter your name... I wanna know who dares to sign"
           >
         </div>
         
