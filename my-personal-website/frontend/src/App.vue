@@ -18,11 +18,6 @@
       </button>
     </div>
     
-    <div class="site-header">
-      <h1>Riri's Realm <span class="star-icon">✧</span></h1>
-      <p class="site-subtitle">purple aesthetic profile</p>
-    </div>
-    
     <!-- Tab Content -->
     <transition name="fade" mode="out-in">
       <div :key="activeTab" class="tab-content">

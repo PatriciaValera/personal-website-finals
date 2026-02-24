@@ -3,13 +3,16 @@
     <!-- Name and Title -->
     <div class="name-title">
       <h1>Your Name</h1>
-      <p class="title">Web Developer • Vue • Nest • Supabase</p>
+      <p class="title">Web Developer • Vue • React • Supabase</p>
     </div>
 
     <!-- About Me -->
     <div class="about-section">
       <h2>About Me</h2>
-      <p>I build modern full-stack applications using Vue.js frontend and Nest.js backend connected to Supabase.</p>
+      <p>I live for juicy stories and a bit of chaos—gossip is my guilty pleasure. 
+      Curiosity keeps me lurking, always sniffing out what’s going on. Life’s sweeter 
+      when you laugh, stay social, and make memories that sparkle. I’m not bold, but 
+      I’ve got my own kind of mischief~ 🎀</p>
     </div>
 
     <!-- Skills -->
