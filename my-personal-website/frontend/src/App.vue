@@ -26,7 +26,7 @@
     <!-- Tab Content -->
     <transition name="fade" mode="out-in">
       <div :key="activeTab" class="tab-content">
-        <Profile v-if="activeTab === 'profile'" />
+        <Profile v-if="activeTab === 'profile'" @switch-tab="switchTab" />
         <Guestbook v-else-if="activeTab === 'guestbook'" />
       </div>
     </transition>
@@ -52,6 +52,11 @@ export default {
     return {
       activeTab: 'profile'
     }
+  },
+  methods: {
+    switchTab(tab) {
+      this.activeTab = tab
+    }
   }
 }
 </script>
@@ -59,16 +64,16 @@ export default {
 <style scoped>
 .site-header {
   text-align: center;
-  margin-bottom: 25px; /* Reduced by 5px */
+  margin-bottom: 30px;
 }
 
 .site-header h1 {
-  margin-bottom: 3px; /* Reduced by 2px */
+  margin-bottom: 5px;
   color: var(--white-pure);
   font-size: var(--font-xxxl);
   display: inline-flex;
   align-items: center;
-  gap: 8px; /* Reduced by 2px */
+  gap: 10px;
 }
 
 .site-header h1::after {
@@ -100,7 +105,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 0;
-  margin-bottom: 15px; /* Reduced by 5px */
+  margin-bottom: 20px;
   position: relative;
   z-index: 2;
   border-bottom: 2px solid var(--purple-primary);
@@ -111,7 +116,7 @@ export default {
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.6);
-  padding: 8px 35px; /* Reduced from 12px 40px */
+  padding: 12px 40px;
   font-size: var(--font-lg);
   font-weight: 600;
   letter-spacing: 1px;
@@ -166,8 +171,8 @@ export default {
 
 .footer {
   text-align: center;
-  margin-top: 35px; /* Reduced by 5px */
-  padding-top: 15px; /* Reduced by 5px */
+  margin-top: 40px;
+  padding-top: 20px;
   border-top: 2px dashed var(--purple-primary);
   color: rgba(255, 255, 255, 0.7);
 }
@@ -196,7 +201,7 @@ export default {
   .site-header h1 {
     font-size: var(--font-xxl);
     flex-direction: column;
-    gap: 3px; /* Reduced */
+    gap: 5px;
   }
   
   .star-icon {
@@ -212,16 +217,16 @@ export default {
     gap: 5px;
     border-bottom: none;
     padding-bottom: 0;
-    margin-bottom: 10px; /* Reduced by 5px */
+    margin-bottom: 15px;
   }
   
   .tab-btn {
     width: 100%;
-    padding: 8px 15px; /* Reduced */
+    padding: 12px 20px;
     font-size: var(--font-base);
     border: 2px solid var(--purple-primary);
-    border-radius: 45px; /* Reduced by 5px */
-    margin-bottom: 3px; /* Reduced by 2px */
+    border-radius: 50px;
+    margin-bottom: 5px;
   }
   
   .tab-btn::after {
@@ -242,7 +247,7 @@ export default {
 
 @media (max-width: 480px) {
   .tab-btn {
-    padding: 8px 12px; /* Reduced */
+    padding: 10px 15px;
     font-size: var(--font-sm);
   }
 }

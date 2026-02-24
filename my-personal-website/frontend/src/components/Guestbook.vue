@@ -2,7 +2,7 @@
   <div class="guestbook-section">
     <!-- Main header - only appears once -->
     <div class="guestbook-header">
-      <h2>guestbook</h2>
+      <h2>Guestbook</h2>
       <p class="subtitle">leave a message for me ✧</p>
     </div>
     
