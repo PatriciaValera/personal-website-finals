@@ -174,13 +174,13 @@ export default {
           message: ''
         }
         
-        this.success = 'chaos submitted! ✧'
+        this.success = 'Chaos Submitted! ✧'
         
         setTimeout(() => {
           this.success = null
         }, 3000)
       } catch (err) {
-        this.error = err.response?.data?.message || 'failed to submit chaos'
+        this.error = err.response?.data?.message || 'Failed to submit chaos'
       } finally {
         this.loading = false
       }
