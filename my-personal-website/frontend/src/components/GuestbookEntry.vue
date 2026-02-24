@@ -1,34 +1,45 @@
 <template>
-  <div class="guestbook-entry">
-    <div class="entry-decoration">
-      <span class="decor-left">☠</span>
-      <span class="decor-right">♡</span>
+  <div class="fairy-tale-entry">
+    <div class="entry-ribbon">
+      <span class="ribbon-left">👑</span>
+      <span class="ribbon-right">✨</span>
     </div>
     
     <div class="entry-content">
       <div class="entry-header">
         <div class="entry-author">
-          <span class="author-icon">👤</span>
-          <strong class="author-name">{{ entry.name }}</strong>
-          <span class="mischief-badge" v-if="isNewEntry">NEW CHAOS!</span>
+          <span class="author-crown">👸</span>
+          <div class="author-info">
+            <strong class="author-name">{{ entry.name }}</strong>
+            <span class="fairy-badge">Fairy Tale Friend</span>
+          </div>
         </div>
-        <div class="entry-date">
-          <span class="date-icon">🕒</span>
-          {{ formatDate(entry.created_at) }}
+        
+        <div class="entry-time">
+          <span class="time-icon">⏰</span>
+          <span class="time-text">{{ formatDate(entry.created_at) }}</span>
         </div>
       </div>
       
-      <div class="entry-message">
-        "{{ entry.message }}"
+      <div class="message-box">
+        <div class="message-decoration">
+          <span class="quote-left">"</span>
+          <span class="quote-right">"</span>
+        </div>
+        <p class="entry-message">{{ entry.message }}</p>
+        <div class="magic-seal">
+          <span class="seal-icon">✨</span>
+        </div>
       </div>
       
       <div v-if="entry.email" class="entry-footer">
-        <span class="email-icon">📧</span>
-        <span class="entry-email">{{ entry.email }}</span>
+        <span class="footer-icon">💌</span>
+        <span class="footer-email">{{ entry.email }}</span>
+        <span class="magic-sparkle">✨</span>
       </div>
       
-      <div class="entry-sticker">
-        <span class="sticker" v-for="n in 3" :key="n">✨</span>
+      <div class="pumpkin-stamp">
+        <span class="stamp">🎃</span>
       </div>
     </div>
   </div>
@@ -43,23 +54,16 @@ export default {
       required: true
     }
   },
-  computed: {
-    isNewEntry() {
-      const entryDate = new Date(this.entry.created_at)
-      const now = new Date()
-      const hoursDiff = (now - entryDate) / (1000 * 60 * 60)
-      return hoursDiff < 24 // New if less than 24 hours old
-    }
-  },
   methods: {
     formatDate(dateString) {
       const date = new Date(dateString)
       const options = { 
         year: 'numeric', 
-        month: 'short', 
+        month: 'long', 
         day: 'numeric',
         hour: '2-digit',
-        minute: '2-digit'
+        minute: '2-digit',
+        hour12: true
       }
       return date.toLocaleDateString('en-US', options)
     }
@@ -68,52 +72,53 @@ export default {
 </script>
 
 <style scoped>
-.guestbook-entry {
-  background: linear-gradient(135deg, var(--kuromi-gray), var(--kuromi-light-gray));
-  border: 2px solid var(--kuromi-purple);
-  border-radius: 25px;
-  padding: 20px;
+.fairy-tale-entry {
+  background: white;
+  border: 3px solid var(--rose-pink);
+  border-radius: 30px;
+  margin-bottom: 20px;
   position: relative;
   transition: all 0.3s ease;
   overflow: hidden;
 }
 
-.guestbook-entry:hover {
-  transform: translateY(-3px) scale(1.02);
-  border-color: var(--kuromi-pink);
-  box-shadow: 0 8px 0 var(--kuromi-dark-purple);
+.fairy-tale-entry:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--pumpkin-orange);
+  box-shadow: 
+    0 10px 0 var(--pumpkin-orange),
+    0 0 30px rgba(255, 215, 0, 0.2);
 }
 
-.entry-decoration {
+.entry-ribbon {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
-  padding: 5px 15px;
+  padding: 0 15px;
+  font-size: 18px;
+  color: var(--fairy-gold);
   opacity: 0.5;
   pointer-events: none;
 }
 
-.decor-left {
-  color: var(--kuromi-pink);
-  font-size: 14px;
-  animation: bounce 2s ease infinite;
+.ribbon-left {
+  animation: ribbonFloat 3s ease infinite;
 }
 
-.decor-right {
-  color: var(--kuromi-purple);
-  font-size: 14px;
-  animation: bounce 2s ease infinite 0.5s;
+.ribbon-right {
+  animation: ribbonFloat 3s ease infinite reverse;
 }
 
-@keyframes bounce {
+@keyframes ribbonFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-3px); }
 }
 
 .entry-content {
+  padding: 25px;
   position: relative;
   z-index: 1;
 }
@@ -121,159 +126,208 @@ export default {
 .entry-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+  align-items: flex-start;
+  margin-bottom: 20px;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
 }
 
 .entry-author {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: var(--kuromi-black);
-  padding: 5px 15px;
+  gap: 15px;
+  background: linear-gradient(135deg, var(--rose-pink), var(--cinderella-blue));
+  padding: 8px 20px;
   border-radius: 50px;
-  border: 1px solid var(--kuromi-pink);
-  flex-wrap: wrap;
+  border: 2px solid var(--fairy-gold);
 }
 
-.author-icon {
-  font-size: 16px;
+.author-crown {
+  font-size: 24px;
+  animation: crownWobble 3s ease infinite;
+}
+
+@keyframes crownWobble {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .author-name {
-  color: var(--kuromi-pink);
-  font-size: 16px;
-  font-weight: 600;
+  color: white;
+  font-size: 18px;
+  text-shadow: 1px 1px 0 var(--pumpkin-orange);
 }
 
-.mischief-badge {
-  background: var(--kuromi-purple);
-  color: var(--kuromi-black);
-  font-size: 10px;
-  padding: 3px 8px;
-  border-radius: 20px;
-  font-weight: bold;
+.fairy-badge {
+  font-size: 11px;
+  color: var(--fairy-gold);
   text-transform: uppercase;
-  animation: pulse 2s ease infinite;
+  letter-spacing: 1px;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-.entry-date {
+.entry-time {
   display: flex;
   align-items: center;
-  gap: 5px;
-  color: var(--text-muted);
-  font-size: 14px;
-  background: var(--kuromi-black);
-  padding: 5px 15px;
+  gap: 8px;
+  background: var(--cinderella-blue);
+  padding: 8px 15px;
   border-radius: 50px;
-  border: 1px solid var(--kuromi-purple);
+  border: 2px solid white;
+  color: white;
+  font-size: 14px;
 }
 
-.date-icon {
-  color: var(--kuromi-purple);
+.time-icon {
+  font-size: 16px;
+}
+
+.message-box {
+  background: linear-gradient(135deg, #fff9f9, #fff0f5);
+  padding: 25px;
+  border-radius: 30px;
+  margin: 15px 0;
+  position: relative;
+  border: 2px dashed var(--rose-pink);
+}
+
+.message-decoration {
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+  color: var(--rose-pink);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.quote-left, .quote-right {
+  font-family: serif;
+  font-size: 60px;
 }
 
 .entry-message {
-  background: var(--kuromi-black);
-  padding: 20px;
-  border-radius: 20px;
-  margin: 15px 0;
-  line-height: 1.6;
-  color: var(--text-light);
-  font-style: italic;
-  border-left: 4px solid var(--kuromi-pink);
   position: relative;
+  z-index: 1;
+  line-height: 1.8;
+  font-size: 16px;
+  color: var(--text-dark);
+  padding: 10px 0;
 }
 
-.entry-message::before {
-  content: "☠";
+.magic-seal {
   position: absolute;
-  bottom: 5px;
-  right: 10px;
-  opacity: 0.1;
-  font-size: 30px;
-  color: var(--kuromi-pink);
-  transform: rotate(10deg);
+  bottom: 10px;
+  right: 15px;
+}
+
+.seal-icon {
+  font-size: 24px;
+  opacity: 0.3;
+  animation: sparkleRotate 4s linear infinite;
+}
+
+@keyframes sparkleRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .entry-footer {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--kuromi-purple);
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 2px dashed var(--rose-pink);
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--magic-purple);
+  flex-wrap: wrap;
 }
 
-.email-icon {
-  color: var(--kuromi-pink);
+.footer-icon {
+  font-size: 18px;
 }
 
-.entry-email {
+.footer-email {
   word-break: break-all;
+  flex: 1;
 }
 
-.entry-sticker {
+.magic-sparkle {
+  font-size: 16px;
+  animation: sparkle 2s ease infinite;
+}
+
+.pumpkin-stamp {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 10px;
+  right: 15px;
+  opacity: 0.1;
+}
+
+.stamp {
+  font-size: 50px;
+  transform: rotate(-10deg);
+  transition: all 0.3s ease;
+}
+
+.fairy-tale-entry:hover .stamp {
   opacity: 0.3;
-  font-size: 12px;
+  transform: rotate(-5deg) scale(1.1);
 }
 
-.sticker {
-  display: inline-block;
-  animation: sparkle 3s ease infinite;
+/* Animation for new entries */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.sticker:nth-child(2) {
-  animation-delay: 0.5s;
+.fairy-tale-entry {
+  animation: slideIn 0.5s ease-out;
 }
 
-.sticker:nth-child(3) {
-  animation-delay: 1s;
-}
-
-@keyframes sparkle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
-/* Responsive adjustments */
 @media (max-width: 480px) {
-  .guestbook-entry {
+  .entry-content {
     padding: 15px;
   }
   
   .entry-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
   
-  .entry-author, .entry-date {
+  .entry-author {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
   }
   
-  .entry-message {
+  .entry-time {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .message-box {
     padding: 15px;
-    font-size: 14px;
   }
   
-  .entry-message::before {
-    font-size: 20px;
+  .message-decoration {
+    font-size: 30px;
   }
   
-  .mischief-badge {
-    margin-left: auto;
+  .pumpkin-stamp {
+    display: none;
   }
 }
 </style>
