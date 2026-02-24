@@ -3,7 +3,7 @@
     <!-- Name and Title -->
     <div class="name-title">
       <h1>Riri</h1>
-      <p class="title">Web Developer • Vue • Nest • Supabase</p>
+      <p class="title">Purple Girl • Vue • Nest • Supabase</p>
     </div>
 
     <!-- About Me -->
