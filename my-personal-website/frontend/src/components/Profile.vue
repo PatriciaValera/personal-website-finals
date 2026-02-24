@@ -15,55 +15,57 @@
       that sparkle. I'm not bold, but I've got my own kind of mischief~ 🎀</p>
     </div>
 
-    <!-- Two Column Layout for Skills and Hobbies -->
+    <!-- Two Column Layout: Left Column (Skills + Resources) and Right Column (Hobbies) -->
     <div class="two-column-layout">
-      <!-- Skills Column -->
-      <div class="skills-section">
-        <h2>Skills</h2>
-        <ul class="skills-list">
-          <li>Vue.js</li>
-          <li>Nest.js</li>
-          <li>UI/UX</li>
-          <li>Supabase</li>
-          <li>HTML & CSS</li>
-        </ul>
+      <!-- Left Column: Skills and Resources stacked -->
+      <div class="left-column">
+        <!-- Skills Section -->
+        <div class="skills-section">
+          <h2>Skills</h2>
+          <ul class="skills-list">
+            <li>Vue.js</li>
+            <li>Nest.js</li>
+            <li>UI/UX</li>
+            <li>Supabase</li>
+            <li>HTML & CSS</li>
+          </ul>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="resources-section">
+          <h2>Resources</h2>
+          <ul class="resources-list">
+            <li>Deepseek</li>
+            <li>Chatgpt</li>
+            <li>Copilot</li>
+            <li>Lesson Materials</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Hobbies Column -->
-      <div class="hobbies-section">
-        <h2>Hobbies</h2>
-        <ul class="hobbies-list">
-          <li>
-            <span class="hobby-icon">📖</span>
-            <span class="hobby-name">Gossip Hunting</span>
-            <span class="hobby-desc">sniffing out the juiciest stories</span>
-          </li>
-          <li>
-            <span class="hobby-icon">🎵</span>
-            <span class="hobby-name">Music Vibes</span>
-            <span class="hobby-desc">curating the perfect playlist</span>
-          </li>
-          <li>
-            <span class="hobby-icon">📸</span>
-            <span class="hobby-name">Memory Hoarding</span>
-            <span class="hobby-desc">capturing sparkly moments</span>
-          </li>
-          <li>
-            <span class="hobby-icon">💬</span>
-            <span class="hobby-name">Late Night Chats</span>
-            <span class="hobby-desc">where the real stories unfold</span>
-          </li>
-          <li>
-            <span class="hobby-icon">✨</span>
-            <span class="hobby-name">Chaos Creating</span>
-            <span class="hobby-desc">my own kind of mischief</span>
-          </li>
-          <li>
-            <span class="hobby-icon">🎀</span>
-            <span class="hobby-name">Being Purple Girly</span>
-            <span class="hobby-desc">aesthetic vibes only</span>
-          </li>
-        </ul>
+      <!-- Right Column: Hobbies -->
+      <div class="right-column">
+        <div class="hobbies-section">
+          <h2>Hobbies</h2>
+          <ul class="hobbies-list">
+            <li>
+              <span class="hobby-icon">🎧</span>
+              <span class="hobby-name">Vibing to music</span>
+            </li>
+            <li>
+              <span class="hobby-icon">🎬</span>
+              <span class="hobby-name">Watching anime, movies, and tv shows</span>
+            </li>
+            <li>
+              <span class="hobby-icon">🎀</span>
+              <span class="hobby-name">Being purple girly</span>
+            </li>
+            <li>
+              <span class="hobby-icon">📖</span>
+              <span class="hobby-name">Reading novels and manhwas</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -92,7 +94,7 @@ export default {
 
 <style scoped>
 .profile-section {
-  max-width: 900px; /* Slightly wider to accommodate two columns */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px 0;
 }
@@ -175,15 +177,23 @@ p {
   margin-bottom: 0;
 }
 
-/* Two Column Layout for Skills and Hobbies */
+/* Two Column Layout */
 .two-column-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 25px;
   margin-bottom: 40px;
+  align-items: start;
 }
 
-/* Skills Section (now in left column) */
+/* Left Column - Skills and Resources stacked */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Skills Section */
 .skills-section {
   background: rgba(42, 26, 58, 0.3);
   padding: 25px;
@@ -191,7 +201,6 @@ p {
   border: 1px solid var(--purple-primary);
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
-  height: 100%;
 }
 
 .skills-section:hover {
@@ -226,7 +235,50 @@ p {
   border-color: var(--purple-accent);
 }
 
-/* Hobbies Section (now in right column) */
+/* Resources Section - with bullet points */
+.resources-section {
+  background: rgba(42, 26, 58, 0.3);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid var(--purple-primary);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.resources-section:hover {
+  border-color: var(--purple-accent);
+  box-shadow: 0 0 20px var(--purple-glow);
+  transform: translateY(-2px);
+}
+
+.resources-list {
+  list-style: disc; /* Adds bullet points */
+  padding-left: 25px; /* Indent for bullets */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resources-list li {
+  color: var(--white-pure);
+  font-size: var(--font-base);
+  line-height: 1.6;
+  padding-left: 5px;
+  transition: all 0.3s ease;
+}
+
+.resources-list li:hover {
+  color: var(--purple-accent);
+  text-shadow: 0 0 8px var(--purple-glow);
+  transform: translateX(5px);
+}
+
+/* Right Column - Hobbies */
+.right-column {
+  height: 100%;
+}
+
 .hobbies-section {
   background: rgba(42, 26, 58, 0.3);
   padding: 25px;
@@ -255,8 +307,8 @@ p {
 .hobbies-list li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
+  gap: 12px;
+  padding: 10px 15px;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 50px;
   border: 1px solid rgba(198, 142, 247, 0.2);
@@ -279,16 +331,8 @@ p {
 
 .hobby-name {
   font-size: var(--font-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--white-pure);
-  min-width: 120px;
-}
-
-.hobby-desc {
-  font-size: var(--font-sm);
-  color: rgba(255, 255, 255, 0.7);
-  font-style: italic;
-  margin-left: auto;
 }
 
 /* Projects Section */
@@ -350,6 +394,10 @@ p {
     gap: 20px;
   }
   
+  .left-column {
+    gap: 20px;
+  }
+  
   .skills-list {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 10px;
@@ -360,28 +408,27 @@ p {
     font-size: var(--font-sm);
   }
   
+  .resources-list {
+    padding-left: 20px;
+  }
+  
+  .resources-list li {
+    font-size: var(--font-sm);
+  }
+  
   .hobbies-list li {
-    flex-wrap: wrap;
-    gap: 5px;
-    padding: 10px;
+    padding: 8px 12px;
   }
   
   .hobby-name {
-    min-width: auto;
-    flex: 1;
-  }
-  
-  .hobby-desc {
-    margin-left: 0;
-    width: 100%;
-    text-align: left;
-    padding-left: 45px;
+    font-size: var(--font-sm);
   }
 }
 
 @media (max-width: 480px) {
   .about-section,
   .skills-section,
+  .resources-section,
   .hobbies-section,
   .project-card {
     padding: 15px;
@@ -395,14 +442,13 @@ p {
     width: 100%;
   }
   
+  .resources-list {
+    padding-left: 15px;
+  }
+  
   .hobby-icon {
     font-size: var(--font-base);
     min-width: 30px;
-  }
-  
-  .hobby-desc {
-    padding-left: 40px;
-    font-size: var(--font-xs);
   }
   
   .project-card:hover {
