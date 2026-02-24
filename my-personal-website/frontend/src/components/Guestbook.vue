@@ -68,7 +68,7 @@
         
         <div v-if="success" class="success-message">
           <span class="success-icon">✧</span>
-          Chao Submitted!
+          Chaos Submitted!
         </div>
       </form>
     </div>
@@ -76,7 +76,7 @@
     <!-- Messages section -->
     <div class="messages-container">
       <div class="messages-header">
-        <h3>Latest scribbles of chaos</h3>
+        <h3>Latest Scribbles of Chaos</h3>
         <span class="message-count">({{ entries.length }})</span>
       </div>
       
@@ -180,7 +180,7 @@ export default {
           this.success = null
         }, 3000)
       } catch (err) {
-        this.error = err.response?.data?.message || 'FAILED TO SUBMIT CHAOS'
+        this.error = err.response?.data?.message || 'Failed to submit chaos'
       } finally {
         this.loading = false
       }
@@ -429,15 +429,15 @@ export default {
   min-width: 200px;
   max-width: 250px;
   width: auto;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  white-space: nowrap; /* Prevents text from wrapping */
+  text-transform: none; /* Changed from uppercase to none */
+  letter-spacing: 0.5px; /* Reduced from 1px */
+  white-space: nowrap;
 }
 
-/* Loading state - wider for "LOGGING CHAOS..." */
+/* Loading state - wider for "Logging Chaos..." */
 .submit-btn.loading-state {
-  min-width: 240px; /* Wider for the loading text */
-  padding: 12px 25px; /* Slightly adjusted padding */
+  min-width: 220px; /* Slightly reduced from 240px */
+  padding: 12px 25px;
 }
 
 .submit-btn:hover:not(:disabled) {
@@ -485,8 +485,8 @@ export default {
   color: var(--white-pure);
   background: rgba(155, 107, 179, 0.2);
   border: 1px solid var(--purple-light);
-  border-radius: 50px; /* Changed from 10px to 50px to match button */
-  padding: 12px 20px; /* Adjusted padding */
+  border-radius: 50px;
+  padding: 12px 20px;
   margin-top: 15px;
   text-align: center;
   display: flex;
@@ -495,15 +495,17 @@ export default {
   gap: 8px;
   animation: slideUp 0.3s ease;
   backdrop-filter: blur(5px);
+  box-shadow: 0 0 15px var(--purple-glow);
   font-size: calc(var(--font-lg) - 3px + 3px);
   font-weight: bold;
-  letter-spacing: 1px;
-  max-width: 250px; /* Match button max-width */
-  min-width: 200px; /* Match button min-width */
+  text-transform: none; /* Changed from uppercase to none */
+  letter-spacing: 0.5px; /* Reduced from 1px */
+  max-width: 250px;
+  min-width: 200px;
   margin-left: auto;
   margin-right: auto;
-  width: fit-content; /* Makes width fit content */
-  white-space: nowrap; /* Prevents text wrapping */
+  width: fit-content;
+  white-space: nowrap;
 }
 
 @keyframes slideUp {
@@ -528,7 +530,7 @@ export default {
   50% { transform: scale(1.2) rotate(5deg); }
 }
 
-/* Messages Section - rest of the styles remain the same */
+/* Messages Section */
 .messages-container {
   background: rgba(42, 26, 58, 0.6);
   backdrop-filter: blur(10px);
@@ -566,7 +568,7 @@ export default {
   color: var(--white-pure);
   font-size: calc(var(--font-xl) - 3px + 3px);
   margin: 0;
-  text-transform: lowercase;
+  text-transform: none; /* Changed from lowercase to none */
   text-shadow: 0 0 8px var(--purple-glow);
 }
 
@@ -821,7 +823,7 @@ export default {
   }
   
   .submit-btn.loading-state {
-    min-width: 220px; /* Adjusted for mobile */
+    min-width: 200px; /* Adjusted for mobile */
   }
   
   .success-message {
@@ -883,12 +885,12 @@ export default {
   }
   
   .submit-btn.loading-state {
-    min-width: 200px; /* Adjusted for mobile */
+    min-width: 180px; /* Adjusted for mobile */
   }
   
   .success-message {
     min-width: 160px;
-    max-width: 200px;
+    max-width: 180px;
     padding: 8px 12px;
   }
 }
