@@ -26,6 +26,7 @@
             <li>Vue.js</li>
             <li>Nest.js</li>
             <li>UI/UX</li>
+            <li>Flutter</li>
             <li>Supabase</li>
             <li>HTML & CSS</li>
           </ul>
