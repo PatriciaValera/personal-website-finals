@@ -22,7 +22,7 @@
       <ul class="skills-list">
         <li>Vue.js</li>
         <li>Nest.js</li>
-        <li>JavaScript</li>
+        <li>UI/UX</li>
         <li>Supabase</li>
         <li>HTML & CSS</li>
       </ul>

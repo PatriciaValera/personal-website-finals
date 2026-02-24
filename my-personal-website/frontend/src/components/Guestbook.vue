@@ -1,19 +1,18 @@
 <template>
   <div class="guestbook-section">
-    <!-- Main header - only appears once -->
+    <!-- Main header -->
     <div class="guestbook-header">
-      <h2>Guestbook</h2>
-      <p class="subtitle">leave a message for me ✧</p>
+      <h2>guestbook</h2>
+      <p class="subtitle">Dare to Leave Your Scribble~</p>
     </div>
     
-    <!-- Form card - removed the duplicate header -->
+    <!-- Form card -->
     <div class="guestbook-card">
       <div class="purple-bg"></div>
       <form @submit.prevent="submitEntry" class="guestbook-form">
         <div class="form-group">
           <label for="name">
-            <span class="label-icon">✧</span>
-            Name *
+            Name <span class="required">*</span>
           </label>
           <input 
             type="text" 
@@ -26,28 +25,27 @@
         
         <div class="form-group">
           <label for="email">
-            <span class="label-icon">✦</span>
-            Email *
+            Email <span class="required">*</span>
           </label>
           <input 
             type="email" 
             id="email" 
-            v-model="formData.email"
+            v-model="formData.email" 
+            required
             placeholder="your@email.com"
           >
         </div>
         
         <div class="form-group">
           <label for="message">
-            <span class="label-icon">💬</span>
-            Message *
+            Message <span class="required">*</span>
           </label>
           <textarea 
             id="message" 
             v-model="formData.message" 
             required
             rows="4"
-            placeholder="Write something adorable… but make it wicked too"
+            placeholder="Write something adorable... but make it wicked too"
           ></textarea>
         </div>
         
@@ -56,16 +54,17 @@
           {{ error }}
         </div>
         
-        <button type="submit" class="share-btn" :disabled="loading">
-          <span v-if="loading">
-            <span class="btn-spinner">✧</span>
-            Logging Chaos
-          </span>
-          <span v-else>
-             Submit Chaos
-            <span class="btn-icon">✦</span>
-          </span>
-        </button>
+        <div class="button-container">
+          <button type="submit" class="submit-btn" :disabled="loading">
+            <span v-if="loading">
+              <span class="btn-spinner">✧</span>
+              Logging chaos...
+            </span>
+            <span v-else>
+              Submit Chaos
+            </span>
+          </button>
+        </div>
         
         <div v-if="success" class="success-message">
           <span class="success-icon">✧</span>
@@ -77,7 +76,7 @@
     <!-- Messages section -->
     <div class="messages-container">
       <div class="messages-header">
-        <h3>Mischief Logs</h3>
+        <h3>recent messages</h3>
         <span class="message-count">({{ entries.length }})</span>
       </div>
       
@@ -175,13 +174,13 @@ export default {
           message: ''
         }
         
-        this.success = 'Chaos Logged! ✧'
+        this.success = 'chaos submitted! ✧'
         
         setTimeout(() => {
           this.success = null
         }, 3000)
       } catch (err) {
-        this.error = err.response?.data?.message || 'Failed to log chaos'
+        this.error = err.response?.data?.message || 'failed to submit chaos'
       } finally {
         this.loading = false
       }
@@ -192,7 +191,6 @@ export default {
       const options = { 
         month: 'short', 
         day: 'numeric',
-        year: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
       }
@@ -233,7 +231,6 @@ export default {
 .subtitle {
   color: var(--white-pure);
   font-size: var(--font-lg);
-  font-style: italic;
   opacity: 0.9;
   text-shadow: 0 0 8px var(--purple-glow);
 }
@@ -304,10 +301,9 @@ export default {
   text-shadow: 0 0 5px var(--purple-glow);
 }
 
-.label-icon {
-  margin-right: 8px;
+.required {
   color: var(--purple-accent);
-  text-shadow: 0 0 8px var(--purple-glow);
+  margin-left: 2px;
 }
 
 .form-group input,
@@ -337,11 +333,18 @@ export default {
   opacity: 0.6;
 }
 
-.share-btn {
+/* Button Container - centers the button */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.submit-btn {
   background: linear-gradient(135deg, var(--purple-primary), var(--purple-light));
   color: var(--white-pure);
   border: none;
-  padding: 14px 30px;
+  padding: 12px 30px; /* Reduced padding */
   border-radius: 50px;
   cursor: pointer;
   font-size: var(--font-lg);
@@ -349,36 +352,27 @@ export default {
   transition: all 0.3s ease;
   border: 2px solid var(--purple-pastel);
   box-shadow: 0 5px 0 var(--purple-deep), 0 0 20px var(--purple-glow);
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  position: relative;
-  overflow: hidden;
+  min-width: 200px; /* Set a fixed minimum width */
+  max-width: 250px; /* Set a maximum width */
+  width: auto; /* Allow it to be auto width */
   text-transform: lowercase;
+  letter-spacing: 1px;
 }
 
-.share-btn:hover:not(:disabled) {
+.submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 7px 0 var(--purple-deep), 0 0 30px var(--purple-accent);
   background: linear-gradient(135deg, var(--purple-light), var(--purple-accent));
 }
 
-.share-btn:active:not(:disabled) {
+.submit-btn:active:not(:disabled) {
   transform: translateY(3px);
   box-shadow: 0 2px 0 var(--purple-deep);
 }
 
-.share-btn:disabled {
+.submit-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-.btn-icon {
-  font-size: var(--font-lg);
-  animation: twinkle 2s ease infinite;
-  color: var(--white-pure);
 }
 
 .btn-spinner {
@@ -391,11 +385,6 @@ export default {
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
 }
 
 .error-message {
@@ -698,9 +687,10 @@ export default {
     padding: 20px;
   }
   
-  .share-btn {
+  .submit-btn {
     font-size: var(--font-base);
-    padding: 12px 20px;
+    padding: 10px 25px;
+    min-width: 180px;
   }
   
   .messages-container {
@@ -747,6 +737,11 @@ export default {
   .message-content {
     padding: 12px;
     font-size: var(--font-sm);
+  }
+  
+  .submit-btn {
+    min-width: 160px;
+    padding: 8px 20px;
   }
 }
 </style>
