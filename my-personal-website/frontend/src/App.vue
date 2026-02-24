@@ -5,13 +5,35 @@
       <p class="site-subtitle">Kuromi inspired profile website</p>
     </div>
     
-    <Profile />
-    
-    <div class="divider">
-      <span class="divider-text">✧ Riri's Chaos Logs ✧</span>
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+      <button 
+        class="tab-btn" 
+        :class="{ active: activeTab === 'profile' }"
+        @click="activeTab = 'profile'"
+      >
+        <span class="tab-icon">👤</span>
+        Profile
+        <span class="tab-decor">☠</span>
+      </button>
+      <button 
+        class="tab-btn" 
+        :class="{ active: activeTab === 'guestbook' }"
+        @click="activeTab = 'guestbook'"
+      >
+        <span class="tab-icon">📝</span>
+        Mischief Log
+        <span class="tab-decor">♡</span>
+      </button>
     </div>
     
-    <Guestbook />
+    <!-- Tab Content -->
+    <transition name="fade" mode="out-in">
+      <div :key="activeTab" class="tab-content">
+        <Profile v-if="activeTab === 'profile'" />
+        <Guestbook v-else-if="activeTab === 'guestbook'" />
+      </div>
+    </transition>
     
     <div class="footer">
       <p>Made with <span class="heart">♡</span> for Kuromi</p>
@@ -29,6 +51,11 @@ export default {
   components: {
     Profile,
     Guestbook
+  },
+  data() {
+    return {
+      activeTab: 'profile' // 'profile' or 'guestbook'
+    }
   }
 }
 </script>
@@ -42,6 +69,7 @@ export default {
 .site-header h1 {
   margin-bottom: 5px;
   color: var(--kuromi-pink);
+  font-size: var(--font-xxxl);
 }
 
 .site-header h1::after {
@@ -58,36 +86,94 @@ export default {
   font-style: italic;
 }
 
-.divider {
-  margin: 40px 0;
-  text-align: center;
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.tab-btn {
+  background: var(--kuromi-gray);
+  border: 2px solid var(--kuromi-purple);
+  color: var(--text-light);
+  padding: 15px 40px;
+  font-size: var(--font-lg);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 0 var(--kuromi-dark-purple);
+}
+
+.tab-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.tab-btn:hover::before {
+  left: 100%;
+}
+
+.tab-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--kuromi-pink);
+  box-shadow: 0 7px 0 var(--kuromi-dark-purple);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--kuromi-pink), var(--kuromi-purple));
+  color: var(--kuromi-black);
+  border-color: var(--kuromi-white);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 var(--kuromi-dark-purple);
+}
+
+.tab-btn.active .tab-decor {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tab-icon {
+  font-size: var(--font-xl);
+}
+
+.tab-decor {
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  font-size: var(--font-lg);
+}
+
+.tab-content {
+  min-height: 400px;
   position: relative;
 }
 
-.divider::before,
-.divider::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 30%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--kuromi-pink), var(--kuromi-purple), transparent);
+/* Tab Transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
 }
 
-.divider::before {
-  left: 0;
-}
-
-.divider::after {
-  right: 0;
-}
-
-.divider-text {
-  background: var(--kuromi-black);
-  padding: 0 20px;
-  color: var(--kuromi-pink);
-  font-weight: bold;
-  font-size: var(--font-lg);
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 .footer {
@@ -115,6 +201,7 @@ export default {
   50% { transform: scale(1.2); }
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .site-header h1 {
     font-size: var(--font-xxl);
@@ -124,8 +211,31 @@ export default {
     font-size: var(--font-base);
   }
   
-  .divider-text {
+  .tab-navigation {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+  }
+  
+  .tab-btn {
+    width: 100%;
+    padding: 12px 20px;
     font-size: var(--font-base);
+    justify-content: center;
+  }
+  
+  .tab-icon {
+    font-size: var(--font-lg);
+  }
+  
+  .tab-decor {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-btn {
+    padding: 10px 15px;
   }
 }
 </style>
