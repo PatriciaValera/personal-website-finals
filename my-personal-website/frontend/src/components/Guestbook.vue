@@ -3,9 +3,9 @@
     <!-- Main header -->
     <div class="guestbook-header">
       <h2>♡ Riri's Mischief Log ♡</h2>
-      <p class="subtitle">Dare to Leave Your Scribble?</p>
+      <p class="subtitle">Dare to Leave Your Scribble~</p>
     </div>
-    
+
     <!-- Form card -->
     <div class="guestbook-card">
       <div class="purple-bg"></div>
@@ -22,7 +22,7 @@
             placeholder="Enter your name... I wanna know who dares to sign"
           >
         </div>
-        
+
         <div class="form-group">
           <label for="email">
             EMAIL <span class="required">*</span>
@@ -35,7 +35,7 @@
             placeholder="your@email.com"
           >
         </div>
-        
+
         <div class="form-group">
           <label for="message">
             MESSAGE <span class="required">*</span>
@@ -48,12 +48,12 @@
             placeholder="Write something adorable... but make it wicked too"
           ></textarea>
         </div>
-        
+
         <div v-if="error" class="error-message">
           <span class="error-icon">⚠️</span>
           {{ error }}
         </div>
-        
+
         <div class="button-container">
           <button type="submit" class="submit-btn" :disabled="loading" :class="{ 'loading-state': loading }">
             <span v-if="loading">
@@ -65,26 +65,26 @@
             </span>
           </button>
         </div>
-        
+
         <div v-if="success" class="success-message">
           <span class="success-icon">✧</span>
           Chaos Submitted!
         </div>
       </form>
     </div>
-    
+
     <!-- Messages section -->
     <div class="messages-container">
       <div class="messages-header">
         <h3>Latest Scribbles of Chaos</h3>
         <span class="message-count">({{ entries.length }})</span>
       </div>
-      
+
       <div v-if="entriesLoading" class="loading-state">
         <div class="loading-spinner">✧</div>
         <p>Summoning Mischiefs...</p>
       </div>
-      
+
       <div v-else-if="entries.length === 0" class="empty-state">
         <div class="empty-illustration">
           <span class="purple-star">✧</span>
@@ -94,7 +94,7 @@
         <p class="empty-message">The realm is quiet... be the first to cause havoc!</p>
         <p class="empty-sub">(your message will appear here)</p>
       </div>
-      
+
       <transition-group name="messages" tag="div" class="messages-list">
         <div v-for="entry in entries" :key="entry.id" class="message-card">
           <div class="message-header">
@@ -200,48 +200,54 @@ export default {
 }
 </script>
 
-/* MAIN BROWSER SCROLLBAR - This needs to be global, not scoped */
-:global(::-webkit-scrollbar) {
-  width: 8px;
-  height: 8px;
+<style scoped>
+/* Custom scrollbar styling - invisible by default */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 }
 
-:global(::-webkit-scrollbar-track) {
-  background: rgba(42, 26, 58, 0.3);
-  border-radius: 10px;
-}
-
-:global(::-webkit-scrollbar-thumb) {
-  background-color: var(--purple-primary);
-  border-radius: 10px;
-  border: 2px solid rgba(42, 26, 58, 0.3);
-  transition: background-color 0.3s ease;
-}
-
-:global(::-webkit-scrollbar-thumb:hover) {
-  background-color: var(--purple-accent);
-}
-
-:global(::-webkit-scrollbar-corner) {
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
   background: transparent;
 }
 
-/* For Firefox - Main browser scrollbar */
-:global(*) {
-  scrollbar-width: thin;
-  scrollbar-color: var(--purple-primary) rgba(42, 26, 58, 0.3);
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-/* INNER MESSAGES LIST SCROLLBAR - Invisible by default, appears on hover */
+*::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Show scrollbar when scrolling */
+*:hover::-webkit-scrollbar-thumb,
+*:focus::-webkit-scrollbar-thumb,
+*:active::-webkit-scrollbar-thumb {
+  background-color: var(--purple-primary);
+}
+
+*:hover::-webkit-scrollbar-thumb:hover {
+  background-color: var(--purple-accent);
+}
+
+/* Specific container styling */
 .messages-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
   max-height: 500px;
   overflow-y: auto;
-  padding-right: 10px;
+  padding-right: 5px;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
+}
+
+.messages-list:hover {
+  scrollbar-color: var(--purple-primary) transparent;
 }
 
 .messages-list::-webkit-scrollbar {
@@ -478,9 +484,9 @@ export default {
 .success-message {
   background: transparent;
   color: var(--white-pure);
-  border: 2px dashed var(--purple-accent);
-  border-radius: 50px;
-  padding: 10px 30px;
+  border: 2px dashed var(--purple-accent); /* Purple dashed outline */
+  border-radius: 50px; /* Same border radius as button */
+  padding: 10px 30px; /* Same padding as button */
   margin-top: 15px;
   text-align: center;
   display: flex;
@@ -492,20 +498,20 @@ export default {
   font-weight: bold;
   text-transform: none;
   letter-spacing: 0.5px;
-  min-width: 200px;
-  max-width: 250px;
-  width: fit-content;
-  white-space: nowrap;
+  min-width: 200px; /* Same min-width as button */
+  max-width: 250px; /* Same max-width as button */
+  width: fit-content; /* Fit content width */
+  white-space: nowrap; /* Keep text in one line */
   margin-left: auto;
   margin-right: auto;
   box-shadow: none;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px); /* Slight blur for glass effect */
   transition: all 0.3s ease;
 }
 
 .success-message:hover {
   border-color: var(--purple-primary);
-  border-style: solid;
+  border-style: solid; /* Change to solid on hover */
   box-shadow: 0 0 15px var(--purple-glow);
 }
 
@@ -649,6 +655,45 @@ export default {
   color: rgba(255, 255, 255, 0.7);
   font-size: calc(var(--font-sm) - 3px + 3px);
   font-style: italic;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.messages-list:hover {
+  scrollbar-color: var(--purple-primary) transparent;
+}
+
+.messages-list::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+.messages-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messages-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.messages-list:hover::-webkit-scrollbar-thumb,
+.messages-list:focus::-webkit-scrollbar-thumb {
+  background-color: var(--purple-primary);
+}
+
+.messages-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--purple-accent);
 }
 
 .message-card {
