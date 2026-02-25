@@ -28,7 +28,7 @@
     
     <div class="footer">
       <p>Made with <span class="heart-outline">♡</span> in purple</p>
-      <p class="small">✦ purple dreams ✦</p>
+      <p class="small">✦ purple charms ✦</p>
     </div>
   </div>
 </template>

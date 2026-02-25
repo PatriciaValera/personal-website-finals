@@ -3,7 +3,7 @@
     <!-- Name and Title -->
     <div class="name-title">
       <h1>♡ Riri ♡</h1>
-      <p class="title">Purple Girly ✧ Gossip Girl ✧ Nonchalant</p>
+      <p class="title">Purple Girly ✦ Gossip Girl ✦ Nonchalant</p>
     </div>
 
     <!-- About Me (Full Width) -->
