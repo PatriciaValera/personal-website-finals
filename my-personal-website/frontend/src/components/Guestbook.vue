@@ -201,73 +201,62 @@ export default {
 </script>
 
 <style scoped>
-/* Custom scrollbar styling - invisible by default */
+/* Custom scrollbar styling - Purple theme */
 * {
   scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
+  scrollbar-color: var(--purple-primary) rgba(42, 26, 58, 0.3);
 }
 
 *::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  background: transparent;
+  width: 8px;
+  height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(42, 26, 58, 0.3);
+  border-radius: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 20px;
+  background-color: var(--purple-primary);
+  border-radius: 10px;
+  border: 2px solid rgba(42, 26, 58, 0.3);
   transition: background-color 0.3s ease;
 }
 
-/* Show scrollbar when scrolling */
-*:hover::-webkit-scrollbar-thumb,
-*:focus::-webkit-scrollbar-thumb,
-*:active::-webkit-scrollbar-thumb {
-  background-color: var(--purple-primary);
-}
-
-*:hover::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
   background-color: var(--purple-accent);
 }
 
-/* Specific container styling */
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Specific container styling for messages list */
 .messages-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
   max-height: 500px;
   overflow-y: auto;
-  padding-right: 5px;
+  padding-right: 10px;
   scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-}
-
-.messages-list:hover {
-  scrollbar-color: var(--purple-primary) transparent;
+  scrollbar-color: var(--purple-primary) rgba(42, 26, 58, 0.3);
 }
 
 .messages-list::-webkit-scrollbar {
-  width: 6px;
-  background: transparent;
+  width: 8px;
 }
 
 .messages-list::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(42, 26, 58, 0.3);
+  border-radius: 10px;
 }
 
 .messages-list::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.messages-list:hover::-webkit-scrollbar-thumb,
-.messages-list:focus::-webkit-scrollbar-thumb {
   background-color: var(--purple-primary);
+  border-radius: 10px;
+  border: 2px solid rgba(42, 26, 58, 0.3);
 }
 
 .messages-list::-webkit-scrollbar-thumb:hover {
@@ -484,9 +473,9 @@ export default {
 .success-message {
   background: transparent;
   color: var(--white-pure);
-  border: 2px dashed var(--purple-accent); /* Purple dashed outline */
-  border-radius: 50px; /* Same border radius as button */
-  padding: 10px 30px; /* Same padding as button */
+  border: 2px dashed var(--purple-accent);
+  border-radius: 50px;
+  padding: 10px 30px;
   margin-top: 15px;
   text-align: center;
   display: flex;
@@ -498,20 +487,20 @@ export default {
   font-weight: bold;
   text-transform: none;
   letter-spacing: 0.5px;
-  min-width: 200px; /* Same min-width as button */
-  max-width: 250px; /* Same max-width as button */
-  width: fit-content; /* Fit content width */
-  white-space: nowrap; /* Keep text in one line */
+  min-width: 200px;
+  max-width: 250px;
+  width: fit-content;
+  white-space: nowrap;
   margin-left: auto;
   margin-right: auto;
   box-shadow: none;
-  backdrop-filter: blur(5px); /* Slight blur for glass effect */
+  backdrop-filter: blur(5px);
   transition: all 0.3s ease;
 }
 
 .success-message:hover {
   border-color: var(--purple-primary);
-  border-style: solid; /* Change to solid on hover */
+  border-style: solid;
   box-shadow: 0 0 15px var(--purple-glow);
 }
 
@@ -663,33 +652,24 @@ export default {
   gap: 15px;
   max-height: 500px;
   overflow-y: auto;
-  padding-right: 5px;
+  padding-right: 10px;
   scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-}
-
-.messages-list:hover {
-  scrollbar-color: var(--purple-primary) transparent;
+  scrollbar-color: var(--purple-primary) rgba(42, 26, 58, 0.3);
 }
 
 .messages-list::-webkit-scrollbar {
-  width: 6px;
-  background: transparent;
+  width: 8px;
 }
 
 .messages-list::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(42, 26, 58, 0.3);
+  border-radius: 10px;
 }
 
 .messages-list::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.messages-list:hover::-webkit-scrollbar-thumb,
-.messages-list:focus::-webkit-scrollbar-thumb {
   background-color: var(--purple-primary);
+  border-radius: 10px;
+  border: 2px solid rgba(42, 26, 58, 0.3);
 }
 
 .messages-list::-webkit-scrollbar-thumb:hover {
@@ -902,4 +882,4 @@ export default {
     max-width: 180px;
   }
 }
-</style>-+
+</style>
