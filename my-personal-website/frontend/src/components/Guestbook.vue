@@ -201,38 +201,39 @@ export default {
 </script>
 
 <style scoped>
-/* Custom scrollbar styling - Purple theme */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--purple-primary) rgba(42, 26, 58, 0.3);
-}
-
-*::-webkit-scrollbar {
+/* MAIN BROWSER SCROLLBAR - Always Purple */
+::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-*::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: rgba(42, 26, 58, 0.3);
   border-radius: 10px;
 }
 
-*::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background-color: var(--purple-primary);
   border-radius: 10px;
   border: 2px solid rgba(42, 26, 58, 0.3);
   transition: background-color 0.3s ease;
 }
 
-*::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background-color: var(--purple-accent);
 }
 
-*::-webkit-scrollbar-corner {
+::-webkit-scrollbar-corner {
   background: transparent;
 }
 
-/* Specific container styling for messages list */
+/* For Firefox - Main browser scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--purple-primary) rgba(42, 26, 58, 0.3);
+}
+
+/* INNER MESSAGES LIST SCROLLBAR - Invisible by default, appears on hover */
 .messages-list {
   display: flex;
   flex-direction: column;
@@ -241,22 +242,27 @@ export default {
   overflow-y: auto;
   padding-right: 10px;
   scrollbar-width: thin;
-  scrollbar-color: var(--purple-primary) rgba(42, 26, 58, 0.3);
+  scrollbar-color: transparent transparent;
 }
 
 .messages-list::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  background: transparent;
 }
 
 .messages-list::-webkit-scrollbar-track {
-  background: rgba(42, 26, 58, 0.3);
-  border-radius: 10px;
+  background: transparent;
 }
 
 .messages-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.messages-list:hover::-webkit-scrollbar-thumb,
+.messages-list:focus::-webkit-scrollbar-thumb {
   background-color: var(--purple-primary);
-  border-radius: 10px;
-  border: 2px solid rgba(42, 26, 58, 0.3);
 }
 
 .messages-list::-webkit-scrollbar-thumb:hover {
@@ -644,36 +650,6 @@ export default {
   color: rgba(255, 255, 255, 0.7);
   font-size: calc(var(--font-sm) - 3px + 3px);
   font-style: italic;
-}
-
-.messages-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-height: 500px;
-  overflow-y: auto;
-  padding-right: 10px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--purple-primary) rgba(42, 26, 58, 0.3);
-}
-
-.messages-list::-webkit-scrollbar {
-  width: 8px;
-}
-
-.messages-list::-webkit-scrollbar-track {
-  background: rgba(42, 26, 58, 0.3);
-  border-radius: 10px;
-}
-
-.messages-list::-webkit-scrollbar-thumb {
-  background-color: var(--purple-primary);
-  border-radius: 10px;
-  border: 2px solid rgba(42, 26, 58, 0.3);
-}
-
-.messages-list::-webkit-scrollbar-thumb:hover {
-  background-color: var(--purple-accent);
 }
 
 .message-card {
