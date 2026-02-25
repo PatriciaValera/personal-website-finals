@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
@@ -6,11 +5,16 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
-  // Enable CORS for frontend
+  // Update CORS to allow your frontend domains
   app.enableCors({
-    origin: ['http://localhost:5173', 'https://your-frontend.vercel.app'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: [
+      'https://personal-website-finals-z85z.vercel.app',  // Your frontend
+      'http://localhost:5173',                             // Local development
+      'http://localhost:3000'                               // Local backend
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
   });
   
   app.useGlobalPipes(new ValidationPipe());
