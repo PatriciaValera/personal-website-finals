@@ -200,35 +200,34 @@ export default {
 }
 </script>
 
-<style scoped>
-/* MAIN BROWSER SCROLLBAR - Always Purple */
-::-webkit-scrollbar {
+/* MAIN BROWSER SCROLLBAR - This needs to be global, not scoped */
+:global(::-webkit-scrollbar) {
   width: 8px;
   height: 8px;
 }
 
-::-webkit-scrollbar-track {
+:global(::-webkit-scrollbar-track) {
   background: rgba(42, 26, 58, 0.3);
   border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb {
+:global(::-webkit-scrollbar-thumb) {
   background-color: var(--purple-primary);
   border-radius: 10px;
   border: 2px solid rgba(42, 26, 58, 0.3);
   transition: background-color 0.3s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
+:global(::-webkit-scrollbar-thumb:hover) {
   background-color: var(--purple-accent);
 }
 
-::-webkit-scrollbar-corner {
+:global(::-webkit-scrollbar-corner) {
   background: transparent;
 }
 
 /* For Firefox - Main browser scrollbar */
-* {
+:global(*) {
   scrollbar-width: thin;
   scrollbar-color: var(--purple-primary) rgba(42, 26, 58, 0.3);
 }
