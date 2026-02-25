@@ -5,7 +5,6 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
-  // Update CORS to allow your frontend domains
   app.enableCors({
     origin: [
       'https://personal-website-finals-z85z.vercel.app',  // Your frontend
