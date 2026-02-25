@@ -3,7 +3,7 @@
     <!-- Main header -->
     <div class="guestbook-header">
       <h2>♡ Riri's Mischief Log ♡</h2>
-      <p class="subtitle">Dare to Leave Your Scribble~</p>
+      <p class="subtitle">Dare to Leave Your Scribble?</p>
     </div>
     
     <!-- Form card -->
